@@ -9,6 +9,7 @@ export 'nav_menu_item.dart';
 export 'language_toggle.dart';
 export 'compact_language_toggle.dart';
 export 'mobile_header.dart';
+export 'web_header.dart';
 export 'mobile_nav_drawer.dart';
 
 // Branding

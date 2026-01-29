@@ -1,0 +1,197 @@
+import 'package:flutter/material.dart';
+import 'package:portfolio/core/theme/app_colors.dart';
+import 'package:portfolio/core/theme/app_dimensions.dart';
+import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/shared/widgets/logo.dart';
+import 'package:portfolio/shared/widgets/compact_language_toggle.dart';
+import 'package:portfolio/shared/widgets/icon_button_custom.dart';
+
+class WebHeader extends StatelessWidget {
+  final String selectedRoute;
+  final ValueChanged<String> onRouteChanged;
+  final String selectedLanguage;
+  final ValueChanged<String> onLanguageChanged;
+  final VoidCallback onThemeToggle;
+
+  const WebHeader({
+    super.key,
+    required this.selectedRoute,
+    required this.onRouteChanged,
+    required this.selectedLanguage,
+    required this.onLanguageChanged,
+    required this.onThemeToggle,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final brightness = Theme.of(context).brightness;
+    final bgColors = AppColors.backgroundColors(brightness);
+    final borderColors = AppColors.borderColors(brightness);
+
+    return Container(
+      height: 88, // 24px padding top/bottom + 40px content approx
+      padding: EdgeInsets.symmetric(
+        horizontal: AppDimensions.spacing3xl,
+        vertical: AppDimensions.spacingXl,
+      ),
+      decoration: BoxDecoration(
+        color: bgColors.primaryDefault,
+        border: Border(
+          bottom: BorderSide(
+            color: borderColors.primaryDisabled,
+            width: 1,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          // 1. Logo Section
+          Expanded(
+            child: Row(
+              children: [
+                const Logo(),
+              ],
+            ),
+          ),
+
+          // 2. Navigation Links Section
+          Expanded(
+            flex: 2,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _WebNavItem(
+                  label: 'Home',
+                  route: '/home',
+                  isSelected: selectedRoute == '/home',
+                  onTap: () => onRouteChanged('/home'),
+                ),
+                SizedBox(width: 40), // Gap 40-80px in design, using fixed for now
+                _WebNavItem(
+                  label: 'UI/UX Design',
+                  route: '/ui-ux',
+                  isSelected: selectedRoute == '/ui-ux',
+                  onTap: () => onRouteChanged('/ui-ux'),
+                ),
+                SizedBox(width: 40),
+                _WebNavItem(
+                  label: 'Flutter DEV',
+                  route: '/flutter',
+                  isSelected: selectedRoute == '/flutter',
+                  onTap: () => onRouteChanged('/flutter'),
+                ),
+                SizedBox(width: 40),
+                _WebNavItem(
+                  label: 'About',
+                  route: '/about',
+                  isSelected: selectedRoute == '/about',
+                  onTap: () => onRouteChanged('/about'),
+                ),
+                SizedBox(width: 40),
+                _WebNavItem(
+                  label: 'Contact',
+                  route: '/contact',
+                  isSelected: selectedRoute == '/contact',
+                  onTap: () => onRouteChanged('/contact'),
+                ),
+              ],
+            ),
+          ),
+
+          // 3. Actions Section
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CompactLanguageToggle(
+                  selectedLanguage: selectedLanguage,
+                  onLanguageChanged: onLanguageChanged,
+                ),
+                SizedBox(width: AppDimensions.spacingXl),
+                IconButtonCustom(
+                  icon: Icons.brightness_6_outlined, // Placeholder for sun/moon
+                  onPressed: onThemeToggle,
+                  size: IconButtonSize.medium,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WebNavItem extends StatefulWidget {
+  final String label;
+  final String route;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const _WebNavItem({
+    required this.label,
+    required this.route,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  State<_WebNavItem> createState() => _WebNavItemState();
+}
+
+class _WebNavItemState extends State<_WebNavItem> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final brightness = Theme.of(context).brightness;
+    final textColors = AppColors.textColors(brightness);
+    final borderColors = AppColors.borderColors(brightness);
+
+    final isSelectedOrHovered = widget.isSelected || _isHovered;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 4),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                widget.label,
+                style: widget.isSelected
+                    ? AppTypography.headlineXs(
+                        color: textColors.brandDefault,
+                        fontWeight: FontWeight.w700,
+                      )
+                    : AppTypography.bodyXl(
+                        color: _isHovered 
+                            ? textColors.brandDefault 
+                            : textColors.brandDisabled,
+                        fontWeight: FontWeight.w500,
+                      ),
+              ),
+              // Underline for selected state
+              if (widget.isSelected) ...[
+                SizedBox(height: 4),
+                Container(
+                  height: 2,
+                  width: widget.label.length * 10.0, // Approximation or full width
+                  color: borderColors.primaryDefault, // Brand color (Yellow)
+                ),
+              ] else ...[
+                 // Invisible spacer to prevent layout shift if needed, or just nothing
+                 // Design shows underline specifically for selected.
+                 // To keep height consistent implies we might need a spacer or handle alignment.
+                 SizedBox(height: 6), // 4px gap + 2px line
+              ],
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
