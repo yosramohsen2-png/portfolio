@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/shared/widgets/badge.dart' as custom;
 import 'package:portfolio/shared/widgets/badge_group.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -123,7 +124,7 @@ class ProjectCard extends StatelessWidget {
                   // Tags
                   BadgeGroup(
                     labels: tags,
-                    size: BadgeSize.small,
+                    size: custom.BadgeSize.small,
                   ),
                   SizedBox(height: AppDimensions.spacingXl),
                 ],
