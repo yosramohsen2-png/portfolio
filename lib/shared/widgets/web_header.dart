@@ -148,7 +148,7 @@ class _WebNavItemState extends State<_WebNavItem> {
     final textColors = AppColors.textColors(brightness);
     final borderColors = AppColors.borderColors(brightness);
 
-    final isSelectedOrHovered = widget.isSelected || _isHovered;
+    // final isSelectedOrHovered = widget.isSelected || _isHovered;
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
