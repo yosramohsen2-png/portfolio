@@ -1,6 +1,7 @@
 // Buttons
 export 'primary_button.dart';
 export 'icon_button_custom.dart';
+export 'choice_button.dart';
 
 // Navigation
 export 'nav_tab.dart';
