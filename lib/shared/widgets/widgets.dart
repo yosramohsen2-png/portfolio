@@ -23,3 +23,6 @@ export 'project_card.dart';
 
 // Forms
 export 'custom_text_field.dart';
+
+// Sections
+export 'hero_section.dart';
