@@ -15,6 +15,7 @@ export 'logo.dart';
 
 // Labels & Badges
 export 'badge.dart';
+export 'badge_group.dart';
 
 // Cards
 export 'service_card.dart';
