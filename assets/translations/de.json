@@ -1,0 +1,48 @@
+{
+    "app_name": "Portfolio",
+    "nav": {
+        "home": "Startseite",
+        "ui_ux_design": "UI/UX Design",
+        "flutter_dev": "Flutter Entwicklung",
+        "about": "Über mich",
+        "contact": "Kontakt"
+    },
+    "home": {
+        "title": "Willkommen in meinem Portfolio",
+        "subtitle": "Schöne digitale Erlebnisse schaffen",
+        "cta_button": "Meine Arbeit ansehen"
+    },
+    "ui_ux": {
+        "title": "UI/UX Design",
+        "subtitle": "Intuitive Benutzererfahrungen gestalten",
+        "description": "Erkunden Sie mein Design-Portfolio mit benutzerzentrierten Design-Lösungen."
+    },
+    "flutter_dev": {
+        "title": "Flutter Entwicklung",
+        "subtitle": "Cross-Plattform-Anwendungen erstellen",
+        "description": "Entdecken Sie meine Flutter-Projekte und meine Expertise in der mobilen Entwicklung."
+    },
+    "about": {
+        "title": "Über mich",
+        "subtitle": "Designer & Entwickler",
+        "description": "Erfahren Sie mehr über meinen Werdegang, meine Fähigkeiten und meine Leidenschaft für die Erstellung großartiger digitaler Produkte."
+    },
+    "contact": {
+        "title": "Kontakt aufnehmen",
+        "subtitle": "Lassen Sie uns zusammenarbeiten",
+        "name_label": "Ihr Name",
+        "email_label": "Ihre E-Mail",
+        "message_label": "Ihre Nachricht",
+        "send_button": "Nachricht senden",
+        "success_message": "Nachricht erfolgreich gesendet!",
+        "error_message": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
+    },
+    "theme": {
+        "light": "Hell-Modus",
+        "dark": "Dunkel-Modus"
+    },
+    "language": {
+        "english": "English",
+        "german": "Deutsch"
+    }
+}

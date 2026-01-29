@@ -1,0 +1,158 @@
+{
+  "@@locale": "en",
+  
+  "_comment_navigation": "Navigation",
+  "webNavHome": "Home",
+  "@webNavHome": {
+    "description": "Home navigation link"
+  },
+  "webNavUiUx": "UI/UX Design",
+  "@webNavUiUx": {
+    "description": "UI/UX Design navigation link"
+  },
+  "webNavFlutterDev": "Flutter DEV",
+  "@webNavFlutterDev": {
+    "description": "Flutter Development navigation link"
+  },
+  "webNavAbout": "About",
+  "@webNavAbout": {
+    "description": "About navigation link"
+  },
+  "webNavContact": "Contact",
+  "@webNavContact": {
+    "description": "Contact navigation link"
+  },
+  
+  "_comment_brand": "Brand & Hero Section",
+  "logo": "Portfolio",
+  "@logo": {
+    "description": "Portfolio logo text"
+  },
+  "heroGreeting": "Hello, I'm",
+  "@heroGreeting": {
+    "description": "Hero section greeting"
+  },
+  "name": "Yosra Mohsen",
+  "@name": {
+    "description": "Portfolio owner name"
+  },
+  "heroTitle": "I Design the Dream. I Build the Reality",
+  "@heroTitle": {
+    "description": "Main hero title"
+  },
+  "heroDesc": "I've always been obsessed with how things work under the hood. To me, a great app is a story that starts with a pixel and ends with a solid line of code. I bridge the gap between \"how it looks\" and \"how it performs,\" making sure every user journey is a masterpiece.",
+  "@heroDesc": {
+    "description": "Hero section description"
+  },
+  "btnViewProjectsUiUx": "View UI/UX Projects",
+  "@btnViewProjectsUiUx": {
+    "description": "Button to view UI/UX projects"
+  },
+  "btnViewProjectsFlutter": "View Flutter Projects",
+  "@btnViewProjectsFlutter": {
+    "description": "Button to view Flutter projects"
+  },
+  
+  "_comment_menu": "Menu Items",
+  "menuHome": "Home",
+  "menuUiUx": "UI/UX Design",
+  "menuFlutter": "Flutter Dev",
+  "menuAbout": "About",
+  "menuContact": "Contact",
+  "btnEnglish": "English",
+  "btnGerman": "Deutsch",
+  
+  "_comment_uiux_page": "UI/UX Design Page",
+  "uiUxHeroTitle": "UI/UX Design",
+  "uiUxSecondTitle": "Projects",
+  "uiUxDesc": "Solving Puzzles, Pixel by Pixel",
+  "uiUxCard1Title": "Clinic Management SaaS Platform",
+  "uiUxCard1Desc": "Designed a comprehensive SaaS solution for medical complexes, featuring a medical dashboard and a responsive mobile website. Focused on streamlining clinic workflows and enhancing the patient-doctor digital experience.\"",
+  "uiUxCard2Title": "Audit & Build Design System",
+  "uiUxCard2Desc": "Conducted a comprehensive product audit for InvestHub and built a scalable Design System, including fully optimized Light and Dark modes to ensure a seamless and accessible investing experience.",
+  "uiUxCard3Title": "E-Commerce Management  System (SaaS)",
+  "uiUxCard3Desc": "\"Designed a comprehensive Admin Dashboard for e-commerce management, focusing on inventory tracking, sales analytics, and order fulfillment. Optimized the end-to-end operational workflow to enhance merchant efficiency across web and mobile platforms.",
+  "uiUxCard4Title": "Maternal Care & Wellness Platform",
+  "uiUxCard4Desc": "\"Designed a dual-purpose platform for maternal wellness, combining a specialized e-commerce store with a doctor consultation system. Delivered a seamless web and mobile experience focused on supporting mothers throughout their pregnancy journey.",
+  "uiUxCard5Title": "Environmental Solutions & Gas Waste Management",
+  "uiUxCard5Desc": "\"Designed a specialized industrial website for gas waste management and environmental cleaning solutions. Focused on presenting complex technical services through a clean, professional interface to drive B2B engagement.\"",
+  "uiUxCard6Title": "Boost Sports Club App Redesign",
+  "uiUxCard6Desc": "\"Revamped the digital identity of Boost Sports Club with a modern mobile app redesign. Focused on creating an energetic UI and a simplified user flow to enhance member engagement and facility booking.\"",
+  "uiUxCard7Title": "Goal Tracking & Productivity App",
+  "uiUxCard7Desc": "\"Designed a productivity platform from scratch to help users manage goals and time effectively. Built an integrated system for task management, smart notifications, and note-taking to streamline daily routines.\"",
+  "uiUxCard8Title": "B2B engagementm",
+  "uiUxCard8Desc": "\"Designed a high-converting corporate website for a software services agency, showcasing technical expertise through a modern UI. Focused on intuitive navigation to highlight digital solutions and drive client inquiries (B2B).\"",
+  "uiUxCard9Title": "Egyptian Football Association (EFA) Digital Redesign",
+  "uiUxCard9Desc": "\"Crafted a modern digital identity for the Egyptian Football Association (EFA), delivering a seamless web and mobile experience. Focused on enhancing fan engagement and streamlining news delivery for national teams and local leagues.\"",
+  "uiUxCard10Title": "Legal Consultancy & Business Management Platform",
+  "uiUxCard10Desc": "\"Designed a comprehensive management platform for a legal consultancy firm, streamlining case workflows and client communications. Focused on creating a secure, professional interface to manage legal consultations and business operations efficiently.\"",
+  "uiUxCard11Title": "Fitting Room: AI-Powered Virtual Try-On App",
+  "uiUxCard11Desc": "\"Designed an innovative fashion-tech platform featuring a virtual fitting room experience. Focused on enabling users to 'try on' clothes through screenshots and photos, bridging the gap between digital browsing and physical fitting.\"",
+  "tagFigma": "Figma",
+  "tagUserResearch": "User Research",
+  "tagPrototyping": "Prototyping",
+  
+  "_comment_flutter_page": "Flutter Development Page",
+  "flutterHeroTitle": "Flutter",
+  "flutterTitle": "Development",
+  "flutterDesc": "Building powerful cross-platform mobile applications",
+  "flutterCard1Title": "Mongiz : AI-Powered Motivation & Goal Tracker",
+  "flutterCard1Desc": "\"A high-performance Flutter app designed to boost productivity through goal decomposition and daily motivation. Features seamless Firebase authentication, Supabase real-time notifications, and advanced state management for a robust user experience.\"",
+  "flutterCard2Title": "Comprehensive EdTech Ecosystem (LMS)",
+  "flutterCard2Desc": "\"A scalable EdTech solution for students, teachers, and admins, built with Flutter and Clean Architecture. Implemented Cubit for robust state management and integrated complex APIs to deliver a high-performance educational experience.\"",
+  "flutterCard3Title": "ElectroHub: Advanced E-Commerce Flutter App",
+  "flutterCard3Desc": "\"Developed a high-performance electronics marketplace using Flutter and MVVM architecture. Integrated professional GitHub version control and clean code practices to deliver a scalable, feature-rich shopping experience.\"",
+  "tagFirebase": "firebase",
+  "tagSupabase": "supabase",
+  "tagBloc": "bloc",
+  "tagCleanArchitecture": "clean arcteacture",
+  "tagApi": "api",
+  
+  "_comment_about_page": "About Page",
+  "aboutTitle": "About Me",
+  "aboutSubtitle": "Product Designer & UI/UX Specialist | Flutter Developer",
+  "aboutDesc": "The Architect of Experience. With 3 years in UI/UX and 5 years in Graphic Design, I don't just \"draw\" apps—I engineer them. Now, as a Flutter Developer, I bring those designs to life, ensuring the soul of the creative vision survives every line of code. I bridge the gap between \"what's beautiful\" and \"what actually works.\"",
+  "aboutExperience": "Experience",
+  "aboutSkills": "Skills",
+  "aboutValues": "Values",
+  
+  "aboutExpCard1Title": "UI/UX Designer — Zimitail",
+  "aboutExpCard1Desc": "At Zimitail, I led the entire design journey, turning complex user research into seamless, high-fidelity realities.",
+  "aboutExpCard2Title": "UI/UX Designer — Smartly Techs",
+  "aboutExpCard2Desc": "Simplifying the Complex. I mastered the art of information architecture, making sure every user interaction felt natural and intuitive.",
+  "aboutExpCard3Title": "Graphic & UI Designer — Freelance",
+  "aboutExpCard3Desc": "I didn't just design a shop; I built a high-performance digital engine. By blending Flutter's power with a designer's precision, I delivered a scalable shopping experience that looks as good as it runs.",
+  "aboutExpCard4Title": "One Year Experience",
+  "aboutExpCard4Desc": "I took the leap from pixels to production, building robust Flutter apps with Clean Architecture and a designer's eye for detail.",
+  
+  "aboutSkillsTitle1": "UI/UX & Product Design",
+  "aboutSkillsTitle2": "Flutter Development",
+  "aboutSkillsTitle3": "Soft Skills",
+  "skillWireframing": "Wireframing",
+  "skillPrototyping": "Prototyping",
+  "skillAiPrompts": "AI Prompts",
+  "skillDesignSystem": "Design System",
+  "skillDesignTokens": "Design Tokens",
+  "skillDart": "Dart",
+  "skillResponsiveLayout": "Responsive Layout",
+  "skillStateManagement": "State Management",
+  "skillApiIntegration": "API Integration",
+  "skillReusableWidgets": "Reusable Widgets",
+  "skillSoftSkillsDesc": "Strong communication, problem-solving, attention to detail, teamwork, and adaptability.",
+  
+  "aboutValuesCard1Title": "Quality First",
+  "aboutValuesCard1Desc": "Every pixel matters. I strive for excellence in every detail.",
+  "aboutValuesCard2Title": "Collaboration",
+  "aboutValuesCard2Desc": "Great work comes from great teamwork and communication.",
+  "aboutValuesCard3Title": "Innovation",
+  "aboutValuesCard3Desc": "Always exploring new technologies and design trends.",
+  
+  "_comment_contact_page": "Contact Page",
+  "contactTitle": "Get in Touch",
+  "contactSubtitle": "Let's work together on your next project",
+  "contactNamePlaceholder": "Your Name",
+  "contactEmailPlaceholder": "your.email@example.com",
+  "contactMessagePlaceholder": "Tell me about your project...",
+  "contactBtnSend": "Send Messege",
+  "contactConnectWith": "Or contact with me on"
+}

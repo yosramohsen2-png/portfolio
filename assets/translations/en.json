@@ -1,0 +1,48 @@
+{
+  "app_name": "Portfolio",
+  "nav": {
+    "home": "Home",
+    "ui_ux_design": "UI/UX Design",
+    "flutter_dev": "Flutter Development",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Welcome to My Portfolio",
+    "subtitle": "Creating Beautiful Digital Experiences",
+    "cta_button": "View My Work"
+  },
+  "ui_ux": {
+    "title": "UI/UX Design",
+    "subtitle": "Crafting Intuitive User Experiences",
+    "description": "Explore my design portfolio showcasing user-centered design solutions."
+  },
+  "flutter_dev": {
+    "title": "Flutter Development",
+    "subtitle": "Building Cross-Platform Applications",
+    "description": "Discover my Flutter projects and mobile development expertise."
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Designer & Developer",
+    "description": "Learn more about my journey, skills, and passion for creating amazing digital products."
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's Work Together",
+    "name_label": "Your Name",
+    "email_label": "Your Email",
+    "message_label": "Your Message",
+    "send_button": "Send Message",
+    "success_message": "Message sent successfully!",
+    "error_message": "Failed to send message. Please try again."
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  },
+  "language": {
+    "english": "English",
+    "german": "Deutsch"
+  }
+}
