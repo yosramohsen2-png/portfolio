@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
-import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/shared/widgets/widgets.dart';
+import 'package:portfolio/features/home/presentation/widgets/home_background.dart';
+import 'package:portfolio/features/home/presentation/widgets/home_hero_section.dart';
+import 'package:portfolio/features/home/presentation/widgets/mobile_header.dart';
+import 'package:portfolio/core/theme/theme_cubit.dart';
+import 'package:portfolio/shared/widgets/web_header.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,175 +17,95 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String _selectedRoute = '/home';
   String _selectedLanguage = 'en';
-  // Mock data for choice button
-  String _selectedExperienceType = 'Experience';
 
   void _onRouteChanged(String route) {
-    setState(() => _selectedRoute = route);
-    // TODO: Implement actual navigation
+    setState(() {
+      _selectedRoute = route;
+    });
+    // Navigation logic would go here
   }
 
   void _onLanguageChanged(String lang) {
-    setState(() => _selectedLanguage = lang);
-    // TODO: Implement localization
+    setState(() {
+      _selectedLanguage = lang;
+    });
+    // Language change logic would go here
   }
 
-  void _onThemeToggle() {
-    // TODO: Implement theme toggling
+  void _onThemeToggle(BuildContext context) {
+    context.read<ThemeCubit>().toggleTheme();
   }
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    final isDesktop = width >= 1024;
     final brightness = Theme.of(context).brightness;
     final bgColors = AppColors.backgroundColors(brightness);
 
     return Scaffold(
       backgroundColor: bgColors.primaryDefault,
-      drawer: !isDesktop
-          ? MobileNavDrawer(
-              selectedRoute: _selectedRoute,
-              selectedLanguage: _selectedLanguage,
-              onRouteChanged: _onRouteChanged,
-              onLanguageChanged: _onLanguageChanged,
-              onThemeToggle: _onThemeToggle,
-            )
-          : null,
-      body: Column(
-        children: [
-          // Header
-          if (isDesktop)
-            WebHeader(
-              selectedRoute: _selectedRoute,
-              onRouteChanged: _onRouteChanged,
-              selectedLanguage: _selectedLanguage,
-              onLanguageChanged: _onLanguageChanged,
-              onThemeToggle: _onThemeToggle,
-            )
-          else
-            MobileHeader(
-              onMenuTap: () => Scaffold.of(context).openDrawer(),
-              onThemeToggle: _onThemeToggle,
-            ),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          final isWeb = constraints.maxWidth > 900; // Breakpoint for Web Layout
 
-          // Scrollable Content
-          Expanded(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(
-                horizontal: isDesktop ? 120 : AppDimensions.spacingMd,
-                vertical: AppDimensions.spacing3xl,
+          return Stack(
+            children: [
+              // 1. Background Decorations
+              Positioned.fill(
+                child: HomeBackground(isWeb: isWeb),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+
+              // 2. Main Content
+              Column(
                 children: [
-                  // Hero Section
-                  HeroSection(
-                    greeting: "Hello, I'm",
-                    name: "Your Name",
-                    subtitle: "UI/UX Designer & Flutter Developer",
-                    description:
-                        "Crafting beautiful digital experiences with user-centered design and powerful mobile applications.",
-                    size: isDesktop
-                        ? HeroSectionSize.large
-                        : width >= 768
-                            ? HeroSectionSize.medium
-                            : HeroSectionSize.small,
-                    alignment:
-                        isDesktop ? CrossAxisAlignment.start : CrossAxisAlignment.center,
-                    highlightLastWord: true,
-                  ),
-                  SizedBox(height: isDesktop ? 80 : 40),
+                  // Header
+                  if (isWeb)
+                    WebHeader(
+                      selectedRoute: _selectedRoute,
+                      onRouteChanged: _onRouteChanged,
+                      selectedLanguage: _selectedLanguage,
+                      onLanguageChanged: _onLanguageChanged,
+                      onThemeToggle: () => _onThemeToggle(context),
+                    )
+                  else
+                    MobileHeader(
+                      selectedLanguage: _selectedLanguage,
+                      onLanguageChanged: _onLanguageChanged,
+                      onThemeToggle: () async => _onThemeToggle(context),
+                    ),
 
-                  // Choice Button (Experience/Skills)
-                   Center(
-                     child: ChoiceButton(
-                      options: const ['Experience', 'Skills', 'Values'],
-                      selectedOption: _selectedExperienceType,
-                      onOptionSelected: (val) =>
-                          setState(() => _selectedExperienceType = val),
-                                     ),
-                   ),
-                   SizedBox(height: isDesktop ? 60 : 30),
-
-                  // Projects Grid
-                  LayoutBuilder(
-                    builder: (context, constraints) {
-                      final cardWidth = isDesktop ? 350.0 : constraints.maxWidth;
-                      // Simple wrap layout for demo
-                      return Wrap(
-                        spacing: 24,
-                        runSpacing: 24,
-                        alignment: WrapAlignment.center,
-                        children: [
-                          ProjectCard(
-                            imageUrl: 'https://placehold.co/600x400/png',
-                            title: 'E-Commerce Platform',
-                            description:
-                                'Complete redesign of a modern e-commerce platform with focus on user journey.',
-                            tags: const ['Figma', 'User Research', 'Prototyping'],
-                            hasGradientOverlay: true,
+                  // Scrollable Body
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: isWeb ? 0 : 16.0,
+                          vertical: isWeb ? 0 : 24.0,
+                        ),
+                        child: Center(
+                          child: Container(
+                            constraints: BoxConstraints(
+                              minHeight: constraints.maxHeight - (isWeb ? 88 : 64),
+                            ),
+                            alignment: Alignment.center,
+                            child: HomeHeroSection(
+                              isWeb: isWeb,
+                              onViewUiUx: () {
+                                debugPrint("View UI/UX Projects");
+                              },
+                              onViewFlutter: () {
+                                debugPrint("View Flutter Projects");
+                              },
+                            ),
                           ),
-                          ProjectCard(
-                            imageUrl: 'https://placehold.co/600x400/000000/FFFFFF/png',
-                            title: 'Finance Dashboard',
-                            description:
-                                'Real-time financial tracking dashboard for personal wealth management.',
-                            tags: const ['Flutter', 'Bloc', 'Clean Arch'],
-                          ),
-                           ProjectCard(
-                            imageUrl: 'https://placehold.co/600x400/png',
-                            title: 'Health & Fitness App',
-                            description:
-                                'Mobile application for tracking workouts and nutrition plans.',
-                            tags: const ['UI Design', 'Mobile Dev'],
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                  
-                  SizedBox(height: isDesktop ? 80 : 40),
-                  
-                  // Services Section Title
-                  Center(
-                    child: Text(
-                      "What I Do",
-                      style: isDesktop 
-                          ? AppTypography.headline2xl(fontWeight: FontWeight.w700)
-                          : AppTypography.headlineMd(fontWeight: FontWeight.w700),
+                        ),
+                      ),
                     ),
                   ),
-                  SizedBox(height: isDesktop ? 60 : 30),
-                  
-                  // Service Cards (Example)
-                   Wrap(
-                        spacing: 24,
-                        runSpacing: 24,
-                        alignment: WrapAlignment.center,
-                        children: [
-                          ServiceCard(
-                            icon: Icons.design_services,
-                            title: 'UI/UX Design',
-                            description: 'Creating intuitive and beautiful user interfaces with tools like Figma.',
-                            size: isDesktop ? ServiceCardSize.large : ServiceCardSize.small,
-                          ),
-                          ServiceCard(
-                            icon: Icons.code,
-                            title: 'Flutter Dev',
-                            description: 'Building cross-platform mobile applications with high performance.',
-                            size: isDesktop ? ServiceCardSize.large : ServiceCardSize.small,
-                            isSelected: true, // Example
-                          ),
-                        ],
-                   ),
-                   
-                   SizedBox(height: 100), // Bottom spacer
                 ],
               ),
-            ),
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
