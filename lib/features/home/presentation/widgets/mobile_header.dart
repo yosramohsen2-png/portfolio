@@ -4,6 +4,7 @@ import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/shared/widgets/compact_language_toggle.dart';
 import 'package:portfolio/shared/widgets/logo.dart';
 import 'package:portfolio/shared/widgets/icon_button_custom.dart';
+import 'package:portfolio/shared/widgets/theme_toggle.dart';
 
 class MobileHeader extends StatelessWidget {
   final Future<void> Function()? onThemeToggle;
@@ -52,12 +53,7 @@ class MobileHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 // Theme Toggle (Icon Button)
-                IconButtonCustom(
-                  icon: Icons.brightness_6_outlined, // Placeholder for valid icon
-                  onPressed: onThemeToggle != null ? () => onThemeToggle!() : () {},
-                   // Using small size to match design 40x40
-                  size: IconButtonSize.small,
-                ),
+                const ThemeToggle(),
                 SizedBox(width: AppDimensions.spacingSm),
                 
                 IconButtonCustom(
@@ -65,7 +61,9 @@ class MobileHeader extends StatelessWidget {
                   onPressed: () {
                      // Open drawer or similar
                   },
-                  size: IconButtonSize.small,
+                  size: IconButtonSize.medium, // Reverted to medium or kept consistent logic, but user wanted small previously.
+                  // CSS says 40x40. IconButtonCustom(size: small) is 40. ThemeToggle is 40 hardcoded.
+                  // Let's ensure consistency. ThemeToggle is 40.
                 ),
               ],
             ),

@@ -5,6 +5,7 @@ import 'package:portfolio/core/theme/app_typography.dart';
 import 'package:portfolio/shared/widgets/logo.dart';
 import 'package:portfolio/shared/widgets/compact_language_toggle.dart';
 import 'package:portfolio/shared/widgets/icon_button_custom.dart';
+import 'package:portfolio/shared/widgets/theme_toggle.dart';
 
 class WebHeader extends StatelessWidget {
   final String selectedRoute;
@@ -108,11 +109,7 @@ class WebHeader extends StatelessWidget {
                   onLanguageChanged: onLanguageChanged,
                 ),
                 SizedBox(width: AppDimensions.spacingXl),
-                IconButtonCustom(
-                  icon: Icons.brightness_6_outlined, // Placeholder for sun/moon
-                  onPressed: onThemeToggle,
-                  size: IconButtonSize.medium,
-                ),
+                const ThemeToggle(),
               ],
             ),
           ),
