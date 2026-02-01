@@ -5,7 +5,7 @@ import 'package:portfolio/core/theme/app_typography.dart';
 
 enum ButtonVariant { filled, outlined, light }
 
-class PrimaryButton extends StatelessWidget {
+class PrimaryButton extends StatefulWidget {
   final String label;
   final VoidCallback onPressed;
   final ButtonVariant variant;
@@ -30,26 +30,41 @@ class PrimaryButton extends StatelessWidget {
   });
 
   @override
+  State<PrimaryButton> createState() => _PrimaryButtonState();
+}
+
+class _PrimaryButtonState extends State<PrimaryButton> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
-    final bgColors = AppColors.backgroundColors(brightness);
     final textColors = AppColors.textColors(brightness);
-    // Use brandDefault for the yellow border and background
-    final brandColor = AppColors.lightTextBrandDefault; 
+    final brandColor = AppColors.lightTextBrandDefault;
+
+    // Determine the active variant based on hover
+    ButtonVariant activeVariant = widget.variant;
+    if (_isHovered) {
+      if (widget.variant == ButtonVariant.filled) {
+        activeVariant = ButtonVariant.outlined;
+      } else if (widget.variant == ButtonVariant.outlined) {
+        activeVariant = ButtonVariant.filled;
+      }
+    }
 
     Color backgroundColor;
     Color textColor;
     BoxBorder? boxBorder;
 
-    switch (variant) {
+    switch (activeVariant) {
       case ButtonVariant.filled:
         backgroundColor = brandColor;
-        textColor = Colors.black; // Text is black on yellow background in design
-        boxBorder = null;
+        textColor = Colors.black;
+        boxBorder = Border.all(color: brandColor, width: 2); // Border exists but matches background
         break;
       case ButtonVariant.outlined:
         backgroundColor = Colors.transparent;
-        textColor = textColors.primaryDefault; // Black or white depending on theme
+        textColor = brightness == Brightness.light ? Colors.black : Colors.white;
         boxBorder = Border.all(
           color: brandColor,
           width: 2,
@@ -62,21 +77,23 @@ class PrimaryButton extends StatelessWidget {
         break;
     }
 
-    // Common Icon Properties
     final double iconSize = AppDimensions.iconSm;
-    final Color iconColor = textColor; // Match icon color to text color
+    final Color iconColor = textColor;
 
     return MouseRegion(
       cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
       child: GestureDetector(
-        onTap: onPressed,
-        child: Container(
-          width: width,
+        onTap: widget.onPressed,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          width: widget.width,
           constraints: BoxConstraints(
-            minWidth: minWidth ?? 0,
+            minWidth: widget.minWidth ?? 0,
           ),
           padding: const EdgeInsets.symmetric(
-            horizontal: AppDimensions.spacingXl, // Increased padding for better look
+            horizontal: AppDimensions.spacingXl,
             vertical: AppDimensions.spacingLg,
           ),
           decoration: BoxDecoration(
@@ -85,54 +102,47 @@ class PrimaryButton extends StatelessWidget {
             border: boxBorder,
           ),
           child: Row(
-            mainAxisSize: (width != null || minWidth != null) ? MainAxisSize.max : MainAxisSize.min,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Leading Icon
-              if (leadingIconAsset != null) ...[
+              if (widget.leadingIconAsset != null) ...[
                 Image.asset(
-                  leadingIconAsset!,
+                  widget.leadingIconAsset!,
                   width: iconSize,
                   height: iconSize,
                   color: iconColor,
                 ),
                 const SizedBox(width: 8),
-              ] else if (leadingIcon != null) ...[
+              ] else if (widget.leadingIcon != null) ...[
                 Icon(
-                  leadingIcon,
+                  widget.leadingIcon,
                   size: iconSize,
                   color: iconColor,
                 ),
                 const SizedBox(width: 8),
               ],
  
-              // Label
-              Flexible(
-                child: Text(
-                  label,
-                  textAlign: TextAlign.center,
-                  softWrap: false, // Prevent wrapping to keep the shape consistent
-                  overflow: TextOverflow.visible, // But allow it to take space if needed
-                  style: AppTypography.bodyXl(
-                    color: textColor,
-                    fontWeight: FontWeight.w700,
-                  ),
+              Text(
+                widget.label,
+                textAlign: TextAlign.center,
+                style: AppTypography.bodyXl(
+                  color: textColor,
+                  fontWeight: FontWeight.w700,
                 ),
               ),
  
-              // Trailing Icon (Arrow)
-              if (trailingIconAsset != null) ...[
+              if (widget.trailingIconAsset != null) ...[
                 const SizedBox(width: 12),
                 Image.asset(
-                  trailingIconAsset!,
+                  widget.trailingIconAsset!,
                   width: iconSize,
                   height: iconSize,
                   color: iconColor,
                 ),
-              ] else if (trailingIcon != null) ...[
+              ] else if (widget.trailingIcon != null) ...[
                 const SizedBox(width: 12),
                 Icon(
-                  trailingIcon,
+                  widget.trailingIcon,
                   size: iconSize,
                   color: iconColor,
                 ),

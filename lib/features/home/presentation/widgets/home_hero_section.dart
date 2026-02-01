@@ -3,7 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
-import 'package:portfolio/shared/widgets/primary_button.dart';
+import 'package:portfolio/core/theme/app_dimensions.dart';
+import 'package:animate_do/animate_do.dart';
 
 /// Hero Section for Home Page
 /// Mobile: gap 40px between elements, buttons stacked
@@ -29,26 +30,49 @@ class HomeHeroSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Hello I'm - Mobile: 18px, Web: 20px
-        _HelloText(isWeb: isWeb, textColors: textColors),
-        SizedBox(height: isWeb ? 24 : 16),
+        FadeInDown(
+          from: 50, // Move from further away
+          duration: const Duration(milliseconds: 1000),
+          child: _HelloText(isWeb: isWeb, textColors: textColors),
+        ),
+        SizedBox(height: isWeb ? AppDimensions.spacing3xl : AppDimensions.spacingXl),
 
         // Name - Mobile: 48px, Web: 82px
-        _NameText(isWeb: isWeb, textColors: textColors),
-        SizedBox(height: isWeb ? 24 : 16),
+        FadeInDown(
+          from: 80, // Even more movement for the name
+          delay: const Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 1000),
+          child: _NameText(isWeb: isWeb, textColors: textColors),
+        ),
+        SizedBox(height: isWeb ? AppDimensions.spacing3xl : AppDimensions.spacingXl),
 
         // Tagline - Mobile: 30px, Web: 36px
-        _TaglineText(isWeb: isWeb, textColors: textColors),
-        SizedBox(height: isWeb ? 24 : 12),
+        FadeIn(
+          delay: const Duration(milliseconds: 400),
+          duration: const Duration(milliseconds: 1500),
+          child: _TaglineText(isWeb: isWeb, textColors: textColors),
+        ),
+        SizedBox(height: isWeb ? AppDimensions.spacing3xl : AppDimensions.spacingLg),
 
         // Description - Mobile: 18px, Web: 20px
-        _DescriptionText(isWeb: isWeb, textColors: textColors),
-        SizedBox(height: isWeb ? 60 : 40),
+        FadeInUp(
+          from: 60,
+          delay: const Duration(milliseconds: 600),
+          duration: const Duration(milliseconds: 1000),
+          child: _DescriptionText(isWeb: isWeb, textColors: textColors),
+        ),
+        SizedBox(height: isWeb ? AppDimensions.spacing6xl : AppDimensions.spacing5xl),
 
         // Buttons
-        _ActionButtons(
-          isWeb: isWeb,
-          onViewUiUx: onViewUiUx,
-          onViewFlutter: onViewFlutter,
+        FadeInUp(
+          from: 40,
+          delay: const Duration(milliseconds: 800),
+          duration: const Duration(milliseconds: 1000),
+          child: _ActionButtons(
+            isWeb: isWeb,
+            onViewUiUx: onViewUiUx,
+            onViewFlutter: onViewFlutter,
+          ),
         ),
       ],
     );
@@ -67,11 +91,16 @@ class _HelloText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Using a more visible color than brandDisabled for better clarity
+    final color = Theme.of(context).brightness == Brightness.light
+        ? textColors.primaryDefault.withOpacity(0.7)
+        : textColors.primaryDefault.withOpacity(0.8);
+
     return Text(
       'home.hello'.tr(),
       style: isWeb
-          ? AppTypography.bodyXl(color: textColors.brandDisabled, fontWeight: FontWeight.w500)
-          : AppTypography.bodyLg(color: textColors.brandDisabled, fontWeight: FontWeight.w500),
+          ? AppTypography.bodyXl(color: color, fontWeight: FontWeight.w500)
+          : AppTypography.bodyLg(color: color, fontWeight: FontWeight.w500),
       textAlign: TextAlign.center,
     );
   }
@@ -124,13 +153,18 @@ class _DescriptionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Increased visibility for description text
+    final color = Theme.of(context).brightness == Brightness.light
+        ? textColors.primaryDefault.withOpacity(0.8)
+        : textColors.primaryDefault.withOpacity(0.9);
+
     return Container(
       constraints: BoxConstraints(maxWidth: isWeb ? 800 : 350),
       child: Text(
         'home.description'.tr(),
         style: isWeb
-            ? AppTypography.bodyXl(color: textColors.brandDisabled, fontWeight: FontWeight.w500)
-            : AppTypography.bodyLg(color: textColors.brandDisabled, fontWeight: FontWeight.w500),
+            ? AppTypography.bodyXl(color: color, fontWeight: FontWeight.w500)
+            : AppTypography.bodyLg(color: color, fontWeight: FontWeight.w500),
         textAlign: TextAlign.center,
       ),
     );
@@ -151,29 +185,24 @@ class _ActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isWeb) {
-      // Web: Horizontal with adaptive width but consistent min-size
+      // Web: Horizontal, content-sized
       return Wrap(
-        spacing: 40, // Better spacing for smaller web screens
+        spacing: 24,
         runSpacing: 20,
         alignment: WrapAlignment.center,
         children: [
-          _UiUxButton(onPressed: onViewUiUx, minWidth: 320),
-          _FlutterButton(onPressed: onViewFlutter, minWidth: 320),
+          _UiUxButton(onPressed: onViewUiUx),
+          _FlutterButton(onPressed: onViewFlutter),
         ],
       );
     } else {
-      // Mobile: Stacked with 24px gap
+      // Mobile: Vertical, content-sized and centered
       return Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            width: double.infinity,
-            child: _UiUxButton(onPressed: onViewUiUx),
-          ),
-          const SizedBox(height: 24),
-          SizedBox(
-            width: double.infinity,
-            child: _FlutterButton(onPressed: onViewFlutter),
-          ),
+          _UiUxButton(onPressed: onViewUiUx),
+          const SizedBox(height: 16),
+          _FlutterButton(onPressed: onViewFlutter),
         ],
       );
     }

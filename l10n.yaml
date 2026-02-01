@@ -1,7 +1,0 @@
-# Flutter localization configuration
-# This file defines the ARB template and output directory for generated localization files
-
-arb-dir: lib/core/l10n
-template-arb-file: app_en.arb
-output-localization-file: app_localizations.dart
-output-class: AppLocalizations
