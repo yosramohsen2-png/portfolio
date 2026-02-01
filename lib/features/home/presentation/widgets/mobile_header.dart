@@ -52,7 +52,9 @@ class MobileHeader extends StatelessWidget {
               
               // Menu/Drawer Button - 40x40
               _MenuButton(
-                onPressed: onMenuPressed,
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
                 bgColor: bgColors.primarySecondary,
               ),
             ],

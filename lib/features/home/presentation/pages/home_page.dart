@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
-import 'package:portfolio/features/home/presentation/widgets/home_background.dart';
-import 'package:portfolio/features/home/presentation/widgets/home_hero_section.dart';
-import 'package:portfolio/features/home/presentation/widgets/mobile_header.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_content.dart';
-import 'package:portfolio/shared/widgets/web_header.dart';
+import 'package:portfolio/shared/widgets/custom_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,14 +11,16 @@ class HomePage extends StatelessWidget {
     final brightness = Theme.of(context).brightness;
     final bgColors = AppColors.backgroundColors(brightness);
 
-    return Scaffold(
-      backgroundColor: bgColors.primaryDefault,
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          final isWeb = constraints.maxWidth > 900;
-          return HomeContent(isWeb: isWeb, constraints: constraints);
-        },
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isWeb = constraints.maxWidth > 900;
+        
+        return Scaffold(
+          backgroundColor: bgColors.primaryDefault,
+          drawer: isWeb ? null : const CustomDrawer(currentRoute: '/home'),
+          body: HomeContent(isWeb: isWeb, constraints: constraints),
+        );
+      },
     );
   }
 }

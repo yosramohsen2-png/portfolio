@@ -4,6 +4,7 @@ import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
+import 'package:portfolio/shared/widgets/primary_button.dart';
 import 'package:animate_do/animate_do.dart';
 
 /// Hero Section for Home Page
