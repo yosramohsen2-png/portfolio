@@ -11,7 +11,10 @@ class PrimaryButton extends StatelessWidget {
   final ButtonVariant variant;
   final IconData? leadingIcon;
   final IconData? trailingIcon;
+  final String? leadingIconAsset;
+  final String? trailingIconAsset;
   final double? width;
+  final double? minWidth;
 
   const PrimaryButton({
     super.key,
@@ -20,7 +23,10 @@ class PrimaryButton extends StatelessWidget {
     this.variant = ButtonVariant.filled,
     this.leadingIcon,
     this.trailingIcon,
+    this.leadingIconAsset,
+    this.trailingIconAsset,
     this.width,
+    this.minWidth,
   });
 
   @override
@@ -28,78 +34,111 @@ class PrimaryButton extends StatelessWidget {
     final brightness = Theme.of(context).brightness;
     final bgColors = AppColors.backgroundColors(brightness);
     final textColors = AppColors.textColors(brightness);
-    final borderColors = AppColors.borderColors(brightness);
-    final iconColors = AppColors.iconColors(brightness);
+    // Use brandDefault for the yellow border and background
+    final brandColor = AppColors.lightTextBrandDefault; 
 
     Color backgroundColor;
     Color textColor;
-    Border? border;
+    BoxBorder? boxBorder;
 
     switch (variant) {
       case ButtonVariant.filled:
-        backgroundColor = bgColors.brandSolid;
-        textColor = textColors.primaryToggle;
-        border = null;
+        backgroundColor = brandColor;
+        textColor = Colors.black; // Text is black on yellow background in design
+        boxBorder = null;
         break;
       case ButtonVariant.outlined:
         backgroundColor = Colors.transparent;
-        textColor = textColors.primaryDefault;
-        border = Border.all(
-          color: borderColors.primaryDefault,
+        textColor = textColors.primaryDefault; // Black or white depending on theme
+        boxBorder = Border.all(
+          color: brandColor,
           width: 2,
         );
         break;
       case ButtonVariant.light:
-        backgroundColor = bgColors.brandLight;
-        textColor = textColors.primaryToggle;
-        border = null;
+        backgroundColor = brandColor.withOpacity(0.1);
+        textColor = brandColor;
+        boxBorder = null;
         break;
     }
 
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: width,
-        padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.spacingMd,
-          vertical: AppDimensions.spacingLg,
-        ),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
-          border: border,
-        ),
-        child: Row(
-          mainAxisSize: width == null ? MainAxisSize.min : MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (leadingIcon != null) ...[
-              Icon(
-                leadingIcon,
-                size: AppDimensions.iconSm,
-                color: iconColors.primaryDefaultChange,
-              ),
-              SizedBox(width: AppDimensions.spacingLg),
-            ],
-            Flexible(
-              child: Text(
-                label,
-                textAlign: TextAlign.center,
-                style: AppTypography.bodyXl(
-                  color: textColor,
-                  fontWeight: FontWeight.w700,
+    // Common Icon Properties
+    final double iconSize = AppDimensions.iconSm;
+    final Color iconColor = textColor; // Match icon color to text color
+
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          width: width,
+          constraints: BoxConstraints(
+            minWidth: minWidth ?? 0,
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: AppDimensions.spacingXl, // Increased padding for better look
+            vertical: AppDimensions.spacingLg,
+          ),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(12),
+            border: boxBorder,
+          ),
+          child: Row(
+            mainAxisSize: (width != null || minWidth != null) ? MainAxisSize.max : MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Leading Icon
+              if (leadingIconAsset != null) ...[
+                Image.asset(
+                  leadingIconAsset!,
+                  width: iconSize,
+                  height: iconSize,
+                  color: iconColor,
+                ),
+                const SizedBox(width: 8),
+              ] else if (leadingIcon != null) ...[
+                Icon(
+                  leadingIcon,
+                  size: iconSize,
+                  color: iconColor,
+                ),
+                const SizedBox(width: 8),
+              ],
+ 
+              // Label
+              Flexible(
+                child: Text(
+                  label,
+                  textAlign: TextAlign.center,
+                  softWrap: false, // Prevent wrapping to keep the shape consistent
+                  overflow: TextOverflow.visible, // But allow it to take space if needed
+                  style: AppTypography.bodyXl(
+                    color: textColor,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
-            ),
-            if (trailingIcon != null) ...[
-              SizedBox(width: AppDimensions.spacingXl),
-              Icon(
-                trailingIcon,
-                size: AppDimensions.iconSm,
-                color: iconColors.primaryDefaultChange,
-              ),
+ 
+              // Trailing Icon (Arrow)
+              if (trailingIconAsset != null) ...[
+                const SizedBox(width: 12),
+                Image.asset(
+                  trailingIconAsset!,
+                  width: iconSize,
+                  height: iconSize,
+                  color: iconColor,
+                ),
+              ] else if (trailingIcon != null) ...[
+                const SizedBox(width: 12),
+                Icon(
+                  trailingIcon,
+                  size: iconSize,
+                  color: iconColor,
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );

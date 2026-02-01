@@ -3,14 +3,17 @@
   "nav": {
     "home": "Home",
     "ui_ux_design": "UI/UX Design",
-    "flutter_dev": "Flutter Development",
+    "flutter_dev": "Flutter DEV",
     "about": "About",
     "contact": "Contact"
   },
   "home": {
-    "title": "Welcome to My Portfolio",
-    "subtitle": "Creating Beautiful Digital Experiences",
-    "cta_button": "View My Work"
+    "hello": "Hello, I'm",
+    "name": "Yosra Mohsen",
+    "tagline": "I Design the Dream.\nI Build the Reality",
+    "description": "I've always been obsessed with how things work under the hood. To me, a great app is a story that starts with a pixel and ends with a solid line of code. I bridge the gap between \"how it looks\" and \"how it performs,\" making sure every user journey is a masterpiece.",
+    "view_uiux": "View UI/UX Projects",
+    "view_flutter": "View Flutter Projects"
   },
   "ui_ux": {
     "title": "UI/UX Design",

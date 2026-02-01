@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/shared/theme_cubit.dart';
+import 'package:portfolio/core/theme/theme_cubit.dart';
 
 class ThemeToggle extends StatelessWidget {
   const ThemeToggle({super.key});
@@ -11,7 +11,7 @@ class ThemeToggle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Watch ThemeCubit to rebuild on state change
-    final isDark = context.watch<ThemeCubit>().state.brightness == Brightness.dark;
+    final isDark = context.watch<ThemeCubit>().state.isDarkMode;
     
     // Determine which icon and assets to use
     // If Dark -> Show Light Icon (to switch to light) or Show Dark Icon (indicating state)?
@@ -24,7 +24,7 @@ class ThemeToggle extends StatelessWidget {
     // Dark Mode -> Show Sun (Light)
     
     // Assets from the user request
-    final String iconPath = isDark ? AppAssets.light2 : AppAssets.dark;
+    final String iconPath = isDark ? AppAssets.light : AppAssets.dark;
 
     final brightness = Theme.of(context).brightness;
     final bgColors = AppColors.backgroundColors(brightness);

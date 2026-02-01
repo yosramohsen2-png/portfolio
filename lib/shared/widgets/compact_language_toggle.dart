@@ -45,14 +45,14 @@ class _CompactLanguageToggleState extends State<CompactLanguageToggle> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            _CompactToggleButton(
+            _LanguageButton(
               label: 'EN',
               isSelected: widget.selectedLanguage == 'en',
               isHovered: _isHovered,
               onTap: () => widget.onLanguageChanged('en'),
             ),
             SizedBox(width: AppDimensions.spacingXs),
-            _CompactToggleButton(
+            _LanguageButton(
               label: 'DE',
               isSelected: widget.selectedLanguage == 'de',
               isHovered: _isHovered,
@@ -65,13 +65,13 @@ class _CompactLanguageToggleState extends State<CompactLanguageToggle> {
   }
 }
 
-class _CompactToggleButton extends StatelessWidget {
+class _LanguageButton extends StatelessWidget {
   final String label;
   final bool isSelected;
   final bool isHovered;
   final VoidCallback onTap;
 
-  const _CompactToggleButton({
+  const _LanguageButton({
     required this.label,
     required this.isSelected,
     required this.isHovered,
@@ -92,29 +92,36 @@ class _CompactToggleButton extends StatelessWidget {
       textColor = textColors.primaryToggle;
     } else {
       backgroundColor = isHovered 
-          ? const Color(0xFFEBEDF0) // toggle-background-disabled
+          ? const Color(0xFFEBEDF0)
           : bgColors.primaryDefault;
       textColor = textColors.primaryDisabledToggle;
     }
 
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppDimensions.spacingMd,
-          vertical: AppDimensions.spacingXs,
-        ),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
-        ),
-        child: Center(
-          child: Text(
-            label,
-            textAlign: TextAlign.center,
-            style: AppTypography.bodyMd(
-              color: textColor,
-              fontWeight: FontWeight.w500,
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          debugPrint("$label button tapped!");
+          onTap();
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppDimensions.spacingMd,
+            vertical: AppDimensions.spacingXs,
+          ),
+          decoration: BoxDecoration(
+            color: backgroundColor,
+            borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
+          ),
+          child: Center(
+            child: Text(
+              label,
+              textAlign: TextAlign.center,
+              style: AppTypography.bodyMd(
+                color: textColor,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
@@ -50,7 +51,7 @@ class WebHeader extends StatelessWidget {
           Expanded(
             child: Row(
               children: [
-                const Logo(),
+                const Logo(showIcon: true),
               ],
             ),
           ),
@@ -62,35 +63,35 @@ class WebHeader extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 _WebNavItem(
-                  label: 'Home',
+                  label: 'nav.home'.tr(),
                   route: '/home',
                   isSelected: selectedRoute == '/home',
                   onTap: () => onRouteChanged('/home'),
                 ),
-                SizedBox(width: 40), // Gap 40-80px in design, using fixed for now
+                SizedBox(width: 40),
                 _WebNavItem(
-                  label: 'UI/UX Design',
+                  label: 'nav.ui_ux_design'.tr(),
                   route: '/ui-ux',
                   isSelected: selectedRoute == '/ui-ux',
                   onTap: () => onRouteChanged('/ui-ux'),
                 ),
                 SizedBox(width: 40),
                 _WebNavItem(
-                  label: 'Flutter DEV',
+                  label: 'nav.flutter_dev'.tr(),
                   route: '/flutter',
                   isSelected: selectedRoute == '/flutter',
                   onTap: () => onRouteChanged('/flutter'),
                 ),
                 SizedBox(width: 40),
                 _WebNavItem(
-                  label: 'About',
+                  label: 'nav.about'.tr(),
                   route: '/about',
                   isSelected: selectedRoute == '/about',
                   onTap: () => onRouteChanged('/about'),
                 ),
                 SizedBox(width: 40),
                 _WebNavItem(
-                  label: 'Contact',
+                  label: 'nav.contact'.tr(),
                   route: '/contact',
                   isSelected: selectedRoute == '/contact',
                   onTap: () => onRouteChanged('/contact'),

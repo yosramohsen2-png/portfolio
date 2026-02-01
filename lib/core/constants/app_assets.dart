@@ -15,10 +15,11 @@ class AppAssets {
   static const String arrow = '$_imagesPath/arrow.png';
   static const String drawer = '$_imagesPath/drawer.png';
   static const String pallet = '$_imagesPath/pallet.png';
+  static const String logo = '$_imagesPath/logo.png';
   
   // Theme Icons
   static const String dark = '$_imagesPath/dark.png';
-  static const String light2 = '$_imagesPath/light (2).png'; // Consider renaming this file
+  static const String light = '$_imagesPath/light.png';
 
   // Numbered Icons (New Batch)
   static const String icon6 = '$_imagesPath/Icon-6.png';

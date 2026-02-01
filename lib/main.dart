@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'core/di/injection_container.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_cubit.dart';
@@ -10,10 +11,20 @@ import 'core/routing/app_router.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
+  // Initialize EasyLocalization
+  await EasyLocalization.ensureInitialized();
+  
   // Initialize dependencies
   await initializeDependencies();
   
-  runApp(const PortfolioApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('de')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      child: const PortfolioApp(),
+    ),
+  );
 }
 
 class PortfolioApp extends StatelessWidget {
@@ -34,8 +45,15 @@ class PortfolioApp extends StatelessWidget {
         builder: (context, themeState) {
           return BlocBuilder<LocaleCubit, LocaleState>(
             builder: (context, localeState) {
+              // Sync EasyLocalization with LocaleCubit
+              if (context.locale != localeState.locale) {
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  context.setLocale(localeState.locale);
+                });
+              }
+              
               return ScreenUtilInit(
-                designSize: const Size(375, 812), // Base design size for mobile
+                designSize: const Size(375, 812),
                 minTextAdapt: true,
                 splitScreenMode: true,
                 builder: (context, child) {
@@ -48,12 +66,10 @@ class PortfolioApp extends StatelessWidget {
                     darkTheme: AppTheme.darkTheme,
                     themeMode: themeState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
                     
-                    // Localization
-                    locale: localeState.locale,
-                    supportedLocales: const [
-                      Locale('en'),
-                      Locale('de'),
-                    ],
+                    // Localization from EasyLocalization
+                    localizationsDelegates: context.localizationDelegates,
+                    supportedLocales: context.supportedLocales,
+                    locale: context.locale,
                     
                     // Routing
                     routerConfig: AppRouter.router,

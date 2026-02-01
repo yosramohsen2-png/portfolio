@@ -1,16 +1,19 @@
 {
     "app_name": "Portfolio",
     "nav": {
-        "home": "Startseite",
+        "home": "Hiem",
         "ui_ux_design": "UI/UX Design",
-        "flutter_dev": "Flutter Entwicklung",
+        "flutter_dev": "Flutter DEV",
         "about": "Über mich",
         "contact": "Kontakt"
     },
     "home": {
-        "title": "Willkommen in meinem Portfolio",
-        "subtitle": "Schöne digitale Erlebnisse schaffen",
-        "cta_button": "Meine Arbeit ansehen"
+        "hello": "Hallo, ich bin",
+        "name": "Yosra Mohsen",
+        "tagline": "Ich designe den Traum.\nIch baue die Realität",
+        "description": "Ich war schon immer davon besessen, wie Dinge unter der Haube funktionieren. Für mich ist eine großartige App eine Geschichte, die mit einem Pixel beginnt und mit einer soliden Codezeile endet. Ich schließe die Lücke zwischen \"wie es aussieht\" und \"wie es funktioniert\" und sorge dafür, dass jede Benutzerreise ein Meisterwerk ist.",
+        "view_uiux": "UI/UX Projekte ansehen",
+        "view_flutter": "Flutter Projekte ansehen"
     },
     "ui_ux": {
         "title": "UI/UX Design",

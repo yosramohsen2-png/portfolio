@@ -1,138 +1,101 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 
 class HomeBackground extends StatelessWidget {
   final bool isWeb;
 
-  const HomeBackground({
-    super.key,
-    this.isWeb = false,
-  });
+  const HomeBackground({super.key, this.isWeb = false});
 
   @override
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
     final bgColors = AppColors.backgroundColors(brightness);
-    final borderColors = AppColors.borderColors(brightness);
 
-    // If mobile, use the specific mobile decoration
-    if (!isWeb) {
-      return Stack(
-        children: [
-          Positioned(
-            left: 69,
-            top: -118,
-            child: Transform.rotate(
-              angle: -1 * 3.14159 / 180, // -1 degree
-              child: Container(
-                width: 216.08,
-                height: 424.64,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.03), // Using direct opacity as per CSS
-                  borderRadius: BorderRadius.circular(1),
-                ),
+    return Stack(
+      children: [
+        if (!isWeb) ...[
+          // Mobile: Large Faded Logo in background
+          Center(
+            child: Opacity(
+              opacity: 0.03, // Very faded as in design
+              child: Image.asset(
+                AppAssets.logo,
+                width: 400,
+                height: 400,
+                fit: BoxFit.contain,
               ),
             ),
           ),
         ],
-      );
-    }
-
-    // Web Decorations
-    return Stack(
-      children: [
-        // Shape 1 (Top Right ish - Large stroke)
-        Positioned(
-          left: 593,
-          top: 299, // Adjust based on parent relative positioning usually
-          // Since we might need responsive positioning, we can use MediaQuery or percentages if we want to be smart,
-          // but for "Pixel Perfect" conversion of the "Web" design provided:
-          // We might need to anchor these to the center or edges. 
-          // The CSS says "left: 593px".
-          // I'll map these somewhat absolutely but wrapped in a large overflow container or responsive aligned.
-          // For a background, purely absolute usually breaks on different screen sizes.
-          // I will use a LayoutBuilder in the parent or just `Positioned` relative to a large Container.
-          // Let's try to replicate nicely.
-          child: Transform.rotate(
-            angle: 20 * 3.14159 / 180,
-            child: Container(
-              width: 386.24,
-              height: 386.24,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(22369600), // Circle mostly
-                border: Border.all(
-                  color: bgColors.brandShapes,
-                  width: 2,
-                ),
-                color: bgColors.brandShapes.withOpacity(0.20),
-              ),
-            ),
-          ),
-        ),
         
-        // Shape 2 (Left - Stroke)
-        Positioned(
-          left: 44,
-          top: 346,
-          child: Transform.rotate(
-            angle: -16 * 3.14159 / 180,
-            child: Container(
-              width: 484.15,
-              height: 484.15,
-             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(22369600),
-                border: Border.all(
-                  color: bgColors.brandShapes,
-                  width: 2,
-                ),
-                color: bgColors.brandShapes.withOpacity(0.20),
-              ),
-            ),
+        // Web & Mobile: Outlined Circles (Border only)
+        if (isWeb) ...[
+          // Three large circles staggered
+          Positioned(
+            left: -100,
+            top: 100,
+            child: _OutlinedCircle(size: 500, color: bgColors.brandShapes),
           ),
-        ),
-
-        // Shape 3 (Right - Stroke)
-        Positioned(
-          left: 787,
-          top: 141.84,
-          child: Transform.rotate(
-            angle: -16 * 3.14159 / 180,
-            child: Container(
-               width: 510.17,
-              height: 484.15,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(22369600),
-                border: Border.all(
-                  color: bgColors.brandShapes,
-                  width: 2,
-                ),
-                color: bgColors.brandShapes.withOpacity(0.20),
-              ),
-            ),
+          Positioned(
+            right: -200,
+            bottom: -100,
+            child: _OutlinedCircle(size: 700, color: bgColors.brandShapes),
           ),
-        ),
-
-        // Shape 4 (Center - Filled Light)
-        Positioned(
-          left: 522,
-          top: 451,
-          child: Transform.rotate(
-            angle: -16 * 3.14159 / 180,
-             child: Container(
-              width: 304.05,
-              height: 288.54,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(22369600),
-                color: bgColors.brandLight.withOpacity(0.0), // CSS says opacity 0? 
-                // Ah, "opacity: 0" in the CSS snippet. Maybe it's hidden or animated in?
-                // I will keep it as 0 opacity for now if CSS says so, or maybe it's a mistake in the snippet extraction.
-                // The snippet says: "background: var(--semantic-background-brand-light, #FEF1B3); opacity: 0;"
-                // If it's 0 it's invisible. I'll comment it out or leave as 0.
-              ),
-            ),
+          Positioned(
+            left: 400,
+            top: 200,
+            child: _OutlinedCircle(size: 600, color: bgColors.brandShapes),
           ),
-        ),
+        ] else ...[
+          // Mobile: Fewer/Smaller outlined shapes if needed
+          Positioned(
+            left: -50,
+            top: 50,
+            child: _OutlinedCircle(size: 300, color: bgColors.brandShapes),
+          ),
+          Positioned(
+            right: -100,
+            bottom: 50,
+            child: _OutlinedCircle(size: 400, color: bgColors.brandShapes),
+          ),
+        ],
       ],
+    );
+  }
+}
+
+class _OutlinedCircle extends StatefulWidget {
+  final double size;
+  final Color color;
+
+  const _OutlinedCircle({required this.size, required this.color});
+
+  @override
+  State<_OutlinedCircle> createState() => _OutlinedCircleState();
+}
+
+class _OutlinedCircleState extends State<_OutlinedCircle> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
+        width: widget.size,
+        height: widget.size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: _isHovered ? widget.color.withOpacity(0.4) : widget.color.withOpacity(0.1),
+            width: 1,
+          ),
+          color: _isHovered ? widget.color.withOpacity(0.02) : Colors.transparent,
+        ),
+      ),
     );
   }
 }
