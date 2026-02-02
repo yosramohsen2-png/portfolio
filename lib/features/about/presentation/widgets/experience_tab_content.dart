@@ -9,39 +9,35 @@ class ExperienceTabContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final isDesktop = width > 1200;
-    final isTablet = width > 768 && width <= 1200;
-
-    if (isDesktop) {
-      return GridView.count(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 2,
-        childAspectRatio: 2.2,
-        crossAxisSpacing: AppDimensions.spacing2xl,
-        mainAxisSpacing: AppDimensions.spacing2xl,
-        children: _buildCards(),
-      );
-    } else if (isTablet) {
-      return GridView.count(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: 2,
-        childAspectRatio: 1.6,
-        crossAxisSpacing: AppDimensions.spacingXl,
-        mainAxisSpacing: AppDimensions.spacingXl,
-        children: _buildCards(),
-      );
-    } else {
-      return Column(
-        children: _buildCards()
-            .map((card) => Padding(
-                  padding: const EdgeInsets.only(bottom: AppDimensions.spacingXl),
-                  child: card,
-                ))
-            .toList(),
-      );
+    
+    // Determine the number of columns based on width
+    int crossAxisCount = 1;
+    if (width > 1200) {
+      crossAxisCount = 2;
+    } else if (width > 768) {
+      crossAxisCount = 2;
     }
+
+    // Horizontal padding from AboutPage logic to calculate available width
+    double horizontalPadding = width > 1200 ? width * 0.15 : (width > 768 ? AppDimensions.spacing6xl : AppDimensions.spacingXl);
+    double availableWidth = width - (horizontalPadding * 2);
+    
+    // Spacing between cards
+    double spacing = AppDimensions.spacing2xl;
+    
+    // Calculate width for each card if more than 1 column
+    double cardWidth = crossAxisCount > 1 
+        ? (availableWidth - spacing) / crossAxisCount 
+        : availableWidth;
+
+    return Wrap(
+      spacing: spacing,
+      runSpacing: spacing,
+      children: _buildCards().map((card) => SizedBox(
+        width: cardWidth,
+        child: card,
+      )).toList(),
+    );
   }
 
   List<Widget> _buildCards() {
