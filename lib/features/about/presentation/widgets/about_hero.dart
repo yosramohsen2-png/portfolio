@@ -115,16 +115,20 @@ class AboutHero extends StatelessWidget {
   }
 
   Widget _buildShape(double size, double rotation) {
-    return Transform.rotate(
-      angle: rotation * math.pi / 180,
-      child: Container(
-        width: size,
-        height: size,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24), // Rough estimate from "var(--br-22369600)"
-          border: Border.all(
-            color: AppColors.brandGold.withOpacity(0.2),
-            width: 2,
+    return Pulse(
+      duration: const Duration(seconds: 4),
+      infinite: true,
+      child: Transform.rotate(
+        angle: rotation * math.pi / 180,
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(size * 0.1),
+            border: Border.all(
+              color: AppColors.brandGold.withOpacity(0.15),
+              width: 1.5,
+            ),
           ),
         ),
       ),
