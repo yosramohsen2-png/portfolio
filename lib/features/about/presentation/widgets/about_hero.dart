@@ -22,22 +22,25 @@ class AboutHero extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < AppDimensions.breakpointTablet;
     final brightness = Theme.of(context).brightness;
+    final isDark = brightness == Brightness.dark;
     final textColors = AppColors.textColors(brightness);
+    final bgColors = AppColors.backgroundColors(brightness);
 
     return Stack(
+      alignment: Alignment.center,
       clipBehavior: Clip.none,
       children: [
-        // Background Shapes (as seen in HTML desktop-2)
+        // Background Shapes (Pulse animation)
         if (!isMobile) ...[
           Positioned(
-            top: -50,
-            left: -100,
-            child: _buildShape(386, 20.2, brightness),
+            top: -20,
+            left: -width * 0.1,
+            child: _buildShape(width * 0.3, 20.2, brightness),
           ),
           Positioned(
-            top: -100,
-            right: -100,
-            child: _buildShape(510, -16.1, brightness),
+            top: -40,
+            right: -width * 0.1,
+            child: _buildShape(width * 0.4, -16.1, brightness),
           ),
         ],
 
@@ -45,40 +48,48 @@ class AboutHero extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Mask group icon placeholder
-            Container(
-              width: 62,
-              height: 62,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                boxShadow: [
-                  BoxShadow(
-                    color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.3),
-                    blurRadius: 20,
-                    spreadRadius: 5,
+            // Portrait / Avatar as seen in image
+            FadeInDown(
+              child: Container(
+                width: isMobile ? 120 : 160,
+                height: isMobile ? 120 : 160,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: AppColors.backgroundColors(brightness).brandSolid, width: 2),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.2),
+                      blurRadius: 30,
+                      spreadRadius: 5,
+                    ),
+                  ],
+                ),
+                child: ClipOval(
+                  child: Image.asset(
+                    'assets/images/user_avatar.png', // User should name their avatar file this
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) => Container(
+                      color: isDark ? Colors.grey[800] : Colors.grey[200],
+                      child: Icon(Icons.person, size: 60, color: textColors.brandDefault),
+                    ),
                   ),
-                ],
-              ),
-              child: Icon(
-                Icons.person_outline,
-                size: 40,
-                color: textColors.brandDefault,
+                ),
               ),
             ),
-            const SizedBox(height: AppDimensions.spacingXl),
+            const SizedBox(height: AppDimensions.spacing3xl),
 
-            // Title
+            // "About Me" Title
             Text(
               title,
               textAlign: TextAlign.center,
               style: (isMobile
                       ? AppTypography.headlineLg(color: textColors.primaryDefault)
                       : AppTypography.headline3xl(color: textColors.primaryDefault))
-                  .copyWith(fontWeight: FontWeight.w700),
+                  .copyWith(fontWeight: FontWeight.w800, letterSpacing: -1),
             ),
             const SizedBox(height: AppDimensions.spacingMd),
 
-            // Role
+            // Role in Gold
             Text(
               role,
               textAlign: TextAlign.center,
@@ -91,23 +102,25 @@ class AboutHero extends StatelessWidget {
 
             // Description
             ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 800),
+              constraints: const BoxConstraints(maxWidth: 900),
               child: Text(
                 description,
                 textAlign: TextAlign.center,
                 style: AppTypography.bodyLg(
-                  color: textColors.primaryDisabled,
-                  fontWeight: FontWeight.w500,
-                ),
+                  color: isDark ? textColors.primaryDefault : Colors.grey[600],
+                ).copyWith(fontWeight: FontWeight.w500, height: 1.6),
               ),
             ),
             const SizedBox(height: AppDimensions.spacing3xl),
 
-            // Golden divider
+            // Golden divider (The Architect's line)
             Container(
-              width: 134,
-              height: 2,
-              color: AppColors.backgroundColors(brightness).brandSolid,
+              width: 140,
+              height: 3,
+              decoration: BoxDecoration(
+                color: bgColors.brandSolid,
+                borderRadius: BorderRadius.circular(2),
+              ),
             ),
           ],
         ),
@@ -117,7 +130,7 @@ class AboutHero extends StatelessWidget {
 
   Widget _buildShape(double size, double rotation, Brightness brightness) {
     return Pulse(
-      duration: const Duration(seconds: 4),
+      duration: const Duration(seconds: 5),
       infinite: true,
       child: Transform.rotate(
         angle: rotation * math.pi / 180,
@@ -125,10 +138,10 @@ class AboutHero extends StatelessWidget {
           width: size,
           height: size,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(size * 0.1),
+            borderRadius: BorderRadius.circular(size * 0.15),
             border: Border.all(
-              color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.15),
-              width: 1.5,
+              color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.08),
+              width: 1,
             ),
           ),
         ),

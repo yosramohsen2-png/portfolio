@@ -32,7 +32,9 @@
     "tabs": {
       "experience": "Experience",
       "skills": "Skills",
-      "values": "Values"
+      "values": "Values",
+      "skills_placeholder": "Skills Content Coming Soon...",
+      "values_placeholder": "Values Content Coming Soon..."
     },
     "experience": {
       "zimitail": {
