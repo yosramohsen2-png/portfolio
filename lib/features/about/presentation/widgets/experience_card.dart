@@ -39,12 +39,12 @@ class ExperienceCard extends StatelessWidget {
             height: 32,
             width: 32,
             decoration: BoxDecoration(
-              color: AppColors.brandGold.withOpacity(0.1),
+              color: bgColors.brandSolid.withOpacity(0.1),
               borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
             ),
-            child: const Icon(
+            child: Icon(
               Icons.work_outline,
-              color: AppColors.brandGold,
+              color: textColors.brandDefault,
               size: 20,
             ),
           ),

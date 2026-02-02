@@ -31,12 +31,12 @@ class AboutHero extends StatelessWidget {
           Positioned(
             top: -50,
             left: -100,
-            child: _buildShape(386, 20.2),
+            child: _buildShape(386, 20.2, brightness),
           ),
           Positioned(
             top: -100,
             right: -100,
-            child: _buildShape(510, -16.1),
+            child: _buildShape(510, -16.1, brightness),
           ),
         ],
 
@@ -52,16 +52,16 @@ class AboutHero extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.brandGold.withOpacity(0.3),
+                    color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.3),
                     blurRadius: 20,
                     spreadRadius: 5,
                   ),
                 ],
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.person_outline,
                 size: 40,
-                color: AppColors.brandGold,
+                color: textColors.brandDefault,
               ),
             ),
             const SizedBox(height: AppDimensions.spacingXl),
@@ -82,8 +82,8 @@ class AboutHero extends StatelessWidget {
               role,
               textAlign: TextAlign.center,
               style: (isMobile
-                      ? AppTypography.headlineSm(color: AppColors.brandGold)
-                      : AppTypography.headlineMd(color: AppColors.brandGold))
+                      ? AppTypography.headlineSm(color: textColors.brandDefault)
+                      : AppTypography.headlineMd(color: textColors.brandDefault))
                   .copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: AppDimensions.spacing3xl),
@@ -106,7 +106,7 @@ class AboutHero extends StatelessWidget {
             Container(
               width: 134,
               height: 2,
-              color: AppColors.brandGold,
+              color: AppColors.backgroundColors(brightness).brandSolid,
             ),
           ],
         ),
@@ -114,7 +114,7 @@ class AboutHero extends StatelessWidget {
     );
   }
 
-  Widget _buildShape(double size, double rotation) {
+  Widget _buildShape(double size, double rotation, Brightness brightness) {
     return Pulse(
       duration: const Duration(seconds: 4),
       infinite: true,
@@ -126,7 +126,7 @@ class AboutHero extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(size * 0.1),
             border: Border.all(
-              color: AppColors.brandGold.withOpacity(0.15),
+              color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.15),
               width: 1.5,
             ),
           ),
