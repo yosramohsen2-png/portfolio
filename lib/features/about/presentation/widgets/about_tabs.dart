@@ -27,6 +27,7 @@ class _AboutTabsState extends State<AboutTabs> {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < AppDimensions.breakpointTablet;
     final brightness = Theme.of(context).brightness;
+    final isDark = brightness == Brightness.dark;
     
     final bgColors = AppColors.backgroundColors(brightness);
     final borderColors = AppColors.borderColors(brightness);
