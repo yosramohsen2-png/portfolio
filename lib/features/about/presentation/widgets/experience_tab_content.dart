@@ -8,33 +8,33 @@ class ExperienceTabContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-    
-    // Laptop/Desktop (>992px): 3 columns, Tablet: 2 columns, Mobile: 1 column
-    int crossAxisCount = 1;
-    if (width > 992) {
-      crossAxisCount = 3;
-    } else if (width > 600) {
-      crossAxisCount = 2;
-    }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final availableWidth = constraints.maxWidth;
+        
+        // Breakpoints based on actual available width
+        int crossAxisCount = 1;
+        if (availableWidth > 800) {
+          crossAxisCount = 3;
+        } else if (availableWidth > 600) {
+          crossAxisCount = 2;
+        }
 
-    // Adjusting margins to be more flexible for 3 columns
-    double horizontalPadding = width > 1200 ? width * 0.08 : (width > 768 ? AppDimensions.spacing4xl : AppDimensions.spacingXl);
-    double availableWidth = width - (horizontalPadding * 2);
-    
-    double spacing = AppDimensions.spacing2xl;
-    
-    // Calculating exact card width with precision
-    double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount;
+        double spacing = AppDimensions.spacing2xl;
+        
+        // Calculate card width precisely based on available space inside the parent's padding
+        double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount;
 
-    return Wrap(
-      spacing: spacing,
-      runSpacing: spacing,
-      alignment: WrapAlignment.start,
-      children: _buildCards().map((card) => SizedBox(
-        width: cardWidth,
-        child: card,
-      )).toList(),
+        return Wrap(
+          spacing: spacing,
+          runSpacing: spacing,
+          alignment: WrapAlignment.center,
+          children: _buildCards().map((card) => SizedBox(
+            width: cardWidth,
+            child: card,
+          )).toList(),
+        );
+      },
     );
   }
 

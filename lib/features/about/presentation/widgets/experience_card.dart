@@ -27,17 +27,17 @@ class ExperienceCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(AppDimensions.spacing2xl),
       decoration: BoxDecoration(
-        color: isDark ? bgColors.primarySecondary : Colors.white,
+        color: isDark ? bgColors.primarySecondary : bgColors.primaryDefault,
         borderRadius: BorderRadius.circular(AppDimensions.radius2xl),
         border: Border.all(
-          color: isDark ? borderColors.primaryCards : Colors.grey.withOpacity(0.1),
+          color: borderColors.primaryCards,
           width: 1,
         ),
         boxShadow: isDark
             ? []
             : [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.03),
+                  color: Colors.black.withOpacity(0.03), 
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -71,7 +71,7 @@ class ExperienceCard extends StatelessWidget {
           Text(
             description,
             style: AppTypography.bodyMd(
-              color: isDark ? textColors.primaryDefault : Colors.grey[600],
+              color: textColors.primaryDisabled2,
             ).copyWith(fontWeight: FontWeight.w500, height: 1.5),
           ),
         ],
