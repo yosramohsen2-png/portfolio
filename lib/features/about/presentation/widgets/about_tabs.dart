@@ -50,7 +50,7 @@ class AboutTabs extends StatelessWidget {
                   vertical: AppDimensions.spacingMd,
                 ),
                 decoration: BoxDecoration(
-                  color: isSelected ? AppColors.brandGold : Colors.transparent,
+                  color: isSelected ? bgColors.brandSolid : Colors.transparent,
                   borderRadius: BorderRadius.circular(AppDimensions.radiusXl),
                 ),
                 alignment: Alignment.center,
