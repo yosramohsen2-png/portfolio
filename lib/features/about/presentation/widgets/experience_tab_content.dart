@@ -12,25 +12,25 @@ class ExperienceTabContent extends StatelessWidget {
       builder: (context, constraints) {
         final availableWidth = constraints.maxWidth;
         
-        // Breakpoints based on actual available width
+        // Breakpoints based on actual available width within the padded container
         int crossAxisCount = 1;
-        if (availableWidth > 800) {
+        if (availableWidth > 750) {
           crossAxisCount = 3;
-        } else if (availableWidth > 600) {
+        } else if (availableWidth > 450) {
           crossAxisCount = 2;
         }
 
         double spacing = AppDimensions.spacing2xl;
         
-        // Calculate card width precisely based on available space inside the parent's padding
-        double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount;
+        // Calculate card width precisely, subtracting 0.5 to avoid subpixel rendering overflow
+        double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount - 0.5;
 
         return Wrap(
           spacing: spacing,
           runSpacing: spacing,
-          alignment: WrapAlignment.center,
+          alignment: WrapAlignment.start,
           children: _buildCards().map((card) => SizedBox(
-            width: cardWidth,
+            width: cardWidth.isNegative ? 0 : cardWidth,
             child: card,
           )).toList(),
         );

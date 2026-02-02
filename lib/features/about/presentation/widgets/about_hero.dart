@@ -30,17 +30,15 @@ class AboutHero extends StatelessWidget {
       alignment: Alignment.center,
       clipBehavior: Clip.none,
       children: [
-        // Background Shapes (Pulse animation)
+        // Subtle background circular lines as seen in Image 1
         if (!isMobile) ...[
           Positioned(
-            top: -20,
-            left: -width * 0.1,
-            child: _buildShape(width * 0.3, 20.2, brightness),
+            top: -100,
+            child: _buildCircularLine(width * 0.5, brightness),
           ),
           Positioned(
-            top: -40,
-            right: -width * 0.1,
-            child: _buildShape(width * 0.4, -16.1, brightness),
+            top: -150,
+            child: _buildCircularLine(width * 0.7, brightness),
           ),
         ],
 
@@ -48,29 +46,38 @@ class AboutHero extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Portrait / Avatar as seen in image
+            // Portrait with Glow
             FadeInDown(
               child: Container(
-                width: isMobile ? 120 : 160,
-                height: isMobile ? 120 : 160,
+                width: isMobile ? 120 : 180,
+                height: isMobile ? 120 : 180,
+                padding: const EdgeInsets.all(4), // Space for border/glow
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: AppColors.backgroundColors(brightness).brandSolid, width: 2),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.2),
-                      blurRadius: 30,
-                      spreadRadius: 5,
+                      color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.35),
+                      blurRadius: 50,
+                      spreadRadius: 10,
                     ),
                   ],
                 ),
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/user_avatar.png', // User should name their avatar file this
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Container(
-                      color: isDark ? Colors.grey[800] : Colors.grey[200],
-                      child: Icon(Icons.person, size: 60, color: textColors.brandDefault),
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: AppColors.backgroundColors(brightness).brandSolid,
+                      width: 2.5,
+                    ),
+                  ),
+                  child: ClipOval(
+                    child: Image.asset(
+                      'assets/images/user_avatar.png',
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) => Container(
+                        color: bgColors.primarySecondary,
+                        child: Icon(Icons.person, size: 80, color: textColors.brandDefault),
+                      ),
                     ),
                   ),
                 ),
@@ -78,18 +85,18 @@ class AboutHero extends StatelessWidget {
             ),
             const SizedBox(height: AppDimensions.spacing3xl),
 
-            // "About Me" Title
+            // "About Me"
             Text(
               title,
               textAlign: TextAlign.center,
               style: (isMobile
                       ? AppTypography.headlineLg(color: textColors.primaryDefault)
                       : AppTypography.headline3xl(color: textColors.primaryDefault))
-                  .copyWith(fontWeight: FontWeight.w800, letterSpacing: -1),
+                  .copyWith(fontWeight: FontWeight.w900, letterSpacing: -1.5),
             ),
             const SizedBox(height: AppDimensions.spacingMd),
 
-            // Role in Gold
+            // Role
             Text(
               role,
               textAlign: TextAlign.center,
@@ -102,24 +109,24 @@ class AboutHero extends StatelessWidget {
 
             // Description
             ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 900),
+              constraints: const BoxConstraints(maxWidth: 850),
               child: Text(
                 description,
                 textAlign: TextAlign.center,
                 style: AppTypography.bodyLg(
-                  color: isDark ? textColors.primaryDefault : Colors.grey[600],
-                ).copyWith(fontWeight: FontWeight.w500, height: 1.6),
+                  color: textColors.primaryDisabled2,
+                ).copyWith(fontWeight: FontWeight.w500, height: 1.7),
               ),
             ),
             const SizedBox(height: AppDimensions.spacing3xl),
 
-            // Golden divider (The Architect's line)
+            // Golden underline
             Container(
               width: 140,
-              height: 3,
+              height: 3.5,
               decoration: BoxDecoration(
                 color: bgColors.brandSolid,
-                borderRadius: BorderRadius.circular(2),
+                borderRadius: BorderRadius.circular(10),
               ),
             ),
           ],
@@ -128,21 +135,18 @@ class AboutHero extends StatelessWidget {
     );
   }
 
-  Widget _buildShape(double size, double rotation, Brightness brightness) {
+  Widget _buildCircularLine(double size, Brightness brightness) {
     return Pulse(
-      duration: const Duration(seconds: 5),
+      duration: const Duration(seconds: 10),
       infinite: true,
-      child: Transform.rotate(
-        angle: rotation * math.pi / 180,
-        child: Container(
-          width: size,
-          height: size,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(size * 0.15),
-            border: Border.all(
-              color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.08),
-              width: 1,
-            ),
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.1),
+            width: 0.8,
           ),
         ),
       ),

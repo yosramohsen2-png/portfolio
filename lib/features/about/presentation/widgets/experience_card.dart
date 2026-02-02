@@ -3,7 +3,7 @@ import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 
-class ExperienceCard extends StatelessWidget {
+class ExperienceCard extends StatefulWidget {
   final String title;
   final String description;
   final IconData icon;
@@ -16,65 +16,85 @@ class ExperienceCard extends StatelessWidget {
   });
 
   @override
+  State<ExperienceCard> createState() => _ExperienceCardState();
+}
+
+class _ExperienceCardState extends State<ExperienceCard> {
+  bool _isHovered = false;
+
+  @override
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
     final isDark = brightness == Brightness.dark;
-    final textColors = AppColors.textColors(brightness);
+    
     final bgColors = AppColors.backgroundColors(brightness);
     final borderColors = AppColors.borderColors(brightness);
+    final textColors = AppColors.textColors(brightness);
+    final iconColors = AppColors.iconColors(brightness);
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(AppDimensions.spacing2xl),
-      decoration: BoxDecoration(
-        color: isDark ? bgColors.primarySecondary : bgColors.primaryDefault,
-        borderRadius: BorderRadius.circular(AppDimensions.radius2xl),
-        border: Border.all(
-          color: borderColors.primaryCards,
-          width: 1,
+    // Following ServiceCard logic for colors
+    final backgroundColor = _isHovered ? bgColors.primarySecondary : bgColors.primaryDefault;
+    final borderColor = isDark ? borderColors.primaryCards : borderColors.primaryDisabled;
+    final iconColor = iconColors.primaryHover;
+    final descriptionColor = textColors.primaryDisabled2;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        width: double.infinity,
+        padding: const EdgeInsets.all(AppDimensions.spacing2xl),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
+          border: Border.all(
+            color: borderColor,
+            width: 1,
+          ),
+          boxShadow: (!isDark && _isHovered)
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.05),
+                    blurRadius: 20,
+                    offset: const Offset(0, 10),
+                  ),
+                ]
+              : [],
         ),
-        boxShadow: isDark
-            ? []
-            : [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.03), 
-                  blurRadius: 20,
-                  offset: const Offset(0, 10),
-                ),
-              ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Icon with circular background as seen in image
-          Container(
-            height: 48,
-            width: 48,
-            decoration: BoxDecoration(
-              color: AppColors.backgroundColors(brightness).brandLight.withOpacity(0.2),
-              shape: BoxShape.circle,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Icon with circular background
+            Container(
+              height: 48,
+              width: 48,
+              decoration: BoxDecoration(
+                color: bgColors.brandLight.withOpacity(0.2),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                widget.icon,
+                color: iconColor,
+                size: 24,
+              ),
             ),
-            child: Icon(
-              icon,
-              color: textColors.brandDefault,
-              size: 24,
+            const SizedBox(height: AppDimensions.spacingXl),
+            Text(
+              widget.title,
+              style: AppTypography.headlineSm(
+                color: textColors.primaryDefault,
+              ).copyWith(fontWeight: FontWeight.w800, height: 1.2),
             ),
-          ),
-          const SizedBox(height: AppDimensions.spacingXl),
-          Text(
-            title,
-            style: AppTypography.headlineSm(
-              color: textColors.primaryDefault,
-            ).copyWith(fontWeight: FontWeight.w800, height: 1.2),
-          ),
-          const SizedBox(height: AppDimensions.spacingLg),
-          Text(
-            description,
-            style: AppTypography.bodyMd(
-              color: textColors.primaryDisabled2,
-            ).copyWith(fontWeight: FontWeight.w500, height: 1.5),
-          ),
-        ],
+            const SizedBox(height: AppDimensions.spacingLg),
+            Text(
+              widget.description,
+              style: AppTypography.bodyMd(
+                color: descriptionColor,
+              ).copyWith(fontWeight: FontWeight.w500, height: 1.5),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -22,15 +22,20 @@ class AboutTabs extends StatelessWidget {
     final brightness = Theme.of(context).brightness;
     
     final bgColors = AppColors.backgroundColors(brightness);
+    final borderColors = AppColors.borderColors(brightness);
     final textColors = AppColors.textColors(brightness);
 
     return Container(
       width: isMobile ? double.infinity : 400,
-      height: 48,
-      padding: const EdgeInsets.all(AppDimensions.spacingXs), // 4px based on design system
+      height: 56, // Slightly taller for better touch target and spacing
+      padding: const EdgeInsets.all(AppDimensions.spacingMd),
       decoration: BoxDecoration(
-        color: bgColors.primarySecondary,
-        borderRadius: BorderRadius.circular(AppDimensions.radiusFull),
+        color: bgColors.primaryDefault,
+        borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
+        border: Border.all(
+          color: borderColors.primaryDisabled,
+          width: 1,
+        ),
       ),
       child: Row(
         children: List.generate(tabs.length, (index) {
@@ -41,17 +46,18 @@ class AboutTabs extends StatelessWidget {
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
+                margin: const EdgeInsets.symmetric(horizontal: 2),
                 decoration: BoxDecoration(
-                  color: isSelected ? bgColors.brandSolid : Colors.transparent,
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusFull),
+                  color: isSelected ? bgColors.brandSolid : bgColors.primarySecondary,
+                  borderRadius: BorderRadius.circular(AppDimensions.radius2xl),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   tabs[index],
                   style: AppTypography.labelMd(
                     color: isSelected
-                        ? textColors.primaryToggle // Design system color for text on brand background
-                        : textColors.primaryDisabled2, // Design system color for inactive elements
+                        ? textColors.primaryToggle 
+                        : textColors.primaryDisabledToggle,
                     fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
                   ),
                 ),
