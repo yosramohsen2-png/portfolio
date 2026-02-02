@@ -27,8 +27,31 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Designer & Developer",
-    "description": "Learn more about my journey, skills, and passion for creating amazing digital products."
+    "role": "Product Designer & UI/UX Specialist | Flutter Developer",
+    "description": "The Architect of Experience. With 3 years in UI/UX and 5 years in Graphic Design, I don't just \"draw\" apps—I engineer them. Now, as a Flutter Developer, I bring those designs to life, ensuring the soul of the creative vision survives every line of code. I bridge the gap between \"what's beautiful\" and \"what actually works.\"",
+    "tabs": {
+      "experience": "Experience",
+      "skills": "Skills",
+      "values": "Values"
+    },
+    "experience": {
+      "zimitail": {
+        "title": "UI/UX Designer — Zimitail",
+        "description": "At Zimitail, I led the entire design journey, turning complex user research into seamless, high-fidelity realities."
+      },
+      "smartly": {
+        "title": "UI/UX Designer — Smartly Techs",
+        "description": "Simplifying the Complex. I mastered the art of information architecture, making sure every user interaction felt natural and intuitive."
+      },
+      "freelance": {
+        "title": "Graphic & UI Designer — Freelance",
+        "description": "\"Developed a high-performance electronics marketplace using Flutter and MVVM architecture. Integrated professional GitHub version control and clean code practices to deliver a scalable, feature-rich shopping experience.\""
+      },
+      "flutter_exp": {
+        "title": "One Year Experience",
+        "description": "I took the leap from pixels to production, building robust Flutter apps with Clean Architecture and a designer’s eye for detail."
+      }
+    }
   },
   "contact": {
     "title": "Get In Touch",

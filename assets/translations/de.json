@@ -27,8 +27,31 @@
     },
     "about": {
         "title": "Über mich",
-        "subtitle": "Designer & Entwickler",
-        "description": "Erfahren Sie mehr über meinen Werdegang, meine Fähigkeiten und meine Leidenschaft für die Erstellung großartiger digitaler Produkte."
+        "role": "Produktdesigner & UI/UX-Spezialist | Flutter-Entwickler",
+        "description": "Der Architekt der Erfahrung. Mit 3 Jahren in UI/UX und 5 Jahren in Grafikdesign zeichne ich Apps nicht nur – ich konstruiere sie. Jetzt, als Flutter-Entwickler, erwecke ich diese Designs zum Leben und stelle sicher, dass die Seele der kreativen Vision jede Codezeile überlebt. Ich schließe die Lücke zwischen „was schön ist“ und „was tatsächlich funktioniert“.",
+        "tabs": {
+            "experience": "Erfahrung",
+            "skills": "Fähigkeiten",
+            "values": "Werte"
+        },
+        "experience": {
+            "zimitail": {
+                "title": "UI/UX Designer — Zimitail",
+                "description": "Bei Zimitail leitete ich die gesamte Designreise und verwandelte komplexe Benutzerforschung in nahtlose High-Fidelity-Realitäten."
+            },
+            "smartly": {
+                "title": "UI/UX Designer — Smartly Techs",
+                "description": "Das Komplexe vereinfachen. Ich habe die Kunst der Informationsarchitektur gemeistert und dafür gesorgt, dass sich jede Benutzerinteraktion natürlich und intuitiv anfühlt."
+            },
+            "freelance": {
+                "title": "Grafik- & UI-Designer — Freelance",
+                "description": "\"Entwicklung eines leistungsstarken Elektronik-Marktplatzes mit Flutter und MVVM-Architektur. Integration professioneller GitHub-Versionskontrolle und Clean Code-Praktiken, um ein skalierbares, funktionsreiches Einkaufserlebnis zu bieten.\""
+            },
+            "flutter_exp": {
+                "title": "Ein Jahr Erfahrung",
+                "description": "Ich wagte den Sprung von Pixeln zur Produktion und baute robuste Flutter-Apps mit Clean Architecture und einem Auge für Designdetails."
+            }
+        }
     },
     "contact": {
         "title": "Kontakt aufnehmen",
