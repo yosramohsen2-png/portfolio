@@ -20,23 +20,17 @@ class AboutTabs extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < AppDimensions.breakpointTablet;
     final brightness = Theme.of(context).brightness;
+    
     final bgColors = AppColors.backgroundColors(brightness);
     final textColors = AppColors.textColors(brightness);
-    final borderColors = AppColors.borderColors(brightness);
 
     return Container(
-      width: isMobile ? double.infinity : 500,
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppDimensions.spacingXl,
-        vertical: AppDimensions.spacingMd,
-      ),
+      width: isMobile ? double.infinity : 400,
+      height: 48,
+      padding: const EdgeInsets.all(AppDimensions.spacingXs), // 4px based on design system
       decoration: BoxDecoration(
-        color: bgColors.primarySurface,
-        borderRadius: BorderRadius.circular(AppDimensions.radius2xl),
-        border: Border.all(
-          color: borderColors.primaryDefault,
-          width: 1,
-        ),
+        color: bgColors.primarySecondary,
+        borderRadius: BorderRadius.circular(AppDimensions.radiusFull),
       ),
       child: Row(
         children: List.generate(tabs.length, (index) {
@@ -46,21 +40,19 @@ class AboutTabs extends StatelessWidget {
               onTap: () => onTabSelected(index),
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
-                padding: const EdgeInsets.symmetric(
-                  vertical: AppDimensions.spacingMd,
-                ),
+                curve: Curves.easeInOut,
                 decoration: BoxDecoration(
                   color: isSelected ? bgColors.brandSolid : Colors.transparent,
-                  borderRadius: BorderRadius.circular(AppDimensions.radiusXl),
+                  borderRadius: BorderRadius.circular(AppDimensions.radiusFull),
                 ),
                 alignment: Alignment.center,
                 child: Text(
                   tabs[index],
                   style: AppTypography.labelMd(
                     color: isSelected
-                        ? Colors.black // Gold background usually takes dark text
-                        : textColors.primaryDisabled,
-                    fontWeight: FontWeight.w700,
+                        ? textColors.primaryToggle // Design system color for text on brand background
+                        : textColors.primaryDisabled2, // Design system color for inactive elements
+                    fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
                   ),
                 ),
               ),
