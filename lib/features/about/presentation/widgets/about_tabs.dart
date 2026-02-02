@@ -50,11 +50,14 @@ class _AboutTabsState extends State<AboutTabs> {
           final isHovered = _hoveredIndex == index;
 
           // Determine background color based on state
-          Color itemColor = Colors.transparent;
+          Color itemColor;
           if (isSelected) {
             itemColor = bgColors.brandSolid;
           } else if (isHovered) {
-            itemColor = bgColors.primaryHover;
+            // In dark mode, if hover and secondary colors are the same, lighten it slightly for visibility
+            itemColor = (isDark && bgColors.primaryHover == bgColors.primarySecondary)
+                ? Color.lerp(bgColors.primarySecondary, Colors.white, 0.08)!
+                : bgColors.primaryHover;
           } else {
             itemColor = bgColors.primarySecondary;
           }
