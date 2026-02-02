@@ -32,13 +32,12 @@ class HomeBackground extends StatelessWidget {
                   // Mobile: Large Faded Logo in background
                   Center(
                     child: Opacity(
-                      opacity: 0.12, // Increased visibility
+                      opacity: 0.4, // Increased for visibility
                       child: Image.asset(
-                        AppAssets.logo,
-                        width: 400,
-                        height: 400,
+                        AppAssets.bgLogo,
+                        width: MediaQuery.of(context).size.width * 0.8, // 80% of screen width
                         fit: BoxFit.contain,
-                        filterQuality: FilterQuality.high, // Improve scaling quality
+                        filterQuality: FilterQuality.high,
                         isAntiAlias: true,
                       ),
                     ),

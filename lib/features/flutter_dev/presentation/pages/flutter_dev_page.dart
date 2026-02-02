@@ -1,47 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
-import '../../../../core/utils/responsive_utils.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/core/theme/app_colors.dart';
+import 'package:portfolio/shared/widgets/page_shell.dart';
 
-/// Flutter Development portfolio page
 class FlutterDevPage extends StatelessWidget {
   const FlutterDevPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('flutter_dev.title'),
-      ),
-      body: Center(
-        child: Container(
-          constraints: BoxConstraints(
-            maxWidth: ResponsiveUtils.getMaxContentWidth(context),
+    final textColors = AppColors.textColors(Theme.of(context).brightness);
+
+    return PageShell(
+      currentRoute: '/flutter-dev',
+      body: Column(
+        children: [
+          Text(
+            'flutter_dev.title'.tr(),
+            style: AppTypography.headlineLg(color: textColors.primaryDefault),
           ),
-          padding: EdgeInsets.all(ResponsiveUtils.getResponsivePadding(context)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              FadeInDown(
-                child: Text(
-                  'flutter_dev.subtitle',
-                  style: theme.textTheme.headlineMedium,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              const SizedBox(height: 16),
-              FadeInUp(
-                delay: const Duration(milliseconds: 200),
-                child: Text(
-                  'flutter_dev.description',
-                  style: theme.textTheme.bodyLarge,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
-          ),
-        ),
+          const SizedBox(height: 16),
+          // Waiting for user's content...
+        ],
       ),
     );
   }

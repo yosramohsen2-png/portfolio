@@ -51,9 +51,9 @@ class CustomDrawer extends StatelessWidget {
                     children: [
                       _DrawerItem(
                         label: 'nav.home'.tr(),
-                        route: '/home',
-                        isSelected: currentRoute == '/home',
-                        onTap: () => _navigate(context, '/home'),
+                        route: '/',
+                        isSelected: currentRoute == '/',
+                        onTap: () => _navigate(context, '/'),
                       ),
                       _DrawerItem(
                         label: 'nav.ui_ux_design'.tr(),

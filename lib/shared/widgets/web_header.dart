@@ -64,23 +64,23 @@ class WebHeader extends StatelessWidget {
               children: [
                 _WebNavItem(
                   label: 'nav.home'.tr(),
-                  route: '/home',
-                  isSelected: selectedRoute == '/home',
-                  onTap: () => onRouteChanged('/home'),
+                  route: '/',
+                  isSelected: selectedRoute == '/',
+                  onTap: () => onRouteChanged('/'),
                 ),
                 SizedBox(width: 40),
                 _WebNavItem(
                   label: 'nav.ui_ux_design'.tr(),
-                  route: '/ui-ux',
-                  isSelected: selectedRoute == '/ui-ux',
-                  onTap: () => onRouteChanged('/ui-ux'),
+                  route: '/ui-ux-design',
+                  isSelected: selectedRoute == '/ui-ux-design',
+                  onTap: () => onRouteChanged('/ui-ux-design'),
                 ),
                 SizedBox(width: 40),
                 _WebNavItem(
                   label: 'nav.flutter_dev'.tr(),
-                  route: '/flutter',
-                  isSelected: selectedRoute == '/flutter',
-                  onTap: () => onRouteChanged('/flutter'),
+                  route: '/flutter-dev',
+                  isSelected: selectedRoute == '/flutter-dev',
+                  onTap: () => onRouteChanged('/flutter-dev'),
                 ),
                 SizedBox(width: 40),
                 _WebNavItem(
