@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/features/about/presentation/widgets/experience_card.dart';
@@ -25,14 +26,22 @@ class ExperienceTabContent extends StatelessWidget {
         // Calculate card width precisely, subtracting 0.5 to avoid subpixel rendering overflow
         double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount - 0.5;
 
+        final cards = _buildCards();
+
         return Wrap(
           spacing: spacing,
           runSpacing: spacing,
           alignment: WrapAlignment.start,
-          children: _buildCards().map((card) => SizedBox(
-            width: cardWidth.isNegative ? 0 : cardWidth,
-            child: card,
-          )).toList(),
+          children: List.generate(cards.length, (index) {
+            return FadeInUp(
+              delay: Duration(milliseconds: 100 * index),
+              duration: const Duration(milliseconds: 500),
+              child: SizedBox(
+                width: cardWidth.isNegative ? 0 : cardWidth,
+                child: cards[index],
+              ),
+            );
+          }),
         );
       },
     );

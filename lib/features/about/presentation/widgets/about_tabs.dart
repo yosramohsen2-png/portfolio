@@ -50,17 +50,29 @@ class _AboutTabsState extends State<AboutTabs> {
           final isSelected = widget.selectedIndex == index;
           final isHovered = _hoveredIndex == index;
 
-          // Determine background color based on state
+          // Determine background and text color based on state
           Color itemColor;
+          Color textColor;
+          FontWeight fontWeight;
+
           if (isSelected) {
             itemColor = bgColors.brandSolid;
+            textColor = textColors.primaryToggle;
+            fontWeight = FontWeight.w700;
           } else if (isHovered) {
-            // In dark mode, if hover and secondary colors are the same, lighten it slightly for visibility
-            itemColor = (isDark && bgColors.primaryHover == bgColors.primarySecondary)
-                ? Color.lerp(bgColors.primarySecondary, Colors.white, 0.08)!
-                : bgColors.primaryHover;
+            // Hover state: light grey becomes a bit darker, or dark grey becomes a bit lighter
+            if (isDark) {
+              itemColor = Color.lerp(bgColors.primarySecondary, Colors.white, 0.12)!;
+              textColor = textColors.primaryDefault;
+            } else {
+              itemColor = Color.lerp(bgColors.primarySecondary, Colors.black, 0.08)!;
+              textColor = textColors.primaryDefault;
+            }
+            fontWeight = FontWeight.w600;
           } else {
             itemColor = bgColors.primarySecondary;
+            textColor = textColors.primaryDisabledToggle;
+            fontWeight = FontWeight.w500;
           }
 
           return Expanded(
@@ -81,10 +93,8 @@ class _AboutTabsState extends State<AboutTabs> {
                   child: Text(
                     widget.tabs[index],
                     style: AppTypography.labelMd(
-                      color: isSelected
-                          ? textColors.primaryToggle 
-                          : textColors.primaryDisabledToggle,
-                      fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                      color: textColor,
+                      fontWeight: fontWeight,
                     ),
                   ),
                 ),

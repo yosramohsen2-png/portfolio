@@ -65,7 +65,7 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
 
-              const SizedBox(height: AppDimensions.spacingXl),
+              const SizedBox(height: AppDimensions.spacing3xl),
 
               // Content Section
               _buildTabContent(),
