@@ -44,7 +44,7 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
               
-              const SizedBox(height: AppDimensions.spacing8xl),
+              const SizedBox(height: AppDimensions.spacing5xl),
 
               // Tabs Section
               FadeInUp(
@@ -65,7 +65,7 @@ class _AboutPageState extends State<AboutPage> {
                 ),
               ),
 
-              const SizedBox(height: AppDimensions.spacing5xl),
+              const SizedBox(height: AppDimensions.spacingXl),
 
               // Content Section
               _buildTabContent(),

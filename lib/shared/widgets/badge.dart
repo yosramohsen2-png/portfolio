@@ -18,17 +18,17 @@ class Badge extends StatelessWidget {
   EdgeInsets get _padding {
     switch (size) {
       case BadgeSize.small:
-        return EdgeInsets.symmetric(
+        return const EdgeInsets.symmetric(
           horizontal: AppDimensions.spacingMd,
           vertical: AppDimensions.spacingXs,
         );
       case BadgeSize.medium:
-        return EdgeInsets.symmetric(
-          horizontal: AppDimensions.spacingMd,
-          vertical: AppDimensions.spacingXs,
+        return const EdgeInsets.symmetric(
+          horizontal: AppDimensions.spacingLg,
+          vertical: AppDimensions.spacingSm,
         );
       case BadgeSize.large:
-        return EdgeInsets.symmetric(
+        return const EdgeInsets.symmetric(
           horizontal: AppDimensions.spacingXl,
           vertical: AppDimensions.spacingMd,
         );
@@ -36,17 +36,18 @@ class Badge extends StatelessWidget {
   }
 
   TextStyle _getTextStyle(BuildContext context, TextColors textColors) {
+    // Brand design shows brownish text on yellow bg
     final color = textColors.primaryDisabled;
     
     switch (size) {
       case BadgeSize.small:
-        return AppTypography.labelSm(color: color);
+        return AppTypography.labelSm(color: color, fontWeight: FontWeight.bold);
       case BadgeSize.medium:
-        return AppTypography.labelSm(color: color);
+        return AppTypography.labelMd(color: color, fontWeight: FontWeight.bold);
       case BadgeSize.large:
-        return AppTypography.bodyXl(
+        return AppTypography.bodyMd(
           color: color,
-          fontWeight: FontWeight.w700,
+          fontWeight: FontWeight.bold,
         );
     }
   }

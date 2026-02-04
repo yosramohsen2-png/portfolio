@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
+import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 
 class Logo extends StatelessWidget {
@@ -8,7 +9,7 @@ class Logo extends StatelessWidget {
   final double iconSize;
 
   const Logo({
-    super.key, 
+    super.key,
     this.showIcon = false,
     this.iconSize = AppDimensions.iconMd,
   });

@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
@@ -33,12 +34,16 @@ class AboutHero extends StatelessWidget {
         // Subtle background circular lines as seen in Image 1
         if (!isMobile) ...[
           Positioned(
-            top: -100,
-            child: _buildCircularLine(width * 0.5, brightness),
+            top: -200,
+            child: _buildCircularLine(width * 0.6, brightness),
           ),
           Positioned(
-            top: -150,
-            child: _buildCircularLine(width * 0.7, brightness),
+            top: -280,
+            child: _buildCircularLine(width * 0.85, brightness),
+          ),
+          Positioned(
+            top: -350,
+            child: _buildCircularLine(width * 1.1, brightness),
           ),
         ],
 
@@ -50,12 +55,16 @@ class AboutHero extends StatelessWidget {
               child: Container(
                 width: isMobile ? 120 : 180,
                 height: isMobile ? 120 : 180,
-                padding: const EdgeInsets.all(AppDimensions.spacingXs), // Space for border/glow
+                padding: const EdgeInsets.all(
+                  AppDimensions.spacingXs,
+                ), // Space for border/glow
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.35),
+                      color: AppColors.backgroundColors(
+                        brightness,
+                      ).brandSolid.withOpacity(0.35),
                       blurRadius: AppDimensions.effect4xl,
                       spreadRadius: AppDimensions.effectLg,
                     ),
@@ -86,29 +95,42 @@ class AboutHero extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: AppDimensions.spacing3xl),
+            const SizedBox(height: AppDimensions.spacingLg),
 
             // "About Me"
             Text(
               title,
               textAlign: TextAlign.center,
-              style: (isMobile
-                      ? AppTypography.headlineLg(color: textColors.primaryDefault)
-                      : AppTypography.headline3xl(color: textColors.primaryDefault))
-                  .copyWith(fontWeight: FontWeight.w900, letterSpacing: -1.5),
+              style:
+                  (isMobile
+                          ? AppTypography.headlineLg(
+                              color: textColors.primaryDefault,
+                            )
+                          : AppTypography.headline3xl(
+                              color: textColors.primaryDefault,
+                            ))
+                      .copyWith(
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: -1.5,
+                      ),
             ),
-            const SizedBox(height: AppDimensions.spacingMd),
+            const SizedBox(height: AppDimensions.spacingXs),
 
             // Role
             Text(
               role,
               textAlign: TextAlign.center,
-              style: (isMobile
-                      ? AppTypography.headlineSm(color: textColors.brandDefault)
-                      : AppTypography.headlineMd(color: textColors.brandDefault))
-                  .copyWith(fontWeight: FontWeight.w700),
+              style:
+                  (isMobile
+                          ? AppTypography.headlineSm(
+                              color: textColors.brandDefault,
+                            )
+                          : AppTypography.headlineMd(
+                              color: textColors.brandDefault,
+                            ))
+                      .copyWith(fontWeight: FontWeight.w700),
             ),
-            const SizedBox(height: AppDimensions.spacing3xl),
+            const SizedBox(height: AppDimensions.spacing2xl),
 
             // Description
             ConstrainedBox(
@@ -121,7 +143,7 @@ class AboutHero extends StatelessWidget {
                 ).copyWith(fontWeight: FontWeight.w500, height: 1.7),
               ),
             ),
-            const SizedBox(height: AppDimensions.spacing3xl),
+            const SizedBox(height: AppDimensions.spacing2xl),
 
             // Golden underline
             Container(
@@ -148,7 +170,9 @@ class AboutHero extends StatelessWidget {
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(
-            color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.1),
+            color: AppColors.backgroundColors(
+              brightness,
+            ).brandSolid.withOpacity(0.1),
             width: AppDimensions.borderWidthXs * 0.8,
           ),
         ),
@@ -156,4 +180,3 @@ class AboutHero extends StatelessWidget {
     );
   }
 }
-
