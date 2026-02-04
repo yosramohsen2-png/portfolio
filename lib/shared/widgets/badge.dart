@@ -5,7 +5,7 @@ import 'package:portfolio/core/theme/app_typography.dart';
 
 enum BadgeSize { small, medium, large }
 
-class Badge extends StatelessWidget {
+class Badge extends StatefulWidget {
   final String label;
   final BadgeSize size;
 
@@ -15,8 +15,15 @@ class Badge extends StatelessWidget {
     this.size = BadgeSize.medium,
   });
 
+  @override
+  State<Badge> createState() => _BadgeState();
+}
+
+class _BadgeState extends State<Badge> {
+  bool _isHovered = false;
+
   EdgeInsets get _padding {
-    switch (size) {
+    switch (widget.size) {
       case BadgeSize.small:
         return const EdgeInsets.symmetric(
           horizontal: AppDimensions.spacingMd,
@@ -37,9 +44,14 @@ class Badge extends StatelessWidget {
 
   TextStyle _getTextStyle(BuildContext context, TextColors textColors) {
     // Brand design shows brownish text on yellow bg
-    final color = textColors.primaryDisabled;
+    Color color = textColors.primaryDisabled;
     
-    switch (size) {
+    // If hovered, maybe make text a bit more prominent
+    if (_isHovered) {
+      color = textColors.primaryDefault;
+    }
+
+    switch (widget.size) {
       case BadgeSize.small:
         return AppTypography.labelSm(color: color, fontWeight: FontWeight.bold);
       case BadgeSize.medium:
@@ -58,15 +70,24 @@ class Badge extends StatelessWidget {
     final bgColors = AppColors.backgroundColors(brightness);
     final textColors = AppColors.textColors(brightness);
 
-    return Container(
-      padding: _padding,
-      decoration: BoxDecoration(
-        color: bgColors.brandLight,
-        borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
-      ),
-      child: Text(
-        label,
-        style: _getTextStyle(context, textColors),
+    final baseColor = bgColors.brandLight;
+    final hoverColor = bgColors.brandHover;
+
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.basic, // Badges are usually not clickable unless they are tags
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 200),
+        padding: _padding,
+        decoration: BoxDecoration(
+          color: _isHovered ? hoverColor : baseColor,
+          borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
+        ),
+        child: Text(
+          widget.label,
+          style: _getTextStyle(context, textColors),
+        ),
       ),
     );
   }
