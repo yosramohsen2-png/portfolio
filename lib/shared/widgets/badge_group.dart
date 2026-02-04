@@ -7,6 +7,7 @@ class BadgeGroup extends StatelessWidget {
   final custom.BadgeSize size;
   final double? spacing;
   final double? runSpacing;
+  final WrapAlignment alignment;
 
   const BadgeGroup({
     super.key,
@@ -14,6 +15,7 @@ class BadgeGroup extends StatelessWidget {
     this.size = custom.BadgeSize.medium,
     this.spacing,
     this.runSpacing,
+    this.alignment = WrapAlignment.start,
   });
 
   @override
@@ -24,6 +26,7 @@ class BadgeGroup extends StatelessWidget {
     return Wrap(
       spacing: horizontalSpacing,
       runSpacing: verticalSpacing,
+      alignment: alignment,
       children: labels.map((label) {
         return custom.Badge(
           label: label,

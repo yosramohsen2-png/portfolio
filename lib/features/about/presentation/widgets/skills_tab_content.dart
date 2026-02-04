@@ -4,6 +4,7 @@ import 'package:animate_do/animate_do.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/shared/widgets/badge.dart';
 import 'package:portfolio/shared/widgets/badge_group.dart';
 
 class SkillsTabContent extends StatelessWidget {
@@ -15,19 +16,22 @@ class SkillsTabContent extends StatelessWidget {
     final textColors = AppColors.textColors(brightness);
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < AppDimensions.breakpointTablet;
-    
+
     // Choose badge size based on screen size
     final badgeSize = isMobile ? BadgeSize.medium : BadgeSize.large;
+    final alignment = isMobile ? CrossAxisAlignment.start : CrossAxisAlignment.center;
+    final wrapAlignment = isMobile ? WrapAlignment.start : WrapAlignment.center;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: alignment,
       children: [
         // 1. UI/UX & Product Design
         FadeInUp(
           duration: const Duration(milliseconds: 500),
           child: _SkillsSection(
-            title: 'about.skills.uiux.title'.tr(),
+            title: isMobile ? 'about.skills.uiux.title'.tr() : null,
             badgeSize: badgeSize,
+            wrapAlignment: wrapAlignment,
             labels: [
               'about.skills.uiux.labels.wireframing'.tr(),
               'about.skills.uiux.labels.prototyping'.tr(),
@@ -38,15 +42,16 @@ class SkillsTabContent extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: AppDimensions.spacing5xl),
+        const SizedBox(height: AppDimensions.spacing2xl),
 
         // 2. Flutter Development
         FadeInUp(
           delay: const Duration(milliseconds: 100),
           duration: const Duration(milliseconds: 500),
           child: _SkillsSection(
-            title: 'about.skills.flutter.title'.tr(),
+            title: isMobile ? 'about.skills.flutter.title'.tr() : null,
             badgeSize: badgeSize,
+            wrapAlignment: wrapAlignment,
             labels: [
               'about.skills.flutter.labels.dart'.tr(),
               'about.skills.flutter.labels.responsive_layout'.tr(),
@@ -58,24 +63,25 @@ class SkillsTabContent extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: AppDimensions.spacing5xl),
+        const SizedBox(height: AppDimensions.spacing6xl),
 
         // 3. Soft Skills
         FadeInUp(
           delay: const Duration(milliseconds: 200),
           duration: const Duration(milliseconds: 500),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: alignment,
             children: [
               Text(
                 'about.skills.soft_skills.title'.tr(),
-                style: AppTypography.headlineSm(
-                  color: textColors.primaryDefault,
-                ).copyWith(fontWeight: FontWeight.w800),
+                textAlign: isMobile ? TextAlign.start : TextAlign.center,
+                style: (isMobile ? AppTypography.headlineSm(color: textColors.primaryDefault) : AppTypography.headlineMd(color: textColors.primaryDefault))
+                    .copyWith(fontWeight: FontWeight.w800),
               ),
               const SizedBox(height: AppDimensions.spacingMd),
               Text(
                 'about.skills.soft_skills.description'.tr(),
+                textAlign: isMobile ? TextAlign.start : TextAlign.center,
                 style: (isMobile ? AppTypography.bodyMd(color: textColors.brandDisabled) : AppTypography.bodyXl(color: textColors.brandDisabled))
                     .copyWith(fontWeight: FontWeight.w500, height: 1.6),
               ),
@@ -88,14 +94,16 @@ class SkillsTabContent extends StatelessWidget {
 }
 
 class _SkillsSection extends StatelessWidget {
-  final String title;
+  final String? title;
   final List<String> labels;
   final BadgeSize badgeSize;
+  final WrapAlignment wrapAlignment;
 
   const _SkillsSection({
-    required this.title,
+    this.title,
     required this.labels,
     required this.badgeSize,
+    required this.wrapAlignment,
   });
 
   @override
@@ -103,19 +111,22 @@ class _SkillsSection extends StatelessWidget {
     final textColors = AppColors.textColors(Theme.of(context).brightness);
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: wrapAlignment == WrapAlignment.center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: AppTypography.headlineSm(
-            color: textColors.primaryDefault,
-          ).copyWith(fontWeight: FontWeight.w800),
-        ),
-        const SizedBox(height: AppDimensions.spacingMd),
+        if (title != null) ...[
+          Text(
+            title!,
+            style: AppTypography.headlineSm(
+              color: textColors.primaryDefault,
+            ).copyWith(fontWeight: FontWeight.w800),
+          ),
+          const SizedBox(height: AppDimensions.spacingMd),
+        ],
         BadgeGroup(
           labels: labels,
           size: badgeSize,
-          spacing: AppDimensions.spacingMd,
+          alignment: wrapAlignment,
+          spacing: wrapAlignment == WrapAlignment.center ? AppDimensions.spacingXl : AppDimensions.spacingMd,
           runSpacing: AppDimensions.spacingMd,
         ),
       ],
