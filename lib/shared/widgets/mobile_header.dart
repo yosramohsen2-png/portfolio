@@ -28,7 +28,7 @@ class MobileHeader extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             color: borderColors.primaryDisabled,
-            width: 1,
+            width: AppDimensions.borderWidthXs,
           ),
         ),
       ),

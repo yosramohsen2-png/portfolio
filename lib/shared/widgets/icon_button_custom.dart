@@ -21,11 +21,11 @@ class IconButtonCustom extends StatelessWidget {
   double get _containerSize {
     switch (size) {
       case IconButtonSize.small:
-        return 40;
+        return AppDimensions.spacing5xl;
       case IconButtonSize.medium:
-        return 56;
+        return AppDimensions.spacing6xl;
       case IconButtonSize.large:
-        return 56;
+        return AppDimensions.spacing6xl;
     }
   }
 

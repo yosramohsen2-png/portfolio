@@ -33,13 +33,13 @@ class MobileNavDrawer extends StatelessWidget {
       decoration: BoxDecoration(
         color: bgColors.primaryDefault,
         border: Border(
-          left: BorderSide(color: borderColors.primaryDisabled, width: 1),
-          right: BorderSide(color: borderColors.primaryDisabled, width: 1),
-          bottom: BorderSide(color: borderColors.primaryDisabled, width: 1),
+          left: BorderSide(color: borderColors.primaryDisabled, width: AppDimensions.borderWidthXs),
+          right: BorderSide(color: borderColors.primaryDisabled, width: AppDimensions.borderWidthXs),
+          bottom: BorderSide(color: borderColors.primaryDisabled, width: AppDimensions.borderWidthXs),
         ),
         borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(24),
-          bottomRight: Radius.circular(24),
+          bottomLeft: Radius.circular(AppDimensions.radius3xl),
+          bottomRight: Radius.circular(AppDimensions.radius3xl),
         ),
       ),
       child: Column(
@@ -55,7 +55,7 @@ class MobileNavDrawer extends StatelessWidget {
               border: Border(
                 bottom: BorderSide(
                   color: borderColors.primaryDisabled,
-                  width: 1,
+                  width: AppDimensions.borderWidthXs,
                 ),
               ),
             ),

@@ -42,7 +42,7 @@ class _AboutTabsState extends State<AboutTabs> {
         borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
         border: Border.all(
           color: borderColors.primaryDisabled,
-          width: 1,
+          width: AppDimensions.borderWidthXs,
         ),
       ),
       child: Row(
@@ -72,7 +72,7 @@ class _AboutTabsState extends State<AboutTabs> {
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeInOut,
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
+                  margin: const EdgeInsets.symmetric(horizontal: AppDimensions.spacingXxs),
                   decoration: BoxDecoration(
                     color: itemColor,
                     borderRadius: BorderRadius.circular(AppDimensions.radius2xl),

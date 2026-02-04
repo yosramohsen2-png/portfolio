@@ -46,19 +46,18 @@ class AboutHero extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Portrait with Glow
             FadeInDown(
               child: Container(
                 width: isMobile ? 120 : 180,
                 height: isMobile ? 120 : 180,
-                padding: const EdgeInsets.all(4), // Space for border/glow
+                padding: const EdgeInsets.all(AppDimensions.spacingXs), // Space for border/glow
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.35),
-                      blurRadius: 50,
-                      spreadRadius: 10,
+                      blurRadius: AppDimensions.effect4xl,
+                      spreadRadius: AppDimensions.effectLg,
                     ),
                   ],
                 ),
@@ -67,16 +66,20 @@ class AboutHero extends StatelessWidget {
                     shape: BoxShape.circle,
                     border: Border.all(
                       color: AppColors.backgroundColors(brightness).brandSolid,
-                      width: 2.5,
+                      width: AppDimensions.borderWidthSm,
                     ),
                   ),
                   child: ClipOval(
                     child: Image.asset(
-                      'assets/images/user_avatar.png',
+                      AppAssets.userAvatar,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) => Container(
                         color: bgColors.primarySecondary,
-                        child: Icon(Icons.person, size: 80, color: textColors.brandDefault),
+                        child: Icon(
+                          Icons.person,
+                          size: AppDimensions.icon2xl,
+                          color: textColors.brandDefault,
+                        ),
                       ),
                     ),
                   ),
@@ -123,10 +126,10 @@ class AboutHero extends StatelessWidget {
             // Golden underline
             Container(
               width: 140,
-              height: 3.5,
+              height: AppDimensions.borderWidthSm + AppDimensions.borderWidthXs,
               decoration: BoxDecoration(
                 color: bgColors.brandSolid,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
               ),
             ),
           ],
@@ -146,10 +149,11 @@ class AboutHero extends StatelessWidget {
           shape: BoxShape.circle,
           border: Border.all(
             color: AppColors.backgroundColors(brightness).brandSolid.withOpacity(0.1),
-            width: 0.8,
+            width: AppDimensions.borderWidthXs * 0.8,
           ),
         ),
       ),
     );
   }
 }
+

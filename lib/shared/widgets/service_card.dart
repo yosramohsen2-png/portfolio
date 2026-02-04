@@ -119,7 +119,7 @@ class _ServiceCardState extends State<ServiceCard> {
             borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
             border: Border.all(
               color: borderColor,
-              width: 1,
+              width: AppDimensions.borderWidthXs,
             ),
           ),
           child: Column(
@@ -127,13 +127,14 @@ class _ServiceCardState extends State<ServiceCard> {
             children: [
               // Icon
               SizedBox(
-                height: 32,
+                height: AppDimensions.iconLg,
                 child: Icon(
                   widget.icon,
-                  size: 32,
+                  size: AppDimensions.iconLg,
                   color: iconColor,
                 ),
               ),
+
               SizedBox(height: AppDimensions.spacing3xl),
 
               // Title

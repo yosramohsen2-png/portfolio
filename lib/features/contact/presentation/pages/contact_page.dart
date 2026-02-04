@@ -19,7 +19,7 @@ class ContactPage extends StatelessWidget {
             'contact.title'.tr(),
             style: AppTypography.headlineLg(color: textColors.primaryDefault),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppDimensions.spacingXl),
           // Waiting for user's content...
         ],
       ),

@@ -53,6 +53,33 @@
                 "title": "Ein Jahr Erfahrung",
                 "description": "Ich wagte den Sprung von Pixeln zur Produktion und baute robuste Flutter-Apps mit Clean Architecture und einem Auge für Designdetails."
             }
+        },
+        "skills": {
+            "uiux": {
+                "title": "UI/UX & Produktdesign",
+                "labels": {
+                    "wireframing": "Wireframing",
+                    "prototyping": "Prototyping",
+                    "ai_prompts": "KI-Prompts",
+                    "design_system": "Design-System",
+                    "design_tokens": "Design-Tokens"
+                }
+            },
+            "flutter": {
+                "title": "Flutter-Entwicklung",
+                "labels": {
+                    "dart": "Dart",
+                    "responsive_layout": "Responsives Layout",
+                    "state_management": "Zustandsverwaltung",
+                    "api_integration": "API-Integration",
+                    "reusable_widgets": "Wiederverwendbare Widgets",
+                    "pixel_perfect": "Pixel-perfektes UI"
+                }
+            },
+            "soft_skills": {
+                "title": "Soft Skills",
+                "description": "Starke Kommunikation, Problemlösung, Detailgenauigkeit, Teamarbeit und Anpassungsfähigkeit."
+            }
         }
     },
     "contact": {

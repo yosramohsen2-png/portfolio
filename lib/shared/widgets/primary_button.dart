@@ -40,7 +40,8 @@ class _PrimaryButtonState extends State<PrimaryButton> {
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
     final textColors = AppColors.textColors(brightness);
-    final brandColor = AppColors.lightTextBrandDefault;
+    final bgColors = AppColors.backgroundColors(brightness);
+    final brandColor = bgColors.brandSolid;
 
     // Determine the active variant based on hover
     ButtonVariant activeVariant = widget.variant;
@@ -59,15 +60,15 @@ class _PrimaryButtonState extends State<PrimaryButton> {
     switch (activeVariant) {
       case ButtonVariant.filled:
         backgroundColor = brandColor;
-        textColor = Colors.black;
-        boxBorder = Border.all(color: brandColor, width: 2); // Border exists but matches background
+        textColor = brightness == Brightness.light ? Colors.black : Colors.black; // Brand color usually takes black text
+        boxBorder = Border.all(color: brandColor, width: AppDimensions.borderWidthSm);
         break;
       case ButtonVariant.outlined:
         backgroundColor = Colors.transparent;
-        textColor = brightness == Brightness.light ? Colors.black : Colors.white;
+        textColor = textColors.primaryDefault;
         boxBorder = Border.all(
           color: brandColor,
-          width: 2,
+          width: AppDimensions.borderWidthSm,
         );
         break;
       case ButtonVariant.light:
@@ -98,7 +99,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
           ),
           decoration: BoxDecoration(
             color: backgroundColor,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
             border: boxBorder,
           ),
           child: Row(
@@ -112,14 +113,14 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                   height: iconSize,
                   color: iconColor,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: AppDimensions.spacingMd),
               ] else if (widget.leadingIcon != null) ...[
                 Icon(
                   widget.leadingIcon,
                   size: iconSize,
                   color: iconColor,
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: AppDimensions.spacingMd),
               ],
  
               Text(
@@ -132,7 +133,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
               ),
  
               if (widget.trailingIconAsset != null) ...[
-                const SizedBox(width: 12),
+                const SizedBox(width: AppDimensions.spacingLg),
                 Image.asset(
                   widget.trailingIconAsset!,
                   width: iconSize,
@@ -140,7 +141,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
                   color: iconColor,
                 ),
               ] else if (widget.trailingIcon != null) ...[
-                const SizedBox(width: 12),
+                const SizedBox(width: AppDimensions.spacingLg),
                 Icon(
                   widget.trailingIcon,
                   size: iconSize,
@@ -152,5 +153,6 @@ class _PrimaryButtonState extends State<PrimaryButton> {
         ),
       ),
     );
+
   }
 }

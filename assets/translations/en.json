@@ -53,6 +53,33 @@
         "title": "One Year Experience",
         "description": "I took the leap from pixels to production, building robust Flutter apps with Clean Architecture and a designer’s eye for detail."
       }
+    },
+    "skills": {
+      "uiux": {
+        "title": "UI/UX & Product Design",
+        "labels": {
+          "wireframing": "Wireframing",
+          "prototyping": "Prototyping",
+          "ai_prompts": "AI Prompts",
+          "design_system": "Design System",
+          "design_tokens": "Design Tokens"
+        }
+      },
+      "flutter": {
+        "title": "Flutter Development",
+        "labels": {
+          "dart": "Dart",
+          "responsive_layout": "Responsive Layout",
+          "state_management": "State Management",
+          "api_integration": "API Integration",
+          "reusable_widgets": "Reusable Widgets",
+          "pixel_perfect": "Pixel-Perfect UI"
+        }
+      },
+      "soft_skills": {
+        "title": "Soft Skills",
+        "description": "Strong communication, problem-solving, attention to detail, teamwork, and adaptability."
+      }
     }
   },
   "contact": {

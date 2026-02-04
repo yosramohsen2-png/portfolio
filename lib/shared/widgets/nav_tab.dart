@@ -44,7 +44,7 @@ class NavTab extends StatelessWidget {
             if (isActive) ...[
               SizedBox(height: AppDimensions.spacingXs),
               Container(
-                height: 2,
+                height: AppDimensions.borderWidthSm,
                 decoration: BoxDecoration(
                   color: borderColors.primaryDefault,
                 ),

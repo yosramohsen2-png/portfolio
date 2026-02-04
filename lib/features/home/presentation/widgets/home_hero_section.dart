@@ -188,8 +188,8 @@ class _ActionButtons extends StatelessWidget {
     if (isWeb) {
       // Web: Horizontal, content-sized
       return Wrap(
-        spacing: 24,
-        runSpacing: 20,
+        spacing: AppDimensions.spacing3xl,
+        runSpacing: AppDimensions.spacing2xl,
         alignment: WrapAlignment.center,
         children: [
           _UiUxButton(onPressed: onViewUiUx),
@@ -202,11 +202,12 @@ class _ActionButtons extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _UiUxButton(onPressed: onViewUiUx),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppDimensions.spacingXl),
           _FlutterButton(onPressed: onViewFlutter),
         ],
       );
     }
+
   }
 }
 

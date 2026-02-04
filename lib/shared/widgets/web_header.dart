@@ -41,7 +41,7 @@ class WebHeader extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             color: borderColors.primaryDisabled,
-            width: 1,
+            width: AppDimensions.borderWidthXs,
           ),
         ),
       ),
@@ -68,28 +68,28 @@ class WebHeader extends StatelessWidget {
                   isSelected: selectedRoute == '/',
                   onTap: () => onRouteChanged('/'),
                 ),
-                SizedBox(width: 40),
+                SizedBox(width: AppDimensions.spacing5xl),
                 _WebNavItem(
                   label: 'nav.ui_ux_design'.tr(),
                   route: '/ui-ux-design',
                   isSelected: selectedRoute == '/ui-ux-design',
                   onTap: () => onRouteChanged('/ui-ux-design'),
                 ),
-                SizedBox(width: 40),
+                SizedBox(width: AppDimensions.spacing5xl),
                 _WebNavItem(
                   label: 'nav.flutter_dev'.tr(),
                   route: '/flutter-dev',
                   isSelected: selectedRoute == '/flutter-dev',
                   onTap: () => onRouteChanged('/flutter-dev'),
                 ),
-                SizedBox(width: 40),
+                SizedBox(width: AppDimensions.spacing5xl),
                 _WebNavItem(
                   label: 'nav.about'.tr(),
                   route: '/about',
                   isSelected: selectedRoute == '/about',
                   onTap: () => onRouteChanged('/about'),
                 ),
-                SizedBox(width: 40),
+                SizedBox(width: AppDimensions.spacing5xl),
                 _WebNavItem(
                   label: 'nav.contact'.tr(),
                   route: '/contact',
@@ -154,7 +154,7 @@ class _WebNavItemState extends State<_WebNavItem> {
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 4),
+          padding: EdgeInsets.symmetric(vertical: AppDimensions.spacingXs),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -174,9 +174,9 @@ class _WebNavItemState extends State<_WebNavItem> {
               ),
               // Underline for selected state
               if (widget.isSelected) ...[
-                SizedBox(height: 4),
+                SizedBox(height: AppDimensions.spacingXs),
                 Container(
-                  height: 2,
+                  height: AppDimensions.borderWidthSm,
                   width: widget.label.length * 10.0, // Approximation or full width
                   color: borderColors.primaryDefault, // Brand color (Yellow)
                 ),
@@ -184,7 +184,7 @@ class _WebNavItemState extends State<_WebNavItem> {
                  // Invisible spacer to prevent layout shift if needed, or just nothing
                  // Design shows underline specifically for selected.
                  // To keep height consistent implies we might need a spacer or handle alignment.
-                 SizedBox(height: 6), // 4px gap + 2px line
+                 SizedBox(height: AppDimensions.spacingXs + AppDimensions.borderWidthSm), // 4px gap + 2px line
               ],
             ],
           ),

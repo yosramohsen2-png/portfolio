@@ -10,7 +10,7 @@ class Logo extends StatelessWidget {
   const Logo({
     super.key, 
     this.showIcon = false,
-    this.iconSize = 24,
+    this.iconSize = AppDimensions.iconMd,
   });
 
   @override
@@ -28,8 +28,9 @@ class Logo extends StatelessWidget {
             height: iconSize,
             fit: BoxFit.contain,
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: AppDimensions.spacingMd),
         ],
+
         RichText(
           text: TextSpan(
             children: [

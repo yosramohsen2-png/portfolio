@@ -34,18 +34,18 @@ class ThemeToggle extends StatelessWidget {
         context.read<ThemeCubit>().toggleTheme();
       },
       child: Container(
-        width: 40,
-        height: 40,
-        padding: const EdgeInsets.all(8),
+        width: AppDimensions.spacing5xl,
+        height: AppDimensions.spacing5xl,
+        padding: const EdgeInsets.all(AppDimensions.spacingMd),
         decoration: BoxDecoration(
           color: bgColors.primarySecondary,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
         ),
         child: Center(
           child: Image.asset(
             iconPath,
-            width: 20,
-            height: 20,
+            width: AppDimensions.iconSm,
+            height: AppDimensions.iconSm,
             fit: BoxFit.contain,
              // Apply color if needed, or use original image colors. 
              // Icons like these often have their own colors (Yellow sun, etc).

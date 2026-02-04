@@ -77,7 +77,7 @@ class _PageShellState extends State<PageShell> {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        final isWeb = constraints.maxWidth > 900;
+        final isWeb = constraints.maxWidth >= AppDimensions.breakpointTablet;
 
         return Scaffold(
           backgroundColor: bgColors.primaryDefault,

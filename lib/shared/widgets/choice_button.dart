@@ -29,7 +29,7 @@ class ChoiceButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
         border: Border.all(
           color: borderColors.primaryDisabled,
-          width: 1,
+          width: AppDimensions.borderWidthXs,
         ),
       ),
       child: Wrap(

@@ -50,13 +50,13 @@ class _ExperienceCardState extends State<ExperienceCard> {
           borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
           border: Border.all(
             color: borderColor,
-            width: 1,
+            width: AppDimensions.borderWidthXs,
           ),
           boxShadow: (!isDark && _isHovered)
               ? [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.05),
-                    blurRadius: 20,
+                    blurRadius: AppDimensions.effect2xl,
                     offset: const Offset(0, 10),
                   ),
                 ]
@@ -67,8 +67,8 @@ class _ExperienceCardState extends State<ExperienceCard> {
           children: [
             // Icon with circular background
             Container(
-              height: 48,
-              width: 48,
+              height: AppDimensions.spacing5xl + AppDimensions.spacingMd,
+              width: AppDimensions.spacing5xl + AppDimensions.spacingMd,
               decoration: BoxDecoration(
                 color: bgColors.brandLight.withOpacity(0.2),
                 shape: BoxShape.circle,
@@ -76,9 +76,10 @@ class _ExperienceCardState extends State<ExperienceCard> {
               child: Icon(
                 widget.icon,
                 color: iconColor,
-                size: 24,
+                size: AppDimensions.iconMd,
               ),
             ),
+
             const SizedBox(height: AppDimensions.spacingXl),
             Text(
               widget.title,

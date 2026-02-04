@@ -6,6 +6,7 @@ import 'package:portfolio/shared/widgets/page_shell.dart';
 import 'package:portfolio/features/about/presentation/widgets/about_hero.dart';
 import 'package:portfolio/features/about/presentation/widgets/about_tabs.dart';
 import 'package:portfolio/features/about/presentation/widgets/experience_tab_content.dart';
+import 'package:portfolio/features/about/presentation/widgets/skills_tab_content.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({super.key});
@@ -75,8 +76,8 @@ class _AboutPageState extends State<AboutPage> {
 
   double _getHorizontalPadding(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    if (width > 1200) return width * 0.15;
-    if (width > 768) return AppDimensions.spacing6xl;
+    if (width > AppDimensions.breakpointDesktop) return width * 0.15;
+    if (width >= AppDimensions.breakpointTablet) return AppDimensions.spacing6xl;
     return AppDimensions.spacingXl;
   }
 
@@ -85,7 +86,7 @@ class _AboutPageState extends State<AboutPage> {
       case 0:
         return const ExperienceTabContent();
       case 1:
-        return _buildPlaceholder('about.tabs.skills_placeholder'.tr());
+        return const SkillsTabContent();
       case 2:
         return _buildPlaceholder('about.tabs.values_placeholder'.tr());
       default:
@@ -94,14 +95,19 @@ class _AboutPageState extends State<AboutPage> {
   }
 
   Widget _buildPlaceholder(String text) {
+    final textColors = AppColors.textColors(Theme.of(context).brightness);
     return FadeIn(
       child: Padding(
         padding: const EdgeInsets.all(AppDimensions.spacing5xl),
         child: Text(
           text,
-          style: const TextStyle(fontSize: 20, color: Colors.grey, fontWeight: FontWeight.w500),
+          style: AppTypography.bodyXl(
+            color: textColors.brandDisabled,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );
   }
+
 }

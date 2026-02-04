@@ -32,4 +32,6 @@ class AppAssets {
   static const String icon15 = '$_imagesPath/Icon-15.png';
   static const String icon16 = '$_imagesPath/Icon-16.png';
   static const String icon17 = '$_imagesPath/Icon-17.png';
+  // User Assets
+  static const String userAvatar = '$_imagesPath/user_avatar.png';
 }
