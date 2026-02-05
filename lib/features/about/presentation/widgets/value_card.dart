@@ -39,9 +39,10 @@ class _ValueCardState extends State<ValueCard> {
     final backgroundColor = isMobile ? bgColors.brandLight : bgColors.primaryDisabled;
     final borderColor = borderColors.primaryDefault;
     
-    // On hover, we can slightly darken the background
+    // On hover, we can slightly lighten or darken the background
+    final hoverColor = isDark ? Colors.white : Colors.black;
     final effectiveBgColor = _isHovered 
-        ? Color.lerp(backgroundColor, isDark ? Colors.white : Colors.black, 0.05) 
+        ? Color.lerp(backgroundColor, hoverColor, 0.08) 
         : backgroundColor;
 
     return MouseRegion(
@@ -61,8 +62,11 @@ class _ValueCardState extends State<ValueCard> {
           boxShadow: _isHovered
               ? [
                   BoxShadow(
-                    color: isDark ? Colors.black26 : borderColor.withValues(alpha: 0.2),
-                    blurRadius: AppDimensions.effectLg,
+                    color: isDark 
+                        ? AppColors.darkTextBrandDefault.withValues(alpha: 0.3) 
+                        : borderColor.withValues(alpha: 0.25),
+                    blurRadius: AppDimensions.effect2xl,
+                    spreadRadius: isDark ? 2 : 0,
                     offset: const Offset(0, 8),
                   ),
                 ]
@@ -85,10 +89,10 @@ class _ValueCardState extends State<ValueCard> {
               widget.title,
               textAlign: TextAlign.center,
               style: (isMobile ? AppTypography.headlineSm(
-                color: isDark ? textColors.primaryDefault : textColors.primaryToggle,
+                color: textColors.primaryToggle, // Always dark on yellow background
                 fontWeight: FontWeight.w700,
               ) : AppTypography.headlineMd(
-                color: isDark ? textColors.primaryDefault : textColors.primaryToggle,
+                color: textColors.primaryToggle, // Always dark on yellow background
                 fontWeight: FontWeight.w700,
               )).copyWith(height: 1.2),
             ),
