@@ -28,6 +28,24 @@ class ValuesTabContent extends StatelessWidget {
 
         final cards = _buildCards();
 
+        final width = MediaQuery.of(context).size.width;
+        final isMobile = width < AppDimensions.breakpointTablet;
+
+        if (isMobile) {
+          return Column(
+            children: List.generate(cards.length, (index) {
+              return Padding(
+                padding: EdgeInsets.only(bottom: index == cards.length - 1 ? 0 : spacing),
+                child: FadeInUp(
+                  delay: Duration(milliseconds: 100 * index),
+                  duration: const Duration(milliseconds: 500),
+                  child: cards[index],
+                ),
+              );
+            }),
+          );
+        }
+
         return GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -36,7 +54,7 @@ class ValuesTabContent extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: spacing,
             mainAxisSpacing: spacing,
-            mainAxisExtent: availableWidth > 600 ? 380 : null, // Equal height on large screens without overflow
+            mainAxisExtent: 380, // Equal height on large screens
           ),
           itemCount: cards.length,
           itemBuilder: (context, index) {

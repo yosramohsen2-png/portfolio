@@ -28,6 +28,21 @@ class ExperienceTabContent extends StatelessWidget {
 
         final cards = _buildCards();
 
+        if (isMobile) {
+          return Column(
+            children: List.generate(cards.length, (index) {
+              return Padding(
+                padding: EdgeInsets.only(bottom: index == cards.length - 1 ? 0 : spacing),
+                child: FadeInUp(
+                  delay: Duration(milliseconds: 100 * index),
+                  duration: const Duration(milliseconds: 500),
+                  child: cards[index],
+                ),
+              );
+            }),
+          );
+        }
+
         return GridView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -36,7 +51,7 @@ class ExperienceTabContent extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: spacing,
             mainAxisSpacing: spacing,
-            mainAxisExtent: availableWidth > 750 ? 380 : null, // Increased height for equal cards without overflow
+            mainAxisExtent: 380, // Equal height for cards on web
           ),
           itemCount: cards.length,
           itemBuilder: (context, index) {
