@@ -27,6 +27,8 @@ class ExperienceTabContent extends StatelessWidget {
         double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount - 0.5;
 
         final cards = _buildCards();
+        final width = MediaQuery.of(context).size.width;
+        final isMobile = width < AppDimensions.breakpointTablet;
 
         if (isMobile) {
           return Column(
