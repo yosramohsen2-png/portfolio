@@ -38,13 +38,16 @@ class _ExperienceCardState extends State<ExperienceCard> {
     final iconColor = iconColors.primaryHover;
     final descriptionColor = textColors.primaryDisabled2;
 
+    final width = MediaQuery.of(context).size.width;
+    final isMobile = width < AppDimensions.breakpointTablet;
+
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         width: double.infinity,
-        padding: const EdgeInsets.all(AppDimensions.spacing2xl),
+        padding: EdgeInsets.all(isMobile ? AppDimensions.spacingXl : AppDimensions.spacing2xl),
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
@@ -67,8 +70,8 @@ class _ExperienceCardState extends State<ExperienceCard> {
           children: [
             // Icon with circular background
             Container(
-              height: AppDimensions.spacing5xl + AppDimensions.spacingMd,
-              width: AppDimensions.spacing5xl + AppDimensions.spacingMd,
+              height: isMobile ? AppDimensions.spacing4xl + AppDimensions.spacingMd : AppDimensions.spacing5xl + AppDimensions.spacingMd,
+              width: isMobile ? AppDimensions.spacing4xl + AppDimensions.spacingMd : AppDimensions.spacing5xl + AppDimensions.spacingMd,
               decoration: BoxDecoration(
                 color: bgColors.brandLight.withValues(alpha: 0.2),
                 shape: BoxShape.circle,
@@ -76,23 +79,27 @@ class _ExperienceCardState extends State<ExperienceCard> {
               child: Icon(
                 widget.icon,
                 color: iconColor,
-                size: AppDimensions.iconMd,
+                size: isMobile ? AppDimensions.iconSm : AppDimensions.iconMd,
               ),
             ),
 
-            const SizedBox(height: AppDimensions.spacingXl),
+            SizedBox(height: isMobile ? AppDimensions.spacingLg : AppDimensions.spacingXl),
             Text(
               widget.title,
-              style: AppTypography.headlineSm(
+              style: (isMobile ? AppTypography.headlineXs(
                 color: textColors.primaryDefault,
-              ).copyWith(fontWeight: FontWeight.w800, height: 1.2),
+              ) : AppTypography.headlineSm(
+                color: textColors.primaryDefault,
+              )).copyWith(fontWeight: FontWeight.w800, height: 1.2),
             ),
-            const SizedBox(height: AppDimensions.spacingLg),
+            SizedBox(height: isMobile ? AppDimensions.spacingMd : AppDimensions.spacingLg),
             Text(
               widget.description,
-              style: AppTypography.bodyMd(
+              style: (isMobile ? AppTypography.bodySm(
                 color: descriptionColor,
-              ).copyWith(fontWeight: FontWeight.w500, height: 1.5),
+              ) : AppTypography.bodyMd(
+                color: descriptionColor,
+              )).copyWith(fontWeight: FontWeight.w500, height: 1.5),
             ),
           ],
         ),

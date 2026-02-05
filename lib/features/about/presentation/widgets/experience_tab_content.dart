@@ -36,7 +36,7 @@ class ExperienceTabContent extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: spacing,
             mainAxisSpacing: spacing,
-            mainAxisExtent: availableWidth > 750 ? 300 : null, // Fixed height on web for equal cards
+            mainAxisExtent: availableWidth > 750 ? 380 : null, // Increased height for equal cards without overflow
           ),
           itemCount: cards.length,
           itemBuilder: (context, index) {

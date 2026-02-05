@@ -36,7 +36,7 @@ class ValuesTabContent extends StatelessWidget {
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: spacing,
             mainAxisSpacing: spacing,
-            mainAxisExtent: availableWidth > 600 ? 320 : null, // Equal height on large screens
+            mainAxisExtent: availableWidth > 600 ? 380 : null, // Equal height on large screens without overflow
           ),
           itemCount: cards.length,
           itemBuilder: (context, index) {
