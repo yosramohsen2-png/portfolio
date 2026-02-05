@@ -129,22 +129,11 @@ class _PageShellState extends State<PageShell> {
   }
 
   Widget _buildBody(bool isWeb) {
-    final horizontalPadding = isWeb ? AppDimensions.spacing5xl : AppDimensions.spacingXl;
-    final verticalPadding = isWeb ? AppDimensions.spacing7xl : AppDimensions.spacing8xl;
-
     return SingleChildScrollView(
       controller: _scrollController,
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: horizontalPadding,
-          vertical: verticalPadding,
-        ),
-        child: Center(
-          child: FadeIn(
-            duration: const Duration(milliseconds: 800),
-            child: widget.body,
-          ),
-        ),
+      child: FadeInUp(
+        duration: const Duration(milliseconds: 800),
+        child: widget.body,
       ),
     );
   }

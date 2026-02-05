@@ -26,7 +26,7 @@ class _AboutPageState extends State<AboutPage> {
       key: ValueKey(context.locale.languageCode),
       child: PageShell(
         currentRoute: '/about',
-        body: SingleChildScrollView(
+        body: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: _getHorizontalPadding(context),
             vertical: AppDimensions.spacing6xl,
@@ -34,34 +34,27 @@ class _AboutPageState extends State<AboutPage> {
           child: Column(
             children: [
               // Hero Section
-              FadeInDown(
-                duration: const Duration(milliseconds: 800),
-                child: AboutHero(
-                  title: 'about.title'.tr(),
-                  role: 'about.role'.tr(),
-                  description: 'about.description'.tr(),
-                ),
+              AboutHero(
+                title: 'about.title'.tr(),
+                role: 'about.role'.tr(),
+                description: 'about.description'.tr(),
               ),
               
               const SizedBox(height: AppDimensions.spacing5xl),
 
               // Tabs Section
-              FadeInUp(
-                delay: const Duration(milliseconds: 200),
-                duration: const Duration(milliseconds: 600),
-                child: AboutTabs(
-                  selectedIndex: _selectedTabIndex,
-                  tabs: [
-                    'about.tabs.experience'.tr(),
-                    'about.tabs.skills'.tr(),
-                    'about.tabs.values'.tr(),
-                  ],
-                  onTabSelected: (index) {
-                    setState(() {
-                      _selectedTabIndex = index;
-                    });
-                  },
-                ),
+              AboutTabs(
+                selectedIndex: _selectedTabIndex,
+                tabs: [
+                  'about.tabs.experience'.tr(),
+                  'about.tabs.skills'.tr(),
+                  'about.tabs.values'.tr(),
+                ],
+                onTabSelected: (index) {
+                  setState(() {
+                    _selectedTabIndex = index;
+                  });
+                },
               ),
 
               const SizedBox(height: AppDimensions.spacing3xl),
