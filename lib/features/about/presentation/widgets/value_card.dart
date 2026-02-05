@@ -35,14 +35,22 @@ class _ValueCardState extends State<ValueCard> {
     final iconColors = AppColors.iconColors(brightness);
 
     // Styling based on mockup
-    // Web: primaryDisabled (50% opacity), Mobile: brandLight (100% opacity)
-    final backgroundColor = isMobile ? bgColors.brandLight : bgColors.primaryDisabled;
+    // Corrected logic to ensure consistency across themes:
+    // Web (Desktop) always gets 50% opacity yellow, Mobile always gets 100% opacity yellow.
+    // Based on AppColors: 
+    // Light: brandLight (100%), primaryDisabled (50%)
+    // Dark: primaryDisabled (100%), brandLight (50%)
+    final backgroundColor = isMobile 
+        ? (isDark ? bgColors.primaryDisabled : bgColors.brandLight)
+        : (isDark ? bgColors.brandLight : bgColors.primaryDisabled);
+    
     final borderColor = borderColors.primaryDefault;
     
-    // On hover, we can slightly lighten or darken the background
+    // On hover, we produce a subtle shift
+    // In dark mode we lighten, in light mode we darken slightly
     final hoverColor = isDark ? Colors.white : Colors.black;
     final effectiveBgColor = _isHovered 
-        ? Color.lerp(backgroundColor, hoverColor, 0.08) 
+        ? Color.lerp(backgroundColor, hoverColor, 0.12) // Slightly more intense lerp
         : backgroundColor;
 
     return MouseRegion(
