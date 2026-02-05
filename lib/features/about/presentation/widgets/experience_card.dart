@@ -55,7 +55,7 @@ class _ExperienceCardState extends State<ExperienceCard> {
           boxShadow: (!isDark && _isHovered)
               ? [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: AppDimensions.effect2xl,
                     offset: const Offset(0, 10),
                   ),
@@ -70,7 +70,7 @@ class _ExperienceCardState extends State<ExperienceCard> {
               height: AppDimensions.spacing5xl + AppDimensions.spacingMd,
               width: AppDimensions.spacing5xl + AppDimensions.spacingMd,
               decoration: BoxDecoration(
-                color: bgColors.brandLight.withOpacity(0.2),
+                color: bgColors.brandLight.withValues(alpha: 0.2),
                 shape: BoxShape.circle,
               ),
               child: Icon(

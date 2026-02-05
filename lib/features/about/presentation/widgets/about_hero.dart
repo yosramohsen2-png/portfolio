@@ -64,7 +64,7 @@ class AboutHero extends StatelessWidget {
                     BoxShadow(
                       color: AppColors.backgroundColors(
                         brightness,
-                      ).brandSolid.withOpacity(0.35),
+                      ).brandSolid.withValues(alpha: 0.35),
                       blurRadius: AppDimensions.effect4xl,
                       spreadRadius: AppDimensions.effectLg,
                     ),
@@ -172,7 +172,7 @@ class AboutHero extends StatelessWidget {
           border: Border.all(
             color: AppColors.backgroundColors(
               brightness,
-            ).brandSolid.withOpacity(0.1),
+            ).brandSolid.withValues(alpha: 0.1),
             width: AppDimensions.borderWidthXs * 0.8,
           ),
         ),

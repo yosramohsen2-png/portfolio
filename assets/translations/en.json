@@ -80,6 +80,20 @@
         "title": "Soft Skills",
         "description": "Strong communication, problem-solving, attention to detail, teamwork, and adaptability."
       }
+    },
+    "values": {
+      "quality": {
+        "title": "Quality First",
+        "description": "Every pixel matters. I strive for excellence in every detail."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Great work comes from great teamwork and communication."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Always exploring new technologies and design trends."
+      }
     }
   },
   "contact": {

@@ -28,20 +28,24 @@ class ExperienceTabContent extends StatelessWidget {
 
         final cards = _buildCards();
 
-        return Wrap(
-          spacing: spacing,
-          runSpacing: spacing,
-          alignment: WrapAlignment.start,
-          children: List.generate(cards.length, (index) {
+        return GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          padding: EdgeInsets.zero,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            crossAxisSpacing: spacing,
+            mainAxisSpacing: spacing,
+            mainAxisExtent: availableWidth > 750 ? 300 : null, // Fixed height on web for equal cards
+          ),
+          itemCount: cards.length,
+          itemBuilder: (context, index) {
             return FadeInUp(
               delay: Duration(milliseconds: 100 * index),
               duration: const Duration(milliseconds: 500),
-              child: SizedBox(
-                width: cardWidth.isNegative ? 0 : cardWidth,
-                child: cards[index],
-              ),
+              child: cards[index],
             );
-          }),
+          },
         );
       },
     );
