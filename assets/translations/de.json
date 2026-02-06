@@ -34,8 +34,8 @@
         "title": "UI/UX Design",
         "subtitle": "Intuitive Benutzererfahrungen gestalten",
         "description": "Erkunden Sie mein Design-Portfolio mit benutzerzentrierten Design-Lösungen.",
-        "projects": [
-            {
+        "projects": {
+            "0": {
                 "title": "Smart Home Dashboard",
                 "description": "Ein zentralisiertes Steuerungssystem für Smart-Home-Geräte mit Fokus auf Einfachheit und Barrierefreiheit.",
                 "tags": [
@@ -44,7 +44,7 @@
                     "UX Research"
                 ]
             },
-            {
+            "1": {
                 "title": "E-Commerce-Neugestaltung",
                 "description": "Neugestaltung des Einkaufserlebnisses für einen großen Elektronikhändler zur Verbesserung der Konversionsraten.",
                 "tags": [
@@ -53,7 +53,7 @@
                     "UX Audit"
                 ]
             },
-            {
+            "2": {
                 "title": "Fitness-Tracker-App",
                 "description": "Ein ganzheitlicher Ansatz zur Fitnessverfolgung, der Workout-Logging mit Ernährungsüberwachung kombiniert.",
                 "tags": [
@@ -62,14 +62,14 @@
                     "Gamification"
                 ]
             }
-        ]
+        }
     },
     "flutter_dev": {
         "title": "Flutter Entwicklung",
         "subtitle": "Cross-Plattform-Anwendungen erstellen",
         "description": "Entdecken Sie meine Flutter-Projekte und meine Expertise in der mobilen Entwicklung.",
-        "projects": [
-            {
+        "projects": {
+            "0": {
                 "title": "Task Management Pro",
                 "description": "Eine leistungsstarke Aufgabenmanagement-App, die mit Flutter und BLoC für die Zustandsverwaltung entwickelt wurde.",
                 "tags": [
@@ -78,7 +78,7 @@
                     "Firebase"
                 ]
             },
-            {
+            "1": {
                 "title": "Rezept-Entdecker",
                 "description": "Eine plattformübergreifende Rezeptanwendung mit Offline-Unterstützung und erweiterter Filterung.",
                 "tags": [
@@ -87,7 +87,7 @@
                     "REST API"
                 ]
             },
-            {
+            "2": {
                 "title": "Krypto-Portfolio-Tracker",
                 "description": "Echtzeit-Kryptowährungsverfolgung mit interaktiven Diagrammen und Portfolio-Analysen.",
                 "tags": [
@@ -96,7 +96,7 @@
                     "WebSockets"
                 ]
             }
-        ]
+        }
     },
     "about": {
         "title": "Über mich",

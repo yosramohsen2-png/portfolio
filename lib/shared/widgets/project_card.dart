@@ -70,7 +70,7 @@ class ProjectCard extends StatelessWidget {
                   ),
                   if (hasGradientOverlay)
                     Container(
-                      width: 319,
+                      width: double.infinity,
                       height: 256,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(

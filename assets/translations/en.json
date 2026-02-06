@@ -34,8 +34,8 @@
     "title": "UI/UX Design",
     "subtitle": "Crafting Intuitive User Experiences",
     "description": "Explore my design portfolio showcasing user-centered design solutions.",
-    "projects": [
-      {
+    "projects": {
+      "0": {
         "title": "Smart Home Dashboard",
         "description": "A centralized control system for smart home devices with a focus on simplicity and accessibility.",
         "tags": [
@@ -44,7 +44,7 @@
           "UX Research"
         ]
       },
-      {
+      "1": {
         "title": "E-commerce Redesign",
         "description": "Redesigning the shopping experience for a major electronics retailer to improve conversion rates.",
         "tags": [
@@ -53,7 +53,7 @@
           "UX Audit"
         ]
       },
-      {
+      "2": {
         "title": "Fitness Tracker App",
         "description": "A holistic approach to fitness tracking, combining workout logging with nutritional monitoring.",
         "tags": [
@@ -62,14 +62,14 @@
           "Gamification"
         ]
       }
-    ]
+    }
   },
   "flutter_dev": {
     "title": "Flutter Development",
     "subtitle": "Building Cross-Platform Applications",
     "description": "Discover my Flutter projects and mobile development expertise.",
-    "projects": [
-      {
+    "projects": {
+      "0": {
         "title": "Task Management Pro",
         "description": "A high-performance task management app built with Flutter and BLoC for state management.",
         "tags": [
@@ -78,7 +78,7 @@
           "Firebase"
         ]
       },
-      {
+      "1": {
         "title": "Recipe Explorer",
         "description": "A cross-platform recipe application featuring offline support and advanced filtering.",
         "tags": [
@@ -87,7 +87,7 @@
           "REST API"
         ]
       },
-      {
+      "2": {
         "title": "Crypto Portfolio Tracker",
         "description": "Real-time cryptocurrency tracking with interactive charts and portfolio analytics.",
         "tags": [
@@ -96,7 +96,7 @@
           "WebSockets"
         ]
       }
-    ]
+    }
   },
   "about": {
     "title": "About Me",
