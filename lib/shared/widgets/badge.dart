@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
-
-enum BadgeSize { small, medium, large }
+import 'package:portfolio/shared/widgets/badge_size.dart';
 
 class Badge extends StatefulWidget {
   final String label;
@@ -43,10 +42,7 @@ class _BadgeState extends State<Badge> {
   }
 
   TextStyle _getTextStyle(BuildContext context, TextColors textColors) {
-    // Brand design shows brownish text on yellow bg
     Color color = textColors.primaryDisabled;
-    
-    // If hovered, maybe make text a bit more prominent
     if (_isHovered) {
       color = textColors.primaryDefault;
     }
@@ -76,7 +72,7 @@ class _BadgeState extends State<Badge> {
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
-      cursor: SystemMouseCursors.basic, // Badges are usually not clickable unless they are tags
+      cursor: SystemMouseCursors.basic,
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: _padding,
@@ -87,46 +83,6 @@ class _BadgeState extends State<Badge> {
         child: Text(
           widget.label,
           style: _getTextStyle(context, textColors),
-        ),
-      ),
-    );
-  }
-}
-
-class BadgeSecondary extends StatelessWidget {
-  final String label;
-  final BadgeSize size;
-
-  const BadgeSecondary({
-    super.key,
-    required this.label,
-    this.size = BadgeSize.large,
-  });
-
-  EdgeInsets get _padding {
-    return EdgeInsets.symmetric(
-      horizontal: AppDimensions.spacingXl,
-      vertical: AppDimensions.spacingMd,
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final brightness = Theme.of(context).brightness;
-    final bgColors = AppColors.backgroundColors(brightness);
-    final textColors = AppColors.textColors(brightness);
-
-    return Container(
-      padding: _padding,
-      decoration: BoxDecoration(
-        color: bgColors.primarySecondary,
-        borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
-      ),
-      child: Text(
-        label,
-        style: AppTypography.bodyXl(
-          color: textColors.primaryDisabled,
-          fontWeight: FontWeight.w700,
         ),
       ),
     );

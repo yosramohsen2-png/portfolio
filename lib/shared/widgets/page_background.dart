@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
+import 'package:portfolio/shared/widgets/outlined_circle.dart';
 
 class HomeBackground extends StatelessWidget {
   final bool isWeb;
@@ -29,13 +30,12 @@ class HomeBackground extends StatelessWidget {
             return Stack(
               children: [
                 if (!isWeb) ...[
-                  // Mobile: Large Faded Logo in background
                   Center(
                     child: Opacity(
-                      opacity: 0.4, // Increased for visibility
+                      opacity: 0.4,
                       child: Image.asset(
                         AppAssets.bgLogo,
-                        width: MediaQuery.of(context).size.width * 0.8, // 80% of screen width
+                        width: MediaQuery.of(context).size.width * 0.8,
                         fit: BoxFit.contain,
                         filterQuality: FilterQuality.high,
                         isAntiAlias: true,
@@ -43,35 +43,49 @@ class HomeBackground extends StatelessWidget {
                     ),
                   ),
                 ],
-                
+
                 if (isWeb) ...[
-                  // Web: Three large circles with parallax and mouse tracking
                   Positioned(
                     left: -100 + (mouseOffset.dx * 0.04),
                     top: 100 - (scrollOffset * 0.6) + (mouseOffset.dy * 0.04),
-                    child: _OutlinedCircle(size: 500, color: bgColors.brandShapes),
+                    child: OutlinedCircle(
+                      size: 500,
+                      color: bgColors.brandShapes,
+                    ),
                   ),
                   Positioned(
                     right: -200 - (mouseOffset.dx * 0.06),
-                    bottom: -100 + (scrollOffset * 0.9) - (mouseOffset.dy * 0.06),
-                    child: _OutlinedCircle(size: 700, color: bgColors.brandShapes),
+                    bottom:
+                        -100 + (scrollOffset * 0.9) - (mouseOffset.dy * 0.06),
+                    child: OutlinedCircle(
+                      size: 700,
+                      color: bgColors.brandShapes,
+                    ),
                   ),
                   Positioned(
                     left: 400 + (mouseOffset.dx * 0.03),
                     top: 400 - (scrollOffset * 0.4) + (mouseOffset.dy * 0.03),
-                    child: _OutlinedCircle(size: 600, color: bgColors.brandShapes),
+                    child: OutlinedCircle(
+                      size: 600,
+                      color: bgColors.brandShapes,
+                    ),
                   ),
                 ] else ...[
-                  // Mobile: Noticeable parallax
                   Positioned(
                     left: -50,
                     top: 150 - (scrollOffset * 0.5),
-                    child: _OutlinedCircle(size: 300, color: bgColors.brandShapes),
+                    child: OutlinedCircle(
+                      size: 300,
+                      color: bgColors.brandShapes,
+                    ),
                   ),
                   Positioned(
                     right: -100,
                     bottom: 100 + (scrollOffset * 0.7),
-                    child: _OutlinedCircle(size: 400, color: bgColors.brandShapes),
+                    child: OutlinedCircle(
+                      size: 400,
+                      color: bgColors.brandShapes,
+                    ),
                   ),
                 ],
               ],
@@ -79,41 +93,6 @@ class HomeBackground extends StatelessWidget {
           },
         );
       },
-    );
-  }
-}
-
-class _OutlinedCircle extends StatefulWidget {
-  final double size;
-  final Color color;
-
-  const _OutlinedCircle({required this.size, required this.color});
-
-  @override
-  State<_OutlinedCircle> createState() => _OutlinedCircleState();
-}
-
-class _OutlinedCircleState extends State<_OutlinedCircle> {
-  bool _isHovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 500),
-        width: widget.size,
-        height: widget.size,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: _isHovered ? widget.color.withOpacity(0.5) : widget.color.withOpacity(0.25), // Increased border opacity
-            width: 1.5,
-          ),
-          color: _isHovered ? widget.color.withOpacity(0.08) : widget.color.withOpacity(0.03), // Added subtle fill
-        ),
-      ),
     );
   }
 }

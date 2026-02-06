@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/theme/colors/color_palette.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
@@ -71,7 +72,7 @@ class _ValueCardState extends State<ValueCard> {
               ? [
                   BoxShadow(
                     color: isDark 
-                        ? AppColors.darkTextBrandDefault.withValues(alpha: 0.3) 
+                        ? ColorPalette.darkTextBrandDefault.withValues(alpha: 0.3) 
                         : borderColor.withValues(alpha: 0.25),
                     blurRadius: AppDimensions.effect2xl,
                     spreadRadius: isDark ? 2 : 0,

@@ -5,7 +5,7 @@ import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 import 'package:portfolio/shared/widgets/badge.dart';
-import 'package:portfolio/shared/widgets/badge_group.dart';
+import 'package:portfolio/features/about/presentation/widgets/skills_section.dart';
 
 class SkillsTabContent extends StatelessWidget {
   const SkillsTabContent({super.key});
@@ -28,7 +28,7 @@ class SkillsTabContent extends StatelessWidget {
         // 1. UI/UX & Product Design
         FadeInUp(
           duration: const Duration(milliseconds: 500),
-          child: _SkillsSection(
+          child: SkillsSection(
             title: isMobile ? 'about.skills.uiux.title'.tr() : null,
             badgeSize: badgeSize,
             wrapAlignment: wrapAlignment,
@@ -48,7 +48,7 @@ class SkillsTabContent extends StatelessWidget {
         FadeInUp(
           delay: const Duration(milliseconds: 100),
           duration: const Duration(milliseconds: 500),
-          child: _SkillsSection(
+          child: SkillsSection(
             title: isMobile ? 'about.skills.flutter.title'.tr() : null,
             badgeSize: badgeSize,
             wrapAlignment: wrapAlignment,
@@ -87,47 +87,6 @@ class SkillsTabContent extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ],
-    );
-  }
-}
-
-class _SkillsSection extends StatelessWidget {
-  final String? title;
-  final List<String> labels;
-  final BadgeSize badgeSize;
-  final WrapAlignment wrapAlignment;
-
-  const _SkillsSection({
-    this.title,
-    required this.labels,
-    required this.badgeSize,
-    required this.wrapAlignment,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final textColors = AppColors.textColors(Theme.of(context).brightness);
-
-    return Column(
-      crossAxisAlignment: wrapAlignment == WrapAlignment.center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-      children: [
-        if (title != null) ...[
-          Text(
-            title!,
-            style: AppTypography.headlineSm(
-              color: textColors.primaryDefault,
-            ).copyWith(fontWeight: FontWeight.w800),
-          ),
-          const SizedBox(height: AppDimensions.spacingMd),
-        ],
-        BadgeGroup(
-          labels: labels,
-          size: badgeSize,
-          alignment: wrapAlignment,
-          spacing: wrapAlignment == WrapAlignment.center ? AppDimensions.spacingXl : AppDimensions.spacingMd,
-          runSpacing: AppDimensions.spacingMd,
         ),
       ],
     );

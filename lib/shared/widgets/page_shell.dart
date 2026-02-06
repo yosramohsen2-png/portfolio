@@ -5,21 +5,17 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio/core/localization/locale_cubit.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
-import 'package:portfolio/features/home/presentation/widgets/home_background.dart';
 import 'package:portfolio/features/home/presentation/widgets/mobile_header.dart';
 import 'package:portfolio/features/home/presentation/widgets/web_header_wrapper.dart';
 import 'package:portfolio/shared/widgets/custom_drawer.dart';
+import 'package:portfolio/shared/widgets/page_background.dart';
 
 /// A shared shell for all pages to ensure consistent header, drawer, and background.
 class PageShell extends StatefulWidget {
   final Widget body;
   final String currentRoute;
 
-  const PageShell({
-    super.key,
-    required this.body,
-    required this.currentRoute,
-  });
+  const PageShell({super.key, required this.body, required this.currentRoute});
 
   @override
   State<PageShell> createState() => _PageShellState();
@@ -81,7 +77,9 @@ class _PageShellState extends State<PageShell> {
 
         return Scaffold(
           backgroundColor: bgColors.primaryDefault,
-          drawer: isWeb ? null : CustomDrawer(currentRoute: widget.currentRoute),
+          drawer: isWeb
+              ? null
+              : CustomDrawer(currentRoute: widget.currentRoute),
           body: MouseRegion(
             onHover: isWeb ? _onMouseMove : null,
             child: Stack(
@@ -99,9 +97,7 @@ class _PageShellState extends State<PageShell> {
                 Column(
                   children: [
                     _buildHeader(isWeb, selectedLanguage),
-                    Expanded(
-                      child: _buildBody(isWeb),
-                    ),
+                    Expanded(child: _buildBody(isWeb)),
                   ],
                 ),
               ],

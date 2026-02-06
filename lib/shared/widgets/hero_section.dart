@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/core/theme/colors/text_colors.dart';
 
 enum HeroSectionSize { large, medium, small }
 
@@ -63,10 +64,7 @@ class HeroSection extends StatelessWidget {
         SizedBox(height: _spacing),
 
         // Name
-        SizedBox(
-          height: 64,
-          child: _buildName(textColors),
-        ),
+        SizedBox(height: 64, child: _buildName(textColors)),
         SizedBox(height: _spacing),
 
         // Subtitle
@@ -113,15 +111,12 @@ class HeroSection extends StatelessWidget {
       textAlign: _textAlign,
       text: TextSpan(
         children: [
-          TextSpan(
-            text: '$firstName ',
-            style: _getNameStyle(textColors),
-          ),
+          TextSpan(text: '$firstName ', style: _getNameStyle(textColors)),
           TextSpan(
             text: lastName,
-            style: _getNameStyle(textColors).copyWith(
-              color: textColors.brandDefault,
-            ),
+            style: _getNameStyle(
+              textColors,
+            ).copyWith(color: textColors.brandDefault),
           ),
         ],
       ),
@@ -133,20 +128,11 @@ class HeroSection extends StatelessWidget {
 
     switch (size) {
       case HeroSectionSize.large:
-        return AppTypography.bodyXl(
-          color: color,
-          fontWeight: FontWeight.w500,
-        );
+        return AppTypography.bodyXl(color: color, fontWeight: FontWeight.w500);
       case HeroSectionSize.medium:
-        return AppTypography.bodyLg(
-          color: color,
-          fontWeight: FontWeight.w500,
-        );
+        return AppTypography.bodyLg(color: color, fontWeight: FontWeight.w500);
       case HeroSectionSize.small:
-        return AppTypography.bodyMd(
-          color: color,
-          fontWeight: FontWeight.w500,
-        );
+        return AppTypography.bodyMd(color: color, fontWeight: FontWeight.w500);
     }
   }
 
@@ -199,20 +185,11 @@ class HeroSection extends StatelessWidget {
 
     switch (size) {
       case HeroSectionSize.large:
-        return AppTypography.bodyXl(
-          color: color,
-          fontWeight: FontWeight.w500,
-        );
+        return AppTypography.bodyXl(color: color, fontWeight: FontWeight.w500);
       case HeroSectionSize.medium:
-        return AppTypography.bodyLg(
-          color: color,
-          fontWeight: FontWeight.w500,
-        );
+        return AppTypography.bodyLg(color: color, fontWeight: FontWeight.w500);
       case HeroSectionSize.small:
-        return AppTypography.bodyMd(
-          color: color,
-          fontWeight: FontWeight.w500,
-        );
+        return AppTypography.bodyMd(color: color, fontWeight: FontWeight.w500);
     }
   }
 }

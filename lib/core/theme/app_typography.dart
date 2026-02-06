@@ -1,324 +1,146 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/theme/typography/font_sizes.dart';
+import 'package:portfolio/core/theme/typography/line_heights.dart';
 
-/// App typography system with font sizes, line heights, and text styles
+/// App typography system with text styles
 class AppTypography {
   AppTypography._();
 
-  // ============================================================================
-  // FONT SIZES
-  // ============================================================================
-
-  /// Headline 3XL font size (82)
-  static const double fontSizeHeadline3xl = 82;
-
-  /// Headline 2XL font size (72)
-  static const double fontSizeHeadline2xl = 72;
-
-  /// Headline XL font size (60)
-  static const double fontSizeHeadlineXl = 60;
-
-  /// Headline Large font size (48)
-  static const double fontSizeHeadlineLg = 48;
-
-  /// Headline Medium font size (36)
-  static const double fontSizeHeadlineMd = 36;
-
-  /// Headline Small font size (30)
-  static const double fontSizeHeadlineSm = 30;
-
-  /// Headline Extra Small font size (24)
-  static const double fontSizeHeadlineXs = 24;
-
-  /// Body Extra Large font size (20)
-  static const double fontSizeBodyXl = 20;
-
-  /// Body Large font size (18)
-  static const double fontSizeBodyLg = 18;
-
-  /// Body Medium font size (16)
-  static const double fontSizeBodyMd = 16;
-
-  /// Body Small font size (14)
-  static const double fontSizeBodySm = 14;
-
-  /// Label Medium font size (14)
-  static const double fontSizeLabelMd = 14;
-
-  /// Label Small font size (12)
-  static const double fontSizeLabelSm = 12;
-
-  // ============================================================================
-  // LINE HEIGHTS
-  // ============================================================================
-
-  /// Headline 2XL line height (90)
-  static const double lineHeightHeadline2xl = 90;
-
-  /// Headline XL line height (72)
-  static const double lineHeightHeadlineXl = 72;
-
-  /// Headline Large line height (60)
-  static const double lineHeightHeadlineLg = 60;
-
-  /// Headline Medium line height (44)
-  static const double lineHeightHeadlineMd = 44;
-
-  /// Headline Small line height (38)
-  static const double lineHeightHeadlineSm = 38;
-
-  /// Headline Extra Small line height (32)
-  static const double lineHeightHeadlineXs = 32;
-
-  /// Body Extra Large line height (30)
-  static const double lineHeightBodyXl = 30;
-
-  /// Body Large line height (28)
-  static const double lineHeightBodyLg = 28;
-
-  /// Body Medium line height (24)
-  static const double lineHeightBodyMd = 24;
-
-  /// Body Small line height (20)
-  static const double lineHeightBodySm = 20;
-
-  /// Label line height (18)
-  static const double lineHeightLabel = 18;
-
-  // ============================================================================
-  // TEXT STYLES - HEADLINES
-  // ============================================================================
-
-  /// Headline 3XL text style
-  static TextStyle headline3xl({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  // HEADLINES
+  static TextStyle headline3xl({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadline3xl,
-        height: lineHeightHeadline2xl / fontSizeHeadline3xl,
+        fontSize: FontSizes.headline3xl,
+        height: LineHeights.headline2xl / FontSizes.headline3xl,
         color: color,
         fontWeight: fontWeight ?? FontWeight.bold,
         letterSpacing: letterSpacing,
       );
 
-  /// Headline 2XL text style
-  static TextStyle headline2xl({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle headline2xl({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadline2xl,
-        height: lineHeightHeadline2xl / fontSizeHeadline2xl,
+        fontSize: FontSizes.headline2xl,
+        height: LineHeights.headline2xl / FontSizes.headline2xl,
         color: color,
         fontWeight: fontWeight ?? FontWeight.bold,
         letterSpacing: letterSpacing,
       );
 
-  /// Headline XL text style
-  static TextStyle headlineXl({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle headlineXl({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadlineXl,
-        height: lineHeightHeadlineXl / fontSizeHeadlineXl,
+        fontSize: FontSizes.headlineXl,
+        height: LineHeights.headlineXl / FontSizes.headlineXl,
         color: color,
         fontWeight: fontWeight ?? FontWeight.bold,
         letterSpacing: letterSpacing,
       );
 
-  /// Headline Large text style
-  static TextStyle headlineLg({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle headlineLg({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadlineLg,
-        height: lineHeightHeadlineLg / fontSizeHeadlineLg,
+        fontSize: FontSizes.headlineLg,
+        height: LineHeights.headlineLg / FontSizes.headlineLg,
         color: color,
         fontWeight: fontWeight ?? FontWeight.bold,
         letterSpacing: letterSpacing,
       );
 
-  /// Headline Medium text style
-  static TextStyle headlineMd({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle headlineMd({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadlineMd,
-        height: lineHeightHeadlineMd / fontSizeHeadlineMd,
+        fontSize: FontSizes.headlineMd,
+        height: LineHeights.headlineMd / FontSizes.headlineMd,
         color: color,
         fontWeight: fontWeight ?? FontWeight.bold,
         letterSpacing: letterSpacing,
       );
 
-  /// Headline Small text style
-  static TextStyle headlineSm({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle headlineSm({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadlineSm,
-        height: lineHeightHeadlineSm / fontSizeHeadlineSm,
+        fontSize: FontSizes.headlineSm,
+        height: LineHeights.headlineSm / FontSizes.headlineSm,
         color: color,
         fontWeight: fontWeight ?? FontWeight.w600,
         letterSpacing: letterSpacing,
       );
 
-  /// Headline Extra Small text style
-  static TextStyle headlineXs({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle headlineXs({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeHeadlineXs,
-        height: lineHeightHeadlineXs / fontSizeHeadlineXs,
+        fontSize: FontSizes.headlineXs,
+        height: LineHeights.headlineXs / FontSizes.headlineXs,
         color: color,
         fontWeight: fontWeight ?? FontWeight.w600,
         letterSpacing: letterSpacing,
       );
 
-  // ============================================================================
-  // TEXT STYLES - BODY
-  // ============================================================================
-
-  /// Body Extra Large text style
-  static TextStyle bodyXl({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  // BODY
+  static TextStyle bodyXl({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeBodyXl,
-        height: lineHeightBodyXl / fontSizeBodyXl,
+        fontSize: FontSizes.bodyXl,
+        height: LineHeights.bodyXl / FontSizes.bodyXl,
         color: color,
         fontWeight: fontWeight ?? FontWeight.normal,
         letterSpacing: letterSpacing,
       );
 
-  /// Body Large text style
-  static TextStyle bodyLg({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle bodyLg({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeBodyLg,
-        height: lineHeightBodyLg / fontSizeBodyLg,
+        fontSize: FontSizes.bodyLg,
+        height: LineHeights.bodyLg / FontSizes.bodyLg,
         color: color,
         fontWeight: fontWeight ?? FontWeight.normal,
         letterSpacing: letterSpacing,
       );
 
-  /// Body Medium text style
-  static TextStyle bodyMd({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle bodyMd({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeBodyMd,
-        height: lineHeightBodyMd / fontSizeBodyMd,
+        fontSize: FontSizes.bodyMd,
+        height: LineHeights.bodyMd / FontSizes.bodyMd,
         color: color,
         fontWeight: fontWeight ?? FontWeight.normal,
         letterSpacing: letterSpacing,
       );
 
-  /// Body Small text style
-  static TextStyle bodySm({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle bodySm({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeBodySm,
-        height: lineHeightBodySm / fontSizeBodySm,
+        fontSize: FontSizes.bodySm,
+        height: LineHeights.bodySm / FontSizes.bodySm,
         color: color,
         fontWeight: fontWeight ?? FontWeight.normal,
         letterSpacing: letterSpacing,
       );
 
-  // ============================================================================
-  // TEXT STYLES - LABELS
-  // ============================================================================
-
-  /// Label Medium text style
-  static TextStyle labelMd({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  // LABELS
+  static TextStyle labelMd({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeLabelMd,
-        height: lineHeightLabel / fontSizeLabelMd,
+        fontSize: FontSizes.labelMd,
+        height: LineHeights.label / FontSizes.labelMd,
         color: color,
         fontWeight: fontWeight ?? FontWeight.w500,
         letterSpacing: letterSpacing,
       );
 
-  /// Label Small text style
-  static TextStyle labelSm({
-    Color? color,
-    FontWeight? fontWeight,
-    double? letterSpacing,
-  }) =>
+  static TextStyle labelSm({Color? color, FontWeight? fontWeight, double? letterSpacing}) =>
       TextStyle(
-        fontSize: fontSizeLabelSm,
-        height: lineHeightLabel / fontSizeLabelSm,
+        fontSize: FontSizes.labelSm,
+        height: LineHeights.label / FontSizes.labelSm,
         color: color,
         fontWeight: fontWeight ?? FontWeight.w500,
         letterSpacing: letterSpacing,
       );
 
-  // ============================================================================
-  // RESPONSIVE TEXT STYLES
-  // ============================================================================
-
-  /// Get responsive headline based on screen width
-  static TextStyle responsiveHeadline(
-    double width, {
-    Color? color,
-    FontWeight? fontWeight,
-  }) {
-    if (width >= 1440) {
-      return headline2xl(color: color, fontWeight: fontWeight);
-    } else if (width >= 768) {
-      return headlineXl(color: color, fontWeight: fontWeight);
-    } else if (width >= 375) {
-      return headlineLg(color: color, fontWeight: fontWeight);
-    } else {
-      return headlineMd(color: color, fontWeight: fontWeight);
-    }
+  // RESPONSIVE STYLES
+  static TextStyle responsiveHeadline(double width, {Color? color, FontWeight? fontWeight}) {
+    if (width >= 1440) return headline2xl(color: color, fontWeight: fontWeight);
+    if (width >= 768) return headlineXl(color: color, fontWeight: fontWeight);
+    if (width >= 375) return headlineLg(color: color, fontWeight: fontWeight);
+    return headlineMd(color: color, fontWeight: fontWeight);
   }
 
-  /// Get responsive body text based on screen width
-  static TextStyle responsiveBody(
-    double width, {
-    Color? color,
-    FontWeight? fontWeight,
-  }) {
-    if (width >= 1440) {
-      return bodyXl(color: color, fontWeight: fontWeight);
-    } else if (width >= 768) {
-      return bodyLg(color: color, fontWeight: fontWeight);
-    } else {
-      return bodyMd(color: color, fontWeight: fontWeight);
-    }
+  static TextStyle responsiveBody(double width, {Color? color, FontWeight? fontWeight}) {
+    if (width >= 1440) return bodyXl(color: color, fontWeight: fontWeight);
+    if (width >= 768) return bodyLg(color: color, fontWeight: fontWeight);
+    return bodyMd(color: color, fontWeight: fontWeight);
   }
 
-  // ============================================================================
   // TEXT THEME
-  // ============================================================================
-
-  /// Create a complete TextTheme from the typography system
   static TextTheme textTheme({Color? color}) {
     return TextTheme(
       displayLarge: headline3xl(color: color),

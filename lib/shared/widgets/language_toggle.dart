@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/core/theme/colors/background_colors.dart';
+import 'package:portfolio/core/theme/colors/text_colors.dart';
 
 class LanguageToggle extends StatelessWidget {
   final String selectedLanguage;
@@ -63,9 +65,7 @@ class _LanguageButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: 169.33,
-        padding: EdgeInsets.symmetric(
-          vertical: AppDimensions.spacingMd,
-        ),
+        padding: EdgeInsets.symmetric(vertical: AppDimensions.spacingMd),
         decoration: BoxDecoration(
           color: isSelected ? bgColors.brandSolid : bgColors.primaryDefault,
           borderRadius: BorderRadius.circular(AppDimensions.radiusLg),

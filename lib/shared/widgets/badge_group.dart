@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart' hide Badge;
 import 'package:portfolio/core/theme/app_dimensions.dart';
+import 'package:portfolio/shared/widgets/badge_size.dart';
 import 'package:portfolio/shared/widgets/badge.dart' as custom;
 
 class BadgeGroup extends StatelessWidget {
   final List<String> labels;
-  final custom.BadgeSize size;
+  final BadgeSize size;
   final double? spacing;
   final double? runSpacing;
   final WrapAlignment alignment;
@@ -12,7 +13,7 @@ class BadgeGroup extends StatelessWidget {
   const BadgeGroup({
     super.key,
     required this.labels,
-    this.size = custom.BadgeSize.medium,
+    this.size = BadgeSize.medium,
     this.spacing,
     this.runSpacing,
     this.alignment = WrapAlignment.start,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/localization/locale_cubit.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/features/home/presentation/widgets/home_background.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero_section.dart';
 import 'package:portfolio/features/home/presentation/widgets/mobile_header.dart';
 import 'package:portfolio/features/home/presentation/widgets/web_header_wrapper.dart';
+import 'package:portfolio/shared/widgets/page_background.dart';
 
 /// Main content container for HomePage
 /// Handles responsive layout switching between Mobile and Web
@@ -93,14 +93,12 @@ class _HomeContentState extends State<HomeContent> {
               mouseOffsetListenable: _mouseOffsetNotifier,
             ),
           ),
-  
+
           // Main Content Column - Built once (or on language change), not on every mouse move
           Column(
             children: [
               _buildHeader(selectedLanguage),
-              Expanded(
-                child: _buildBody(),
-              ),
+              Expanded(child: _buildBody()),
             ],
           ),
         ],
@@ -125,8 +123,12 @@ class _HomeContentState extends State<HomeContent> {
   }
 
   Widget _buildBody() {
-    final horizontalPadding = widget.isWeb ? AppDimensions.spacing5xl : AppDimensions.spacingXl;
-    final verticalPadding = widget.isWeb ? AppDimensions.spacing7xl : AppDimensions.spacing8xl;
+    final horizontalPadding = widget.isWeb
+        ? AppDimensions.spacing5xl
+        : AppDimensions.spacingXl;
+    final verticalPadding = widget.isWeb
+        ? AppDimensions.spacing7xl
+        : AppDimensions.spacing8xl;
 
     return SingleChildScrollView(
       controller: _scrollController,
