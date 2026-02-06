@@ -10,8 +10,12 @@ class SocialLinksSection extends StatelessWidget {
 
   Future<void> _launchUrl(String url) async {
     final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+    try {
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      }
+    } catch (e) {
+      debugPrint('Error launching URL: $e');
     }
   }
 
@@ -87,7 +91,10 @@ class _SocialItem extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppDimensions.radiusLg),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: AppDimensions.spacingSm, horizontal: AppDimensions.spacingMd),
+        padding: const EdgeInsets.symmetric(
+          vertical: AppDimensions.spacingSm,
+          horizontal: AppDimensions.spacingMd,
+        ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -96,12 +103,18 @@ class _SocialItem extends StatelessWidget {
               height: 48,
               padding: const EdgeInsets.all(AppDimensions.spacingMd),
               decoration: BoxDecoration(
-                color: isDark ? AppColors.backgroundColors(Brightness.dark).primarySecondary : AppColors.backgroundColors(Brightness.light).brandLight,
+                color: isDark
+                    ? AppColors.backgroundColors(
+                        Brightness.dark,
+                      ).primarySecondary
+                    : AppColors.backgroundColors(Brightness.light).brandLight,
                 shape: BoxShape.circle,
               ),
               child: Image.asset(
                 iconAsset,
-                color: isDark ? textColors.brandDefault : textColors.primaryDefault,
+                color: isDark
+                    ? textColors.brandDefault
+                    : textColors.primaryDefault,
               ),
             ),
             const SizedBox(width: AppDimensions.spacingXl),
