@@ -3,6 +3,7 @@ import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/core/theme/colors/text_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialLinksSection extends StatelessWidget {
