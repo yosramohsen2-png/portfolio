@@ -13,7 +13,22 @@
     "tagline": "I Design the Dream.\nI Build the Reality",
     "description": "I've always been obsessed with how things work under the hood. To me, a great app is a story that starts with a pixel and ends with a solid line of code. I bridge the gap between \"how it looks\" and \"how it performs,\" making sure every user journey is a masterpiece.",
     "view_uiux": "View UI/UX Projects",
-    "view_flutter": "View Flutter Projects"
+    "view_flutter": "View Flutter Projects",
+    "services": {
+      "title": "What I Do",
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "Crafting intuitive and aesthetically pleasing user interfaces that provide seamless digital experiences."
+      },
+      "flutter": {
+        "title": "Flutter Development",
+        "description": "Building high-performance, cross-platform mobile applications with clean and scalable codebases."
+      },
+      "graphic": {
+        "title": "Graphic Design",
+        "description": "Designing visually striking brand identities and digital assets that communicate your message effectively."
+      }
+    }
   },
   "ui_ux": {
     "title": "UI/UX Design",

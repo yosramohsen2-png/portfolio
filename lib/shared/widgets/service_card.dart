@@ -112,7 +112,7 @@ class _ServiceCardState extends State<ServiceCard> {
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          width: widget.size == ServiceCardSize.large ? 366 : 312,
+          width: double.infinity,
           padding: EdgeInsets.all(AppDimensions.spacingXl),
           decoration: BoxDecoration(
             color: backgroundColor,
