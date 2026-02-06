@@ -5,6 +5,7 @@ import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero_section.dart';
 import 'package:portfolio/features/home/presentation/widgets/mobile_header.dart';
 import 'package:portfolio/features/home/presentation/widgets/web_header_wrapper.dart';
+import 'package:portfolio/shared/widgets/page_background.dart';
 
 /// Main content container for HomePage
 /// Handles responsive layout switching between Mobile and Web
@@ -86,7 +87,7 @@ class _HomeContentState extends State<HomeContent> {
         children: [
           // Background Decorations - Only this part responds to mouse/scroll continuously
           Positioned.fill(
-            child: HomeBackground(
+            child: PageBackground(
               isWeb: widget.isWeb,
               scrollOffsetListenable: _scrollOffsetNotifier,
               mouseOffsetListenable: _mouseOffsetNotifier,
