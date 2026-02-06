@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
+import 'package:portfolio/core/theme/colors/text_colors.dart';
 import 'package:portfolio/shared/widgets/badge_size.dart';
 
 class Badge extends StatefulWidget {
