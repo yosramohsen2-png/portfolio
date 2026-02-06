@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
-import 'package:portfolio/shared/widgets/badge.dart' as custom;
+import 'package:portfolio/shared/widgets/badge_size.dart';
 import 'package:portfolio/shared/widgets/badge_group.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -32,7 +32,6 @@ class ProjectCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        constraints: const BoxConstraints(minWidth: 343),
         decoration: BoxDecoration(
           color: bgColors.primaryDefault,
           borderRadius: BorderRadius.only(
@@ -53,12 +52,12 @@ class ProjectCard extends StatelessWidget {
                 children: [
                   Image.network(
                     imageUrl,
-                    width: 319,
+                    width: double.infinity,
                     height: 256,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        width: 319,
+                        width: double.infinity,
                         height: 256,
                         color: bgColors.primarySecondary,
                         child: Icon(
@@ -124,7 +123,7 @@ class ProjectCard extends StatelessWidget {
                   // Tags
                   BadgeGroup(
                     labels: tags,
-                    size: custom.BadgeSize.small,
+                    size: BadgeSize.small,
                   ),
                   SizedBox(height: AppDimensions.spacingXl),
                 ],

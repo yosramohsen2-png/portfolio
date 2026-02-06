@@ -18,12 +18,70 @@
     "ui_ux": {
         "title": "UI/UX Design",
         "subtitle": "Intuitive Benutzererfahrungen gestalten",
-        "description": "Erkunden Sie mein Design-Portfolio mit benutzerzentrierten Design-Lösungen."
+        "description": "Erkunden Sie mein Design-Portfolio mit benutzerzentrierten Design-Lösungen.",
+        "projects": [
+            {
+                "title": "Smart Home Dashboard",
+                "description": "Ein zentralisiertes Steuerungssystem für Smart-Home-Geräte mit Fokus auf Einfachheit und Barrierefreiheit.",
+                "tags": [
+                    "Mobile App",
+                    "UI Design",
+                    "UX Research"
+                ]
+            },
+            {
+                "title": "E-Commerce-Neugestaltung",
+                "description": "Neugestaltung des Einkaufserlebnisses für einen großen Elektronikhändler zur Verbesserung der Konversionsraten.",
+                "tags": [
+                    "Web App",
+                    "E-Commerce",
+                    "UX Audit"
+                ]
+            },
+            {
+                "title": "Fitness-Tracker-App",
+                "description": "Ein ganzheitlicher Ansatz zur Fitnessverfolgung, der Workout-Logging mit Ernährungsüberwachung kombiniert.",
+                "tags": [
+                    "Mobile App",
+                    "Gesundheit",
+                    "Gamification"
+                ]
+            }
+        ]
     },
     "flutter_dev": {
         "title": "Flutter Entwicklung",
         "subtitle": "Cross-Plattform-Anwendungen erstellen",
-        "description": "Entdecken Sie meine Flutter-Projekte und meine Expertise in der mobilen Entwicklung."
+        "description": "Entdecken Sie meine Flutter-Projekte und meine Expertise in der mobilen Entwicklung.",
+        "projects": [
+            {
+                "title": "Task Management Pro",
+                "description": "Eine leistungsstarke Aufgabenmanagement-App, die mit Flutter und BLoC für die Zustandsverwaltung entwickelt wurde.",
+                "tags": [
+                    "Flutter",
+                    "BLoC",
+                    "Firebase"
+                ]
+            },
+            {
+                "title": "Rezept-Entdecker",
+                "description": "Eine plattformübergreifende Rezeptanwendung mit Offline-Unterstützung und erweiterter Filterung.",
+                "tags": [
+                    "Flutter",
+                    "Hive",
+                    "REST API"
+                ]
+            },
+            {
+                "title": "Krypto-Portfolio-Tracker",
+                "description": "Echtzeit-Kryptowährungsverfolgung mit interaktiven Diagrammen und Portfolio-Analysen.",
+                "tags": [
+                    "Flutter",
+                    "Riverpod",
+                    "WebSockets"
+                ]
+            }
+        ]
     },
     "about": {
         "title": "Über mich",

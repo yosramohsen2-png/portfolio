@@ -4,12 +4,12 @@ import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/shared/widgets/outlined_circle.dart';
 
-class HomeBackground extends StatelessWidget {
+class PageBackground extends StatelessWidget {
   final bool isWeb;
   final ValueListenable<double> scrollOffsetListenable;
   final ValueListenable<Offset> mouseOffsetListenable;
 
-  const HomeBackground({
+  const PageBackground({
     super.key,
     this.isWeb = false,
     required this.scrollOffsetListenable,
