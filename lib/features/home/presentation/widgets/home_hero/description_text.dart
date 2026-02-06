@@ -12,8 +12,8 @@ class DescriptionText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).brightness == Brightness.light
-        ? textColors.primaryDefault.withOpacity(0.8)
-        : textColors.primaryDefault.withOpacity(0.9);
+        ? textColors.primaryDefault.withValues(alpha: 0.8)
+        : textColors.primaryDefault.withValues(alpha: 0.9);
 
     return Container(
       constraints: BoxConstraints(maxWidth: isWeb ? 800 : 350),

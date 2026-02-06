@@ -10,11 +10,11 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      colorScheme: const ColorScheme.light(
+      colorScheme: ColorScheme.light(
         primary: AppColors.lightBgBrandSolid,
         secondary: AppColors.lightBgBrandHover,
         surface: AppColors.lightBgPrimarySecondary,
-        error: Color(0xFFDC3545),
+        error: const Color(0xFFDC3545),
         onPrimary: AppColors.lightTextPrimaryToggle,
         onSecondary: AppColors.lightTextPrimaryDefault,
         onSurface: AppColors.lightTextPrimaryDefault,
@@ -24,14 +24,14 @@ class AppTheme {
       textTheme: AppTypography.textTheme(
         color: AppColors.lightTextPrimaryDefault,
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.lightBgPrimaryDefault,
         elevation: 0,
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: AppColors.lightIconPrimaryDefault,
         ),
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           color: AppColors.lightTextPrimaryDefault,
           fontSize: 20,
           fontWeight: FontWeight.w600,
@@ -63,14 +63,14 @@ class AppTheme {
         fillColor: AppColors.lightBgPrimarySecondary,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
-          borderSide: const BorderSide(
+          borderSide: BorderSide(
             color: AppColors.lightBorderPrimaryCards,
             width: AppDimensions.borderWidthXs,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
-          borderSide: const BorderSide(
+          borderSide: BorderSide(
             color: AppColors.lightBorderPrimaryDefault,
             width: AppDimensions.borderWidthSm,
           ),
@@ -84,11 +84,11 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      colorScheme: const ColorScheme.dark(
+      colorScheme: ColorScheme.dark(
         primary: AppColors.darkBgBrandSolid,
         secondary: AppColors.darkBgBrandHover,
         surface: AppColors.darkBgPrimarySecondary,
-        error: Color(0xFFDC3545),
+        error: const Color(0xFFDC3545),
         onPrimary: AppColors.darkTextPrimaryToggle,
         onSecondary: AppColors.darkTextPrimaryDefault,
         onSurface: AppColors.darkTextPrimaryDefault,
@@ -98,14 +98,14 @@ class AppTheme {
       textTheme: AppTypography.textTheme(
         color: AppColors.darkTextPrimaryDefault,
       ),
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.darkBgPrimaryDefault,
         elevation: 0,
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: AppColors.darkIconPrimaryDefaultChange,
         ),
-        titleTextStyle: TextStyle(
+        titleTextStyle: const TextStyle(
           color: AppColors.darkTextPrimaryDefault,
           fontSize: 20,
           fontWeight: FontWeight.w600,
@@ -137,14 +137,14 @@ class AppTheme {
         fillColor: AppColors.darkBgPrimarySecondary,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
-          borderSide: const BorderSide(
+          borderSide: BorderSide(
             color: AppColors.darkBorderPrimaryCards,
             width: AppDimensions.borderWidthXs,
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(AppDimensions.radiusMd),
-          borderSide: const BorderSide(
+          borderSide: BorderSide(
             color: AppColors.darkBorderPrimaryDefault,
             width: AppDimensions.borderWidthSm,
           ),

@@ -26,13 +26,13 @@ class _OutlinedCircleState extends State<OutlinedCircle> {
           shape: BoxShape.circle,
           border: Border.all(
             color: _isHovered 
-                ? widget.color.withOpacity(0.5) 
-                : widget.color.withOpacity(0.25),
+                ? widget.color.withValues(alpha: 0.5) 
+                : widget.color.withValues(alpha: 0.25),
             width: 1.5,
           ),
           color: _isHovered 
-              ? widget.color.withOpacity(0.08) 
-              : widget.color.withOpacity(0.03),
+              ? widget.color.withValues(alpha: 0.08) 
+              : widget.color.withValues(alpha: 0.03),
         ),
       ),
     );

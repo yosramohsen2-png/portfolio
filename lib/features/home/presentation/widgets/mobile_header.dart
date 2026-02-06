@@ -3,7 +3,6 @@ import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/shared/widgets/logo.dart';
 import 'package:portfolio/shared/widgets/theme_toggle.dart';
-import 'package:portfolio/shared/widgets/compact_language_toggle.dart';
 
 /// Mobile Header Widget - Height: 64px, Padding: 8px
 /// Contains: Logo (left), Language Toggle + Theme Toggle + Menu Button (right)

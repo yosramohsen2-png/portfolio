@@ -12,8 +12,8 @@ class HelloText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = Theme.of(context).brightness == Brightness.light
-        ? textColors.primaryDefault.withOpacity(0.7)
-        : textColors.primaryDefault.withOpacity(0.8);
+        ? textColors.primaryDefault.withValues(alpha: 0.7)
+        : textColors.primaryDefault.withValues(alpha: 0.8);
 
     return Text(
       'home.hello'.tr(),

@@ -72,7 +72,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
         );
         break;
       case ButtonVariant.light:
-        backgroundColor = brandColor.withOpacity(0.1);
+        backgroundColor = brandColor.withValues(alpha: 0.1);
         textColor = brandColor;
         boxBorder = null;
         break;
