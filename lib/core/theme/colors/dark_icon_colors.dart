@@ -6,7 +6,7 @@ class DarkIconColors extends IconColors {
   const DarkIconColors();
 
   @override
-  Color get primaryDefault => ColorPalette.darkIconPrimaryDefault;
+  Color get primaryDefault => ColorPalette.darkTextPrimaryDefault;
   @override
   Color get primaryDefaultChange => ColorPalette.darkIconPrimaryDefaultChange;
   @override

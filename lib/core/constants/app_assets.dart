@@ -9,6 +9,8 @@ class AppAssets {
   static const String linkedin = '$_imagesPath/linkedin.png';
   static const String whatsapp = '$_imagesPath/whatsapp.png';
   static const String message = '$_imagesPath/message.png';
+  static const String bihance = '$_imagesPath/bihance.png';
+  static const String send = '$_imagesPath/Icon-10.png'; // Assuming Icon-10 might be send or similar, if not I'll generate it.
 
   // Navigation & UI Icons
   static const String mobile = '$_imagesPath/mobile.png';

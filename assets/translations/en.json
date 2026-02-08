@@ -170,12 +170,13 @@
     }
   },
   "contact": {
-    "title": "Get In Touch",
-    "subtitle": "Let's Work Together",
-    "name_label": "Your Name",
-    "email_label": "Your Email",
-    "message_label": "Your Message",
-    "send_button": "Send Message",
+    "title": "Get in Touch",
+    "description": "Let's work together on your next project",
+    "name_hint": "Your Name",
+    "email_hint": "your.email@example.com",
+    "message_hint": "Tell me about your project...",
+    "send_button": "Send Messege",
+    "social_title": "Or contact with me on",
     "success_message": "Message sent successfully!",
     "error_message": "Failed to send message. Please try again."
   },

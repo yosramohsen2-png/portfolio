@@ -170,12 +170,13 @@
         }
     },
     "contact": {
-        "title": "Kontakt aufnehmen",
-        "subtitle": "Lassen Sie uns zusammenarbeiten",
-        "name_label": "Ihr Name",
-        "email_label": "Ihre E-Mail",
-        "message_label": "Ihre Nachricht",
+        "title": "Nehmen Sie Kontakt auf",
+        "description": "Lassen Sie uns gemeinsam an Ihrem nächsten Projekt arbeiten",
+        "name_hint": "Ihr Name",
+        "email_hint": "Ihr.email@example.com",
+        "message_hint": "Erzählen Sie mir von Ihrem Projekt...",
         "send_button": "Nachricht senden",
+        "social_title": "Oder Kontaktieren Sie mich unter",
         "success_message": "Nachricht erfolgreich gesendet!",
         "error_message": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
     },
