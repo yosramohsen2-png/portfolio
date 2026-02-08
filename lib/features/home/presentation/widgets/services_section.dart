@@ -6,7 +6,14 @@ import 'package:portfolio/core/theme/app_typography.dart';
 import 'package:portfolio/shared/widgets/service_card.dart';
 
 class ServicesSection extends StatelessWidget {
-  const ServicesSection({super.key});
+  final VoidCallback? onViewUiUx;
+  final VoidCallback? onViewFlutter;
+
+  const ServicesSection({
+    super.key,
+    this.onViewUiUx,
+    this.onViewFlutter,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +30,9 @@ class ServicesSection extends StatelessWidget {
           style: (isMobile
                   ? AppTypography.headlineMd(color: textColors.primaryDefault)
                   : AppTypography.headlineLg(color: textColors.primaryDefault))
-              .copyWith(fontWeight: FontWeight.w800),
+              .copyWith(fontWeight: FontWeight.w900),
         ),
-        const SizedBox(height: AppDimensions.spacing8xl),
+        const SizedBox(height: 60),
         if (isMobile)
           Column(
             children: [
@@ -34,6 +41,7 @@ class ServicesSection extends StatelessWidget {
                 title: 'home.services.uiux.title'.tr(),
                 description: 'home.services.uiux.description'.tr(),
                 size: ServiceCardSize.large,
+                onTap: onViewUiUx,
               ),
               const SizedBox(height: AppDimensions.spacing3xl),
               _buildCard(
@@ -41,6 +49,7 @@ class ServicesSection extends StatelessWidget {
                 title: 'home.services.flutter.title'.tr(),
                 description: 'home.services.flutter.description'.tr(),
                 size: ServiceCardSize.large,
+                onTap: onViewFlutter,
               ),
               const SizedBox(height: AppDimensions.spacing3xl),
               _buildCard(
@@ -61,6 +70,7 @@ class ServicesSection extends StatelessWidget {
                   icon: Icons.design_services_outlined,
                   title: 'home.services.uiux.title'.tr(),
                   description: 'home.services.uiux.description'.tr(),
+                  onTap: onViewUiUx,
                 ),
               ),
               const SizedBox(width: AppDimensions.spacing3xl),
@@ -69,6 +79,7 @@ class ServicesSection extends StatelessWidget {
                   icon: Icons.code_outlined,
                   title: 'home.services.flutter.title'.tr(),
                   description: 'home.services.flutter.description'.tr(),
+                  onTap: onViewFlutter,
                 ),
               ),
               const SizedBox(width: AppDimensions.spacing3xl),
@@ -90,12 +101,14 @@ class ServicesSection extends StatelessWidget {
     required String title,
     required String description,
     ServiceCardSize size = ServiceCardSize.large,
+    VoidCallback? onTap,
   }) {
     return ServiceCard(
       icon: icon,
       title: title,
       description: description,
       size: size,
+      onTap: onTap,
     );
   }
 }

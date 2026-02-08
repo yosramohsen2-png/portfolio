@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:animate_do/animate_do.dart';
 
 class OutlinedCircle extends StatefulWidget {
   final double size;
@@ -18,21 +19,43 @@ class _OutlinedCircleState extends State<OutlinedCircle> {
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 500),
-        width: widget.size,
-        height: widget.size,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: _isHovered 
-                ? widget.color.withValues(alpha: 0.5) 
-                : widget.color.withValues(alpha: 0.25),
-            width: 1.5,
-          ),
-          color: _isHovered 
-              ? widget.color.withValues(alpha: 0.08) 
-              : widget.color.withValues(alpha: 0.03),
+      child: Pulse(
+        duration: const Duration(seconds: 10),
+        infinite: true,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            // Main Shape
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
+              width: widget.size,
+              height: widget.size,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: _isHovered 
+                      ? widget.color.withValues(alpha: 0.4) 
+                      : widget.color.withValues(alpha: 0.15),
+                  width: 1.0,
+                ),
+                color: _isHovered 
+                    ? widget.color.withValues(alpha: 0.05) 
+                    : widget.color.withValues(alpha: 0.02),
+              ),
+            ),
+            // Inner Ring (Simplified)
+            Container(
+              width: widget.size * 0.7,
+              height: widget.size * 0.7,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: widget.color.withValues(alpha: 0.04),
+                  width: 0.6,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

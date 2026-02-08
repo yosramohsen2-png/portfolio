@@ -23,46 +23,47 @@ class HomeHeroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textColors = AppColors.textColors(Theme.of(context).brightness);
+    final theme = Theme.of(context);
+    final textColors = AppColors.textColors(theme.brightness);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         FadeInDown(
-          from: 50,
-          duration: const Duration(milliseconds: 1000),
+          from: 30,
+          duration: const Duration(milliseconds: 800),
           child: HelloText(isWeb: isWeb, textColors: textColors),
         ),
-        SizedBox(height: isWeb ? AppDimensions.spacing3xl : AppDimensions.spacingXl),
+        const SizedBox(height: 16),
 
         FadeInDown(
-          from: 80,
+          from: 50,
           delay: const Duration(milliseconds: 200),
-          duration: const Duration(milliseconds: 1000),
+          duration: const Duration(milliseconds: 800),
           child: NameText(isWeb: isWeb, textColors: textColors),
         ),
-        SizedBox(height: isWeb ? AppDimensions.spacing3xl : AppDimensions.spacingXl),
+        const SizedBox(height: 16),
 
         FadeIn(
           delay: const Duration(milliseconds: 400),
-          duration: const Duration(milliseconds: 1500),
+          duration: const Duration(milliseconds: 1000),
           child: TaglineText(isWeb: isWeb, textColors: textColors),
         ),
-        SizedBox(height: isWeb ? AppDimensions.spacing3xl : AppDimensions.spacingLg),
-
-        FadeInUp(
-          from: 60,
-          delay: const Duration(milliseconds: 600),
-          duration: const Duration(milliseconds: 1000),
-          child: DescriptionText(isWeb: isWeb, textColors: textColors),
-        ),
-        SizedBox(height: isWeb ? AppDimensions.spacing6xl : AppDimensions.spacing5xl),
+        const SizedBox(height: 24),
 
         FadeInUp(
           from: 40,
+          delay: const Duration(milliseconds: 600),
+          duration: const Duration(milliseconds: 800),
+          child: DescriptionText(isWeb: isWeb, textColors: textColors),
+        ),
+        const SizedBox(height: 32),
+
+        FadeInUp(
+          from: 30,
           delay: const Duration(milliseconds: 800),
-          duration: const Duration(milliseconds: 1000),
+          duration: const Duration(milliseconds: 800),
           child: HeroActionButtons(
             isWeb: isWeb,
             onViewUiUx: onViewUiUx,

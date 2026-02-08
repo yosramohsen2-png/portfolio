@@ -45,45 +45,48 @@ class PageBackground extends StatelessWidget {
                 ],
 
                 if (isWeb) ...[
+                  // Top Left Circle
                   Positioned(
-                    left: -100 + (mouseOffset.dx * 0.04),
-                    top: 100 - (scrollOffset * 0.6) + (mouseOffset.dy * 0.04),
-                    child: OutlinedCircle(
-                      size: 500,
-                      color: bgColors.brandShapes,
-                    ),
-                  ),
-                  Positioned(
-                    right: -200 - (mouseOffset.dx * 0.06),
-                    bottom:
-                        -100 + (scrollOffset * 0.9) - (mouseOffset.dy * 0.06),
-                    child: OutlinedCircle(
-                      size: 700,
-                      color: bgColors.brandShapes,
-                    ),
-                  ),
-                  Positioned(
-                    left: 400 + (mouseOffset.dx * 0.03),
-                    top: 400 - (scrollOffset * 0.4) + (mouseOffset.dy * 0.03),
+                    left: -150 + (mouseOffset.dx * 0.03),
+                    top: -100 - (scrollOffset * 0.4) + (mouseOffset.dy * 0.03),
                     child: OutlinedCircle(
                       size: 600,
                       color: bgColors.brandShapes,
                     ),
                   ),
-                ] else ...[
+                  // Top Right Circle
                   Positioned(
-                    left: -50,
-                    top: 150 - (scrollOffset * 0.5),
+                    right: -250 - (mouseOffset.dx * 0.05),
+                    top: 150 - (scrollOffset * 0.8) + (mouseOffset.dy * 0.05),
                     child: OutlinedCircle(
-                      size: 300,
+                      size: 850,
+                      color: bgColors.brandShapes,
+                    ),
+                  ),
+                  // Bottom Right Circle
+                  Positioned(
+                    right: 50 - (mouseOffset.dx * 0.04),
+                    bottom: -250 + (scrollOffset * 0.6) - (mouseOffset.dy * 0.04),
+                    child: OutlinedCircle(
+                      size: 750,
+                      color: bgColors.brandShapes,
+                    ),
+                  ),
+                ] else ...[
+                  // Mobile Circles (Reduced)
+                  Positioned(
+                    left: -100,
+                    top: 120 - (scrollOffset * 0.3),
+                    child: OutlinedCircle(
+                      size: 380,
                       color: bgColors.brandShapes,
                     ),
                   ),
                   Positioned(
-                    right: -100,
-                    bottom: 100 + (scrollOffset * 0.7),
+                    right: -150,
+                    bottom: 100 + (scrollOffset * 0.4),
                     child: OutlinedCircle(
-                      size: 400,
+                      size: 500,
                       color: bgColors.brandShapes,
                     ),
                   ),

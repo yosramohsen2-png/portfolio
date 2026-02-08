@@ -1,7 +1,7 @@
 {
     "app_name": "Portfolio",
     "nav": {
-        "home": "Hiem",
+        "home": "Home",
         "ui_ux_design": "UI/UX Design",
         "flutter_dev": "Flutter DEV",
         "about": "Über mich",
