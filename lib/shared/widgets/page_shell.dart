@@ -94,11 +94,14 @@ class _PageShellState extends State<PageShell> {
                 ),
 
                 // Main Content
-                Column(
-                  children: [
-                    _buildHeader(isWeb, selectedLanguage),
-                    Expanded(child: _buildBody(isWeb)),
-                  ],
+                Positioned.fill(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      _buildHeader(isWeb, selectedLanguage),
+                      Expanded(child: _buildBody(context, isWeb)),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -124,13 +127,36 @@ class _PageShellState extends State<PageShell> {
     }
   }
 
-  Widget _buildBody(bool isWeb) {
-    return SingleChildScrollView(
+  Widget _buildBody(BuildContext context, bool isWeb) {
+    final brightness = Theme.of(context).brightness;
+    final bgColors = AppColors.backgroundColors(brightness);
+
+    return RawScrollbar(
       controller: _scrollController,
-      child: FadeInUp(
-        duration: const Duration(milliseconds: 800),
-        child: widget.body,
+      thumbColor: bgColors.brandSolid.withValues(alpha: 0.5),
+      padding: const EdgeInsets.only(right: 4),
+      thickness: 6,
+      radius: const Radius.circular(AppDimensions.radiusFull),
+      thumbVisibility: true,
+      child: SingleChildScrollView(
+        controller: _scrollController,
+        child: FadeInUp(
+          duration: const Duration(milliseconds: 800),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: _getHorizontalPadding(context),
+            ),
+            child: widget.body,
+          ),
+        ),
       ),
     );
+  }
+
+  double _getHorizontalPadding(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    if (width > AppDimensions.breakpointDesktop) return AppDimensions.spacingXl;
+    if (width >= AppDimensions.breakpointTablet) return AppDimensions.spacingXl;
+    return AppDimensions.spacingXl;
   }
 }

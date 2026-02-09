@@ -36,4 +36,10 @@ class AppAssets {
   static const String icon17 = '$_imagesPath/Icon-17.png';
   // User Assets
   static const String userAvatar = '$_imagesPath/user_avatar.png';
+
+  // Project Images
+  static const String project1 = '$_imagesPath/1 flutter, 7 design.png';
+  static const String project2 = '$_imagesPath/2 flutter.png';
+  static const String project3 = '$_imagesPath/3 flutter.png';
+  static const String project4 = '$_imagesPath/4 flutter & 16 design.png';
 }
