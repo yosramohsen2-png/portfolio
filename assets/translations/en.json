@@ -65,36 +65,46 @@
     }
   },
   "flutter_dev": {
-    "title": "Flutter Development",
-    "subtitle": "Building Cross-Platform Applications",
-    "description": "Discover my Flutter projects and mobile development expertise.",
+    "title": "Flutter",
+    "subtitle": "Development",
+    "description": "Building powerful cross-platform mobile applications",
     "projects": {
       "0": {
-        "title": "Task Management Pro",
-        "description": "A high-performance task management app built with Flutter and BLoC for state management.",
-        "tags": [
-          "Flutter",
-          "BLoC",
-          "Firebase"
-        ]
+        "title": "Mongiz: KI-gestützte Motivation",
+        "description": "A high-performance Flutter app designed to boost productivity through goal decomposition and daily motivation. Features seamless Firebase authentication, Supabase real-time notifications, and advanced state management for a robust user experience.",
+        "tags": {
+          "0": "Firebase",
+          "1": "Supabase",
+          "2": "BLoC",
+          "3": "Clean Architecture"
+        }
       },
       "1": {
-        "title": "Recipe Explorer",
-        "description": "A cross-platform recipe application featuring offline support and advanced filtering.",
-        "tags": [
-          "Flutter",
-          "Hive",
-          "REST API"
-        ]
+        "title": "Comprehensive EdTech Ecosystem (LMS)",
+        "description": "A scalable EdTech solution for students, teachers, and admins, built with Flutter and Clean Architecture. Implemented Cubit for robust state management and integrated complex APIs to deliver a high-performance educational experience.",
+        "tags": {
+          "0": "API",
+          "1": "BLoC",
+          "2": "Clean Architecture"
+        }
       },
       "2": {
-        "title": "Crypto Portfolio Tracker",
-        "description": "Real-time cryptocurrency tracking with interactive charts and portfolio analytics.",
-        "tags": [
-          "Flutter",
-          "Riverpod",
-          "WebSockets"
-        ]
+        "title": "ElectroHub: Advanced E-Commerce Flutter App",
+        "description": "Developed a high-performance electronics marketplace using Flutter and MVVM architecture. Integrated professional GitHub version control and clean code practices to deliver a scalable, feature-rich shopping experience.",
+        "tags": {
+          "0": "Firebase",
+          "1": "Clean Architecture",
+          "2": "BLoC"
+        }
+      },
+      "3": {
+        "title": "Full-Stack Flutter Portfolio: Clean Architecture & State Management",
+        "description": "An advanced Flutter implementation of a custom design system, mirroring Figma styles in code with support for dynamic modes, localization, and parallax animations.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
       }
     }
   },

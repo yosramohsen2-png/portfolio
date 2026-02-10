@@ -65,36 +65,46 @@
         }
     },
     "flutter_dev": {
-        "title": "Flutter Entwicklung",
-        "subtitle": "Cross-Plattform-Anwendungen erstellen",
-        "description": "Entdecken Sie meine Flutter-Projekte und meine Expertise in der mobilen Entwicklung.",
+        "title": "Flutter",
+        "subtitle": "Entwicklung",
+        "description": "Leistungsstarke plattformübergreifende mobile Anwendungen erstellen",
         "projects": {
             "0": {
-                "title": "Task Management Pro",
-                "description": "Eine leistungsstarke Aufgabenmanagement-App, die mit Flutter und BLoC für die Zustandsverwaltung entwickelt wurde.",
-                "tags": [
-                    "Flutter",
-                    "BLoC",
-                    "Firebase"
-                ]
+                "title": "Mongiz: KI-gestützte Motivation",
+                "description": "Eine leistungsstarke Flutter-App zur Produktivitätssteigerung durch Zielzerlegung und tägliche Motivation. Bietet nahtlose Firebase-Authentifizierung, Supabase-Echtzeit-Benachrichtigungen und fortgeschrittene Zustandsverwaltung.",
+                "tags": {
+                    "0": "Firebase",
+                    "1": "Supabase",
+                    "2": "BLoC",
+                    "3": "Saubere Architektur"
+                }
             },
             "1": {
-                "title": "Rezept-Entdecker",
-                "description": "Eine plattformübergreifende Rezeptanwendung mit Offline-Unterstützung und erweiterter Filterung.",
-                "tags": [
-                    "Flutter",
-                    "Hive",
-                    "REST API"
-                ]
+                "title": "Umfassendes EdTech-Ökosystem (LMS)",
+                "description": "Eine skalierbare EdTech-Lösung für Schüler, Lehrer und Administratoren, entwickelt mit Flutter und Clean Architecture. Implementierung von Cubit für robuste Zustandsverwaltung und Integration komplexer APIs.",
+                "tags": {
+                    "0": "API",
+                    "1": "BLoC",
+                    "2": "Saubere Architektur"
+                }
             },
             "2": {
-                "title": "Krypto-Portfolio-Tracker",
-                "description": "Echtzeit-Kryptowährungsverfolgung mit interaktiven Diagrammen und Portfolio-Analysen.",
-                "tags": [
-                    "Flutter",
-                    "Riverpod",
-                    "WebSockets"
-                ]
+                "title": "ElectroHub: Fortschrittliche E-Commerce Flutter-App",
+                "description": "Entwicklung eines leistungsstarken Elektronik-Marktplatzes mit Flutter und MVVM-Architektur. Integration von GitHub-Versionskontrolle und Clean-Code-Praktiken für ein skalierbares Einkaufserlebnis.",
+                "tags": {
+                    "0": "Firebase",
+                    "1": "Saubere Architektur",
+                    "2": "BLoC"
+                }
+            },
+            "3": {
+                "title": "Full-Stack Flutter-Portfolio: Clean Architecture & State Management",
+                "description": "Eine fortschrittliche Flutter-Implementierung eines benutzerdefinierten Design-Systems, das Figma-Styles im Code widerspiegelt, inklusive dynamischer Modi, Lokalisierung und Parallax-Animationen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Nutzerforschung",
+                    "2": "Prototyping"
+                }
             }
         }
     },
