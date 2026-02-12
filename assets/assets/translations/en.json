@@ -1,0 +1,201 @@
+{
+  "app_name": "Portfolio",
+  "nav": {
+    "home": "Home",
+    "ui_ux_design": "UI/UX Design",
+    "flutter_dev": "Flutter DEV",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "home": {
+    "hello": "Hello, I'm",
+    "name": "Yosra Mohsen",
+    "tagline": "I Design the Dream.\nI Build the Reality",
+    "description": "I've always been obsessed with how things work under the hood. To me, a great app is a story that starts with a pixel and ends with a solid line of code. I bridge the gap between \"how it looks\" and \"how it performs,\" making sure every user journey is a masterpiece.",
+    "view_uiux": "View UI/UX Projects",
+    "view_flutter": "View Flutter Projects",
+    "services": {
+      "title": "What I Do",
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "Crafting intuitive and aesthetically pleasing user interfaces that provide seamless digital experiences."
+      },
+      "flutter": {
+        "title": "Flutter Development",
+        "description": "Building high-performance, cross-platform mobile applications with clean and scalable codebases."
+      },
+      "graphic": {
+        "title": "Graphic Design",
+        "description": "Designing visually striking brand identities and digital assets that communicate your message effectively."
+      }
+    }
+  },
+  "ui_ux": {
+    "title": "UI/UX Design",
+    "subtitle": "Crafting Intuitive User Experiences",
+    "description": "Explore my design portfolio showcasing user-centered design solutions.",
+    "projects": {
+      "0": {
+        "title": "Smart Home Dashboard",
+        "description": "A centralized control system for smart home devices with a focus on simplicity and accessibility.",
+        "tags": [
+          "Mobile App",
+          "UI Design",
+          "UX Research"
+        ]
+      },
+      "1": {
+        "title": "E-commerce Redesign",
+        "description": "Redesigning the shopping experience for a major electronics retailer to improve conversion rates.",
+        "tags": [
+          "Web App",
+          "e-Commerce",
+          "UX Audit"
+        ]
+      },
+      "2": {
+        "title": "Fitness Tracker App",
+        "description": "A holistic approach to fitness tracking, combining workout logging with nutritional monitoring.",
+        "tags": [
+          "Mobile App",
+          "Health",
+          "Gamification"
+        ]
+      }
+    }
+  },
+  "flutter_dev": {
+    "title": "Flutter",
+    "subtitle": "Development",
+    "description": "Building powerful cross-platform mobile applications",
+    "projects": {
+      "0": {
+        "title": "Mongiz: KI-gestützte Motivation",
+        "description": "A high-performance Flutter app designed to boost productivity through goal decomposition and daily motivation. Features seamless Firebase authentication, Supabase real-time notifications, and advanced state management for a robust user experience.",
+        "tags": {
+          "0": "Firebase",
+          "1": "Supabase",
+          "2": "BLoC",
+          "3": "Clean Architecture"
+        }
+      },
+      "1": {
+        "title": "Comprehensive EdTech Ecosystem (LMS)",
+        "description": "A scalable EdTech solution for students, teachers, and admins, built with Flutter and Clean Architecture. Implemented Cubit for robust state management and integrated complex APIs to deliver a high-performance educational experience.",
+        "tags": {
+          "0": "API",
+          "1": "BLoC",
+          "2": "Clean Architecture"
+        }
+      },
+      "2": {
+        "title": "ElectroHub: Advanced E-Commerce Flutter App",
+        "description": "Developed a high-performance electronics marketplace using Flutter and MVVM architecture. Integrated professional GitHub version control and clean code practices to deliver a scalable, feature-rich shopping experience.",
+        "tags": {
+          "0": "Firebase",
+          "1": "Clean Architecture",
+          "2": "BLoC"
+        }
+      },
+      "3": {
+        "title": "Full-Stack Flutter Portfolio: Clean Architecture & State Management",
+        "description": "An advanced Flutter implementation of a custom design system, mirroring Figma styles in code with support for dynamic modes, localization, and parallax animations.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      }
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "role": "Product Designer & UI/UX Specialist | Flutter Developer",
+    "description": "The Architect of Experience. With 3 years in UI/UX and 5 years in Graphic Design, I don't just \"draw\" apps—I engineer them. Now, as a Flutter Developer, I bring those designs to life, ensuring the soul of the creative vision survives every line of code. I bridge the gap between \"what's beautiful\" and \"what actually works.\"",
+    "tabs": {
+      "experience": "Experience",
+      "skills": "Skills",
+      "values": "Values",
+      "skills_placeholder": "Skills Content Coming Soon...",
+      "values_placeholder": "Values Content Coming Soon..."
+    },
+    "experience": {
+      "zimitail": {
+        "title": "UI/UX Designer — Zimitail",
+        "description": "At Zimitail, I led the entire design journey, turning complex user research into seamless, high-fidelity realities."
+      },
+      "smartly": {
+        "title": "UI/UX Designer — Smartly Techs",
+        "description": "Simplifying the Complex. I mastered the art of information architecture, making sure every user interaction felt natural and intuitive."
+      },
+      "freelance": {
+        "title": "Graphic & UI Designer — Freelance",
+        "description": "\"Developed a high-performance electronics marketplace using Flutter and MVVM architecture. Integrated professional GitHub version control and clean code practices to deliver a scalable, feature-rich shopping experience.\""
+      },
+      "flutter_exp": {
+        "title": "One Year Experience",
+        "description": "I took the leap from pixels to production, building robust Flutter apps with Clean Architecture and a designer’s eye for detail."
+      }
+    },
+    "skills": {
+      "uiux": {
+        "title": "UI/UX & Product Design",
+        "labels": {
+          "wireframing": "Wireframing",
+          "prototyping": "Prototyping",
+          "ai_prompts": "AI Prompts",
+          "design_system": "Design System",
+          "design_tokens": "Design Tokens"
+        }
+      },
+      "flutter": {
+        "title": "Flutter Development",
+        "labels": {
+          "dart": "Dart",
+          "responsive_layout": "Responsive Layout",
+          "state_management": "State Management",
+          "api_integration": "API Integration",
+          "reusable_widgets": "Reusable Widgets",
+          "pixel_perfect": "Pixel-Perfect UI"
+        }
+      },
+      "soft_skills": {
+        "title": "Soft Skills",
+        "description": "Strong communication, problem-solving, attention to detail, teamwork, and adaptability."
+      }
+    },
+    "values": {
+      "quality": {
+        "title": "Quality First",
+        "description": "Every pixel matters. I strive for excellence in every detail."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "Great work comes from great teamwork and communication."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Always exploring new technologies and design trends."
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Let's work together on your next project",
+    "name_hint": "Your Name",
+    "email_hint": "your.email@example.com",
+    "message_hint": "Tell me about your project...",
+    "send_button": "Send Messege",
+    "social_title": "Or contact with me on",
+    "success_message": "Message sent successfully!",
+    "error_message": "Failed to send message. Please try again."
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  },
+  "language": {
+    "english": "English",
+    "german": "Deutsch"
+  }
+}

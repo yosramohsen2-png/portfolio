@@ -1,0 +1,201 @@
+{
+    "app_name": "Portfolio",
+    "nav": {
+        "home": "Home",
+        "ui_ux_design": "UI/UX Design",
+        "flutter_dev": "Flutter DEV",
+        "about": "Über mich",
+        "contact": "Kontakt"
+    },
+    "home": {
+        "hello": "Hallo, ich bin",
+        "name": "Yosra Mohsen",
+        "tagline": "Ich designe den Traum.\nIch baue die Realität",
+        "description": "Ich war schon immer davon besessen, wie Dinge unter der Haube funktionieren. Für mich ist eine großartige App eine Geschichte, die mit einem Pixel beginnt und mit einer soliden Codezeile endet. Ich schließe die Lücke zwischen \"wie es aussieht\" und \"wie es funktioniert\" und sorge dafür, dass jede Benutzerreise ein Meisterwerk ist.",
+        "view_uiux": "UI/UX Projekte ansehen",
+        "view_flutter": "Flutter Projekte ansehen",
+        "services": {
+            "title": "Was ich mache",
+            "uiux": {
+                "title": "UI/UX Design",
+                "description": "Gestaltung intuitiver und ästhetisch ansprechender Benutzeroberflächen für nahtlose digitale Erlebnisse."
+            },
+            "flutter": {
+                "title": "Flutter Entwicklung",
+                "description": "Erstellung leistungsstarker cross-plattform Anwendungen mit sauberem und skalierbarem Code."
+            },
+            "graphic": {
+                "title": "Grafikdesign",
+                "description": "Entwurf visuell beeindruckender Markenidentitäten und digitaler Assets für eine effektive Kommunikation."
+            }
+        }
+    },
+    "ui_ux": {
+        "title": "UI/UX Design",
+        "subtitle": "Intuitive Benutzererfahrungen gestalten",
+        "description": "Erkunden Sie mein Design-Portfolio mit benutzerzentrierten Design-Lösungen.",
+        "projects": {
+            "0": {
+                "title": "Smart Home Dashboard",
+                "description": "Ein zentralisiertes Steuerungssystem für Smart-Home-Geräte mit Fokus auf Einfachheit und Barrierefreiheit.",
+                "tags": [
+                    "Mobile App",
+                    "UI Design",
+                    "UX Research"
+                ]
+            },
+            "1": {
+                "title": "E-Commerce-Neugestaltung",
+                "description": "Neugestaltung des Einkaufserlebnisses für einen großen Elektronikhändler zur Verbesserung der Konversionsraten.",
+                "tags": [
+                    "Web App",
+                    "E-Commerce",
+                    "UX Audit"
+                ]
+            },
+            "2": {
+                "title": "Fitness-Tracker-App",
+                "description": "Ein ganzheitlicher Ansatz zur Fitnessverfolgung, der Workout-Logging mit Ernährungsüberwachung kombiniert.",
+                "tags": [
+                    "Mobile App",
+                    "Gesundheit",
+                    "Gamification"
+                ]
+            }
+        }
+    },
+    "flutter_dev": {
+        "title": "Flutter",
+        "subtitle": "Entwicklung",
+        "description": "Leistungsstarke plattformübergreifende mobile Anwendungen erstellen",
+        "projects": {
+            "0": {
+                "title": "Mongiz: KI-gestützte Motivation",
+                "description": "Eine leistungsstarke Flutter-App zur Produktivitätssteigerung durch Zielzerlegung und tägliche Motivation. Bietet nahtlose Firebase-Authentifizierung, Supabase-Echtzeit-Benachrichtigungen und fortgeschrittene Zustandsverwaltung.",
+                "tags": {
+                    "0": "Firebase",
+                    "1": "Supabase",
+                    "2": "BLoC",
+                    "3": "Saubere Architektur"
+                }
+            },
+            "1": {
+                "title": "Umfassendes EdTech-Ökosystem (LMS)",
+                "description": "Eine skalierbare EdTech-Lösung für Schüler, Lehrer und Administratoren, entwickelt mit Flutter und Clean Architecture. Implementierung von Cubit für robuste Zustandsverwaltung und Integration komplexer APIs.",
+                "tags": {
+                    "0": "API",
+                    "1": "BLoC",
+                    "2": "Saubere Architektur"
+                }
+            },
+            "2": {
+                "title": "ElectroHub: Fortschrittliche E-Commerce Flutter-App",
+                "description": "Entwicklung eines leistungsstarken Elektronik-Marktplatzes mit Flutter und MVVM-Architektur. Integration von GitHub-Versionskontrolle und Clean-Code-Praktiken für ein skalierbares Einkaufserlebnis.",
+                "tags": {
+                    "0": "Firebase",
+                    "1": "Saubere Architektur",
+                    "2": "BLoC"
+                }
+            },
+            "3": {
+                "title": "Full-Stack Flutter-Portfolio: Clean Architecture & State Management",
+                "description": "Eine fortschrittliche Flutter-Implementierung eines benutzerdefinierten Design-Systems, das Figma-Styles im Code widerspiegelt, inklusive dynamischer Modi, Lokalisierung und Parallax-Animationen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Nutzerforschung",
+                    "2": "Prototyping"
+                }
+            }
+        }
+    },
+    "about": {
+        "title": "Über mich",
+        "role": "Produktdesigner & UI/UX-Spezialist | Flutter-Entwickler",
+        "description": "Der Architekt der Erfahrung. Mit 3 Jahren in UI/UX und 5 Jahren in Grafikdesign zeichne ich Apps nicht nur – ich konstruiere sie. Jetzt, als Flutter-Entwickler, erwecke ich diese Designs zum Leben und stelle sicher, dass die Seele der kreativen Vision jede Codezeile überlebt. Ich schließe die Lücke zwischen „was schön ist“ und „was tatsächlich funktioniert“.",
+        "tabs": {
+            "experience": "Erfahrung",
+            "skills": "Fähigkeiten",
+            "values": "Werte",
+            "skills_placeholder": "Inhalte zu Fähigkeiten folgen bald...",
+            "values_placeholder": "Inhalte zu Werten folgen bald..."
+        },
+        "experience": {
+            "zimitail": {
+                "title": "UI/UX Designer — Zimitail",
+                "description": "Bei Zimitail leitete ich die gesamte Designreise und verwandelte komplexe Benutzerforschung in nahtlose High-Fidelity-Realitäten."
+            },
+            "smartly": {
+                "title": "UI/UX Designer — Smartly Techs",
+                "description": "Das Komplexe vereinfachen. Ich habe die Kunst der Informationsarchitektur gemeistert und dafür gesorgt, dass sich jede Benutzerinteraktion natürlich und intuitiv anfühlt."
+            },
+            "freelance": {
+                "title": "Grafik- & UI-Designer — Freelance",
+                "description": "\"Entwicklung eines leistungsstarken Elektronik-Marktplatzes mit Flutter und MVVM-Architektur. Integration professioneller GitHub-Versionskontrolle und Clean Code-Praktiken, um ein skalierbares, funktionsreiches Einkaufserlebnis zu bieten.\""
+            },
+            "flutter_exp": {
+                "title": "Ein Jahr Erfahrung",
+                "description": "Ich wagte den Sprung von Pixeln zur Produktion und baute robuste Flutter-Apps mit Clean Architecture und einem Auge für Designdetails."
+            }
+        },
+        "skills": {
+            "uiux": {
+                "title": "UI/UX & Produktdesign",
+                "labels": {
+                    "wireframing": "Wireframing",
+                    "prototyping": "Prototyping",
+                    "ai_prompts": "KI-Prompts",
+                    "design_system": "Design-System",
+                    "design_tokens": "Design-Tokens"
+                }
+            },
+            "flutter": {
+                "title": "Flutter-Entwicklung",
+                "labels": {
+                    "dart": "Dart",
+                    "responsive_layout": "Responsives Layout",
+                    "state_management": "Zustandsverwaltung",
+                    "api_integration": "API-Integration",
+                    "reusable_widgets": "Wiederverwendbare Widgets",
+                    "pixel_perfect": "Pixel-perfektes UI"
+                }
+            },
+            "soft_skills": {
+                "title": "Soft Skills",
+                "description": "Starke Kommunikation, Problemlösung, Detailgenauigkeit, Teamarbeit und Anpassungsfähigkeit."
+            }
+        },
+        "values": {
+            "quality": {
+                "title": "Qualität First",
+                "description": "Jedes Pixel zählt. Ich strebe bei jedem Detail nach Exzellenz."
+            },
+            "collaboration": {
+                "title": "Zusammenarbeit",
+                "description": "Gute Arbeit kommt von guter Teamarbeit und Kommunikation."
+            },
+            "innovation": {
+                "title": "Innovation",
+                "description": "Immer auf der Suche nach neuen Technologien und Designtrends."
+            }
+        }
+    },
+    "contact": {
+        "title": "Nehmen Sie Kontakt auf",
+        "description": "Lassen Sie uns gemeinsam an Ihrem nächsten Projekt arbeiten",
+        "name_hint": "Ihr Name",
+        "email_hint": "Ihr.email@example.com",
+        "message_hint": "Erzählen Sie mir von Ihrem Projekt...",
+        "send_button": "Nachricht senden",
+        "social_title": "Oder Kontaktieren Sie mich unter",
+        "success_message": "Nachricht erfolgreich gesendet!",
+        "error_message": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
+    },
+    "theme": {
+        "light": "Hell-Modus",
+        "dark": "Dunkel-Modus"
+    },
+    "language": {
+        "english": "English",
+        "german": "Deutsch"
+    }
+}
