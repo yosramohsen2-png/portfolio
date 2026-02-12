@@ -21,7 +21,7 @@ export 'badge_group.dart';
 
 // Cards
 export 'service_card.dart';
-export 'project_card.dart';
+export 'custom_project_card.dart';
 
 // Forms
 export 'custom_text_field.dart';
