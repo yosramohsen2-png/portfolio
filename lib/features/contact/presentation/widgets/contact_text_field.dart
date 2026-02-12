@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
-import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 
 class ContactTextField extends StatelessWidget {
@@ -24,7 +23,6 @@ class ContactTextField extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final bgColors = AppColors.backgroundColors(theme.brightness);
-    final borderColors = AppColors.borderColors(theme.brightness);
     final textColors = AppColors.textColors(theme.brightness);
 
     return TextFormField(

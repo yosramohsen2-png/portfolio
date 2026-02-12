@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero_section.dart';
-import 'package:portfolio/features/home/presentation/widgets/services_section.dart';
 import 'package:portfolio/shared/widgets/page_shell.dart';
 
 class HomePage extends StatelessWidget {
@@ -27,11 +26,5 @@ class HomePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  double _getHorizontalPadding(double width) {
-    if (width > AppDimensions.breakpointDesktop) return width * 0.15;
-    if (width >= AppDimensions.breakpointTablet) return AppDimensions.spacing6xl;
-    return AppDimensions.spacingXl;
   }
 }

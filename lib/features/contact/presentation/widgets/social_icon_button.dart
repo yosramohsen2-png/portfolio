@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
-import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialIconButton extends StatefulWidget {
@@ -31,7 +30,6 @@ class _SocialIconButtonState extends State<SocialIconButton> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final bgColors = AppColors.backgroundColors(theme.brightness);
-    final textColors = AppColors.textColors(theme.brightness);
     final iconColors = AppColors.iconColors(theme.brightness);
 
     return MouseRegion(

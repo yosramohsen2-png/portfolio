@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
@@ -23,7 +22,6 @@ class AboutHero extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < AppDimensions.breakpointTablet;
     final brightness = Theme.of(context).brightness;
-    final isDark = brightness == Brightness.dark;
     final textColors = AppColors.textColors(brightness);
     final bgColors = AppColors.backgroundColors(brightness);
 

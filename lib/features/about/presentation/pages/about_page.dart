@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:animate_do/animate_do.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/shared/widgets/page_shell.dart';
 import 'package:portfolio/features/about/presentation/widgets/about_hero.dart';

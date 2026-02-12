@@ -22,10 +22,6 @@ class ValuesTabContent extends StatelessWidget {
         }
 
         double spacing = AppDimensions.spacing2xl;
-        
-        // Calculate card width precisely
-        double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount - 1;
-
         final cards = _buildCards();
 
         final width = MediaQuery.of(context).size.width;

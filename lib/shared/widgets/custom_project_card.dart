@@ -8,18 +8,20 @@ import 'package:portfolio/shared/widgets/badge_size.dart';
 class CustomProjectCard extends StatefulWidget {
   final String title;
   final String description;
-  final String imagePath;
+  final String imageUrl;
   final List<String> tags;
   final String? githubUrl;
+  final String? behanceUrl;
   final bool isNetworkImage;
 
   const CustomProjectCard({
     super.key,
     required this.title,
     required this.description,
-    required this.imagePath,
+    required this.imageUrl,
     required this.tags,
     this.githubUrl,
+    this.behanceUrl,
     this.isNetworkImage = false,
   });
 
@@ -31,8 +33,9 @@ class _CustomProjectCardState extends State<CustomProjectCard> {
   bool _isHovered = false;
 
   Future<void> _launchUrl() async {
-    if (widget.githubUrl == null) return;
-    final uri = Uri.parse(widget.githubUrl!);
+    final url = widget.behanceUrl ?? widget.githubUrl;
+    if (url == null) return;
+    final uri = Uri.parse(url);
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     }
@@ -48,7 +51,9 @@ class _CustomProjectCardState extends State<CustomProjectCard> {
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
-      cursor: widget.githubUrl != null ? SystemMouseCursors.click : SystemMouseCursors.basic,
+      cursor: (widget.githubUrl != null || widget.behanceUrl != null) 
+          ? SystemMouseCursors.click 
+          : SystemMouseCursors.basic,
       child: GestureDetector(
         onTap: _launchUrl,
         child: AnimatedContainer(
@@ -88,8 +93,8 @@ class _CustomProjectCardState extends State<CustomProjectCard> {
                           duration: const Duration(milliseconds: 600),
                           curve: Curves.easeOutCubic,
                           child: widget.isNetworkImage 
-                            ? Image.network(widget.imagePath, fit: BoxFit.cover)
-                            : Image.asset(widget.imagePath, fit: BoxFit.cover),
+                            ? Image.network(widget.imageUrl, fit: BoxFit.cover)
+                            : Image.asset(widget.imageUrl, fit: BoxFit.cover),
                         ),
                       ),
                       // Hover Overlay

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/shared/widgets/badge.dart';
 import 'package:portfolio/shared/widgets/badge_size.dart';
 import 'package:portfolio/shared/widgets/badge_group.dart';
 
