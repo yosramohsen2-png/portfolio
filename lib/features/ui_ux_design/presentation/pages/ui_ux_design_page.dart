@@ -1,90 +1,89 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/core/theme/app_typography.dart';
-import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/shared/widgets/page_shell.dart';
-import 'package:portfolio/shared/widgets/project_card.dart';
+import 'package:portfolio/shared/widgets/custom_project_card.dart';
+import 'package:portfolio/shared/widgets/section_hero.dart';
+import 'package:portfolio/core/constants/app_assets.dart';
 
-class UiUxDesignPage extends StatelessWidget {
+class UiUxDesignPage extends StatefulWidget {
   const UiUxDesignPage({super.key});
 
   @override
+  State<UiUxDesignPage> createState() => _UiUxDesignPageState();
+}
+
+class _UiUxDesignPageState extends State<UiUxDesignPage> {
+  @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final brightness = Theme.of(context).brightness;
-    final textColors = AppColors.textColors(brightness);
     final isMobile = width < AppDimensions.breakpointTablet;
 
-    final List<Map<String, dynamic>> projects = [
-      {
-        'title': 'ui_ux.projects.0.title'.tr(),
-        'description': 'ui_ux.projects.0.description'.tr(),
-        'tags': ['Mobile App', 'UI Design', 'UX Research'],
-        'image': 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=500',
-      },
-      {
-        'title': 'ui_ux.projects.1.title'.tr(),
-        'description': 'ui_ux.projects.1.description'.tr(),
-        'tags': ['Web App', 'e-Commerce', 'UX Audit'],
-        'image': 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500',
-      },
-      {
-        'title': 'ui_ux.projects.2.title'.tr(),
-        'description': 'ui_ux.projects.2.description'.tr(),
-        'tags': ['Mobile App', 'Health', 'Gamification'],
-        'image': 'https://images.unsplash.com/photo-1576091160550-217359f42f8c?q=80&w=500',
-      },
-    ];
+    // Build the projects list inside build to ensure it reacts to locale changes
+    final List<Map<String, dynamic>> projects = _getProjects(context);
 
-    return PageShell(
-      currentRoute: '/ui-ux-design',
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: _getHorizontalPadding(width),
-          vertical: AppDimensions.spacing8xl,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Header
-            Text(
-              'ui_ux.title'.tr(),
-              textAlign: TextAlign.center,
-              style: (isMobile
-                      ? AppTypography.headlineLg(color: textColors.primaryDefault)
-                      : AppTypography.headline3xl(color: textColors.primaryDefault))
-                  .copyWith(fontWeight: FontWeight.w900),
-            ),
-            const SizedBox(height: AppDimensions.spacingXs),
-            Text(
-              'ui_ux.subtitle'.tr(),
-              textAlign: TextAlign.center,
-              style: (isMobile
-                      ? AppTypography.headlineSm(color: textColors.brandDefault)
-                      : AppTypography.headlineMd(color: textColors.brandDefault))
-                  .copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: AppDimensions.spacing4xl),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 800),
-              child: Text(
-                'ui_ux.description'.tr(),
-                textAlign: TextAlign.center,
-                style: AppTypography.bodyXl(
-                  color: textColors.brandDisabled,
-                  fontWeight: FontWeight.w500,
-                ).copyWith(height: 1.6),
+    return KeyedSubtree(
+      key: ValueKey(context.locale.languageCode),
+      child: PageShell(
+        currentRoute: '/ui-ux-design',
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: _getHorizontalPadding(width),
+            vertical: isMobile ? 40 : 80,
+          ),
+          child: Column(
+            children: [
+              SectionHero(
+                title: 'ui_ux.title'.tr(),
+                subtitle: 'ui_ux.subtitle'.tr(),
+                description: 'ui_ux.description'.tr(),
               ),
-            ),
-            const SizedBox(height: AppDimensions.spacing10xl),
-
-            // Projects Grid
-            _buildProjectsGrid(projects, width),
-          ],
+              const SizedBox(height: 60),
+              _buildProjectsGrid(projects, width),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  List<Map<String, dynamic>> _getProjects(BuildContext context) {
+    List<String> getTags(int projectIndex, int tagCount) {
+      return List.generate(
+        tagCount,
+        (i) => "ui_ux.projects.$projectIndex.tags.$i".tr(),
+      );
+    }
+
+    // Mapping images to project indices
+    final imageMapping = {
+      0: AppAssets.uiuxProject1, // 4 flutter & 16 design
+      1: AppAssets.uiuxProject2, // 1 flutter, 7 design
+      2: AppAssets.uiuxProject3, // Property 1=MacBook #13 3
+      3: AppAssets.uiuxProject4, // Property 1=image 7
+      4: AppAssets.uiuxProject5, // Property 1=image 8
+      5: AppAssets.uiuxProject6, // Property 1=image 9
+    };
+
+    // Mapping Behance URLs to project indices
+    final behanceUrls = {
+      0: "https://www.behance.net/gallery/215777717/Furniture-App",
+      1: "https://www.behance.net/gallery/215682885/Coffee-App",
+      2: "https://www.behance.net/gallery/215681989/Smart-Learning-App",
+      3: "https://www.behance.net/gallery/198642751/Furniture-e-commerce-Application",
+      4: "https://www.behance.net/gallery/198642391/Food-Delivery-Application",
+      5: "https://www.behance.net/gallery/198641951/Health-Guard-Application",
+    };
+
+    return List.generate(6, (index) {
+      return {
+        'title': "ui_ux.projects.$index.title".tr(),
+        'description': "ui_ux.projects.$index.description".tr(),
+        'tags': getTags(index, 3),
+        'image': imageMapping[index] ?? AppAssets.uiuxProject1,
+        'behanceUrl': behanceUrls[index] ?? "",
+      };
+    });
   }
 
   Widget _buildProjectsGrid(List<Map<String, dynamic>> projects, double width) {
@@ -95,48 +94,51 @@ class UiUxDesignPage extends StatelessWidget {
       crossAxisCount = 2;
     }
 
-    if (crossAxisCount == 1) {
-      return Column(
-        children: projects.map((p) => Padding(
-          padding: const EdgeInsets.only(bottom: AppDimensions.spacing6xl),
-          child: _buildProjectCard(p),
-        )).toList(),
-      );
-    }
-
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: AppDimensions.spacing3xl,
-            mainAxisSpacing: AppDimensions.spacing6xl,
-            childAspectRatio: 0.75,
-          ),
-          itemCount: projects.length,
-          itemBuilder: (context, index) {
-            return _buildProjectCard(projects[index]);
-          },
+    return LayoutBuilder(builder: (context, constraints) {
+      if (crossAxisCount == 1) {
+        return Column(
+          children: projects
+              .map((p) => Padding(
+                    padding: const EdgeInsets.only(bottom: 40),
+                    child: CustomProjectCard(
+                      imageUrl: p['image'],
+                      title: p['title'],
+                      description: p['description'],
+                      tags: p['tags'],
+                      behanceUrl: p['behanceUrl'],
+                    ),
+                  ))
+              .toList(),
         );
       }
-    );
-  }
 
-  Widget _buildProjectCard(Map<String, dynamic> project) {
-    return ProjectCard(
-      imageUrl: project['image'],
-      title: project['title'],
-      description: project['description'],
-      tags: List<String>.from(project['tags']),
-      onTap: () {},
-    );
+      return GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: crossAxisCount,
+          crossAxisSpacing: 30,
+          mainAxisSpacing: 50,
+          childAspectRatio: 0.85,
+        ),
+        itemCount: projects.length,
+        itemBuilder: (context, index) {
+          final p = projects[index];
+          return CustomProjectCard(
+            imageUrl: p['image'],
+            title: p['title'],
+            description: p['description'],
+            tags: p['tags'],
+            behanceUrl: p['behanceUrl'],
+          );
+        },
+      );
+    });
   }
 
   double _getHorizontalPadding(double width) {
     if (width > AppDimensions.breakpointDesktop) return width * 0.10;
-    if (width >= AppDimensions.breakpointTablet) return AppDimensions.spacing6xl;
-    return AppDimensions.spacingXl;
+    if (width >= AppDimensions.breakpointTablet) return 40;
+    return 20;
   }
 }
