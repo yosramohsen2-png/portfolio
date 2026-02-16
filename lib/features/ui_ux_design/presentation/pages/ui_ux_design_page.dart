@@ -40,7 +40,7 @@ class UiUxDesignPage extends StatelessWidget {
     return PageShell(
       currentRoute: '/ui-ux-design',
       body: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: EdgeInsetsDirectional.symmetric(
           horizontal: _getHorizontalPadding(width),
           vertical: AppDimensions.spacing8xl,
         ),

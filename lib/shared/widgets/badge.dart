@@ -24,17 +24,17 @@ class _BadgeState extends State<Badge> {
   EdgeInsets get _padding {
     switch (widget.size) {
       case BadgeSize.small:
-        return const EdgeInsets.symmetric(
+        return const EdgeInsetsDirectional.symmetric(
           horizontal: AppDimensions.spacingMd,
           vertical: AppDimensions.spacingXs,
         );
       case BadgeSize.medium:
-        return const EdgeInsets.symmetric(
+        return const EdgeInsetsDirectional.symmetric(
           horizontal: AppDimensions.spacingLg,
           vertical: AppDimensions.spacingSm,
         );
       case BadgeSize.large:
-        return const EdgeInsets.symmetric(
+        return const EdgeInsetsDirectional.symmetric(
           horizontal: AppDimensions.spacingXl,
           vertical: AppDimensions.spacingMd,
         );

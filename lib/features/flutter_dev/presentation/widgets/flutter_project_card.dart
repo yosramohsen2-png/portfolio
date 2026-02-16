@@ -55,9 +55,9 @@ class _FlutterProjectCardState extends State<FlutterProjectCard> {
         onTap: _launchUrl,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          padding: EdgeInsets.only(
-            left: AppDimensions.spacingXs,
-            right: AppDimensions.spacingXs,
+          padding: EdgeInsetsDirectional.only(
+            start: AppDimensions.spacingXs,
+            end: AppDimensions.spacingXs,
             bottom: AppDimensions.spacingXl,
           ),
           decoration: BoxDecoration(
@@ -134,7 +134,7 @@ class _FlutterProjectCardState extends State<FlutterProjectCard> {
 
               // Content Section
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: EdgeInsetsDirectional.symmetric(
                   horizontal: AppDimensions.spacingXs,
                 ),
                 child: Column(

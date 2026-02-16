@@ -44,11 +44,11 @@ class _ProjectCardState extends State<ProjectCard> {
       onTap: widget.onTap,
       child: Container(
         // Card container: padding top:4, bottom:16, left:4, right:4
-        padding: EdgeInsets.only(
+        padding: EdgeInsetsDirectional.only(
           top: AppDimensions.spacingXs,
           bottom: AppDimensions.spacingXl,
-          left: AppDimensions.spacingXs,
-          right: AppDimensions.spacingXs,
+          start: AppDimensions.spacingXs,
+          end: AppDimensions.spacingXs,
         ),
         decoration: BoxDecoration(
           // background: primaryDefault with 0.20 opacity
@@ -123,7 +123,7 @@ class _ProjectCardState extends State<ProjectCard> {
 
             // Content section: padding 4px horizontal
             Padding(
-              padding: EdgeInsets.symmetric(
+              padding: EdgeInsetsDirectional.symmetric(
                 horizontal: AppDimensions.spacingXs,
               ),
               child: Column(

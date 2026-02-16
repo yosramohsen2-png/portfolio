@@ -31,7 +31,7 @@ class FlutterDevPage extends StatelessWidget {
               maxWidth: AppDimensions.breakpointDesktop,
             ),
             child: Padding(
-              padding: EdgeInsets.symmetric(
+              padding: EdgeInsetsDirectional.symmetric(
                 horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
                 vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
               ),

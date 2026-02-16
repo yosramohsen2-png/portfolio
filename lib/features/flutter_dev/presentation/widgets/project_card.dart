@@ -55,10 +55,10 @@ class _ProjectCardState extends State<ProjectCard> {
         onTap: _launchUrl,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
-          padding: EdgeInsets.only(
+          padding: EdgeInsetsDirectional.only(
             top: AppDimensions.spacingXs,
-            left: AppDimensions.spacingXs,
-            right: AppDimensions.spacingXs,
+            start: AppDimensions.spacingXs,
+            end: AppDimensions.spacingXs,
             bottom: AppDimensions.spacingXl,
           ),
           decoration: BoxDecoration(
@@ -135,7 +135,7 @@ class _ProjectCardState extends State<ProjectCard> {
 
               // Content Section
               Padding(
-                padding: EdgeInsets.symmetric(
+                padding: EdgeInsetsDirectional.symmetric(
                   horizontal: AppDimensions.spacingXs,
                 ),
                 child: Column(
