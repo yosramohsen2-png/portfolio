@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
-import 'package:portfolio/core/theme/colors/text_colors.dart';
 import 'package:portfolio/shared/widgets/badge_size.dart';
 
 class Badge extends StatefulWidget {
@@ -42,33 +41,45 @@ class _BadgeState extends State<Badge> {
     }
   }
 
-  TextStyle _getTextStyle(BuildContext context, TextColors textColors) {
-    Color color = textColors.primaryDisabled;
-    if (_isHovered) {
-      color = textColors.primaryDefault;
-    }
-
-    switch (widget.size) {
-      case BadgeSize.small:
-        return AppTypography.labelSm(color: color, fontWeight: FontWeight.bold);
-      case BadgeSize.medium:
-        return AppTypography.labelMd(color: color, fontWeight: FontWeight.bold);
-      case BadgeSize.large:
-        return AppTypography.bodyMd(
-          color: color,
-          fontWeight: FontWeight.bold,
-        );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
     final bgColors = AppColors.backgroundColors(brightness);
     final textColors = AppColors.textColors(brightness);
 
-    final baseColor = bgColors.brandLight;
-    final hoverColor = bgColors.brandHover;
+    // Design System colors for Badge:
+    // Default: bg = brandLight, text = textPrimaryDisabled
+    // Hover:   bg = brandHover, text = textPrimaryDefault
+    final Color backgroundColor = _isHovered
+        ? bgColors.brandHover
+        : bgColors.brandLight;
+
+    final Color textColor = _isHovered
+        ? textColors.primaryDefault
+        : textColors.primaryDisabled;
+
+    // Typography based on size
+    TextStyle textStyle;
+    switch (widget.size) {
+      case BadgeSize.small:
+        textStyle = AppTypography.labelSm(
+          color: textColor,
+          fontWeight: FontWeight.w400,
+        );
+        break;
+      case BadgeSize.medium:
+        textStyle = AppTypography.labelMd(
+          color: textColor,
+          fontWeight: FontWeight.w500,
+        );
+        break;
+      case BadgeSize.large:
+        textStyle = AppTypography.bodyMd(
+          color: textColor,
+          fontWeight: FontWeight.w500,
+        );
+        break;
+    }
 
     return MouseRegion(
       onEnter: (_) => setState(() => _isHovered = true),
@@ -78,12 +89,12 @@ class _BadgeState extends State<Badge> {
         duration: const Duration(milliseconds: 200),
         padding: _padding,
         decoration: BoxDecoration(
-          color: _isHovered ? hoverColor : baseColor,
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
         ),
         child: Text(
           widget.label,
-          style: _getTextStyle(context, textColors),
+          style: textStyle,
         ),
       ),
     );

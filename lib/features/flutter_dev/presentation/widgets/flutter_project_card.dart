@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/core/theme/app_typography.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/shared/widgets/badge_group.dart';
 import 'package:portfolio/shared/widgets/badge_size.dart';
 
-class ProjectCard extends StatefulWidget {
+class FlutterProjectCard extends StatefulWidget {
   final String title;
   final String description;
-  final String imagePath;
+  final String imageUrl;
   final List<String> tags;
   final String githubUrl;
 
-  const ProjectCard({
+  const FlutterProjectCard({
     super.key,
     required this.title,
     required this.description,
-    required this.imagePath,
+    required this.imageUrl,
     required this.tags,
     required this.githubUrl,
   });
 
   @override
-  State<ProjectCard> createState() => _ProjectCardState();
+  State<FlutterProjectCard> createState() => _FlutterProjectCardState();
 }
 
-class _ProjectCardState extends State<ProjectCard> {
+class _FlutterProjectCardState extends State<FlutterProjectCard> {
   bool _isHovered = false;
 
   // Design spec image height: 256px = spacing9xl(192) + spacing6xl(56) + spacingMd(8)
@@ -56,7 +56,6 @@ class _ProjectCardState extends State<ProjectCard> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           padding: EdgeInsets.only(
-            top: AppDimensions.spacingXs,
             left: AppDimensions.spacingXs,
             right: AppDimensions.spacingXs,
             bottom: AppDimensions.spacingXl,
@@ -74,8 +73,8 @@ class _ProjectCardState extends State<ProjectCard> {
                 ? [
                     BoxShadow(
                       color: textColors.primaryDefault.withOpacity(0.08),
-                      blurRadius: AppDimensions.effectXl,
-                      offset: Offset(0, AppDimensions.spacingMd),
+                      blurRadius: AppDimensions.effectLg,
+                      offset: Offset(0, AppDimensions.spacingXs),
                     ),
                   ]
                 : [],
@@ -99,18 +98,18 @@ class _ProjectCardState extends State<ProjectCard> {
                           duration: const Duration(milliseconds: 400),
                           curve: Curves.easeOut,
                           child: Image.asset(
-                            widget.imagePath,
+                            widget.imageUrl,
                             fit: BoxFit.cover,
                             errorBuilder: (context, error, stackTrace) =>
                                 _buildErrorPlaceholder(bgColors, textColors),
                           ),
                         ),
                       ),
-                      // Hover gradient overlay (depth effect)
+                      // Dark gradient overlay from bottom (depth on hover)
                       Positioned.fill(
                         child: AnimatedOpacity(
-                          duration: const Duration(milliseconds: 400),
                           opacity: _isHovered ? 0.7 : 0.0,
+                          duration: const Duration(milliseconds: 400),
                           child: Container(
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
@@ -143,14 +142,17 @@ class _ProjectCardState extends State<ProjectCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Title: headlineXs (24px/32px, w700)
-                    Text(
-                      widget.title,
-                      style: AppTypography.headlineXs(
-                        color: textColors.primaryDefault,
-                        fontWeight: FontWeight.w700,
+                    SizedBox(
+                      height: AppDimensions.spacing6xl + AppDimensions.spacingXs,
+                      child: Text(
+                        widget.title,
+                        style: AppTypography.headlineXs(
+                          color: textColors.primaryDefault,
+                          fontWeight: FontWeight.w700,
+                        ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                     ),
 
                     SizedBox(height: AppDimensions.spacingMd),
@@ -165,16 +167,16 @@ class _ProjectCardState extends State<ProjectCard> {
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
-
-                    SizedBox(height: AppDimensions.spacingXl),
-
-                    // Tags Section
-                    BadgeGroup(
-                      labels: widget.tags,
-                      size: BadgeSize.small,
-                    ),
                   ],
                 ),
+              ),
+
+              SizedBox(height: AppDimensions.spacingXl),
+
+              // Tags Section
+              BadgeGroup(
+                labels: widget.tags,
+                size: BadgeSize.small,
               ),
             ],
           ),

@@ -1,50 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/core/theme/app_colors.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/shared/widgets/page_shell.dart';
-import 'package:portfolio/features/flutter_dev/presentation/widgets/project_card.dart';
+import 'package:portfolio/shared/widgets/project_card.dart';
 import 'package:portfolio/features/flutter_dev/presentation/widgets/flutter_dev_hero.dart';
 
-class FlutterDevPage extends StatefulWidget {
+const String _githubUrl = 'https://github.com/yosramohsen2-png';
+
+class FlutterDevPage extends StatelessWidget {
   const FlutterDevPage({super.key});
 
-  @override
-  State<FlutterDevPage> createState() => _FlutterDevPageState();
-}
-
-class _FlutterDevPageState extends State<FlutterDevPage> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < AppDimensions.breakpointTablet;
 
-    // Build the projects list inside build to ensure it reacts to locale changes
-    final List<Map<String, dynamic>> projects = _getProjects(context);
+    // Access context.locale so the widget rebuilds when language changes
+    final locale = context.locale;
+
+    final List<Map<String, dynamic>> projects = _getProjects(locale);
 
     return PageShell(
       currentRoute: '/flutter-dev',
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: _getHorizontalPadding(width),
-          vertical: isMobile ? 40 : 80,
-        ),
-        child: Column(
-          children: [
-            const FlutterDevHero(),
-            const SizedBox(height: 60),
-            _buildProjectsGrid(projects, width),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: AppDimensions.breakpointDesktop,
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
+                vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const FlutterDevHero(),
+                  SizedBox(height: AppDimensions.spacing6xl),
+                  _buildProjectsLayout(projects, width),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
   }
 
-  List<Map<String, dynamic>> _getProjects(BuildContext context) {
+  List<Map<String, dynamic>> _getProjects(Locale locale) {
     // Helper to safely get tags from localization
     List<String> getTags(int projectIndex, int tagCount) {
-      return List.generate(tagCount, (i) => 
+      return List.generate(tagCount, (i) =>
         'flutter_dev.projects.$projectIndex.tags.$i'.tr()
       );
     }
@@ -54,78 +63,95 @@ class _FlutterDevPageState extends State<FlutterDevPage> {
         'title': 'flutter_dev.projects.0.title'.tr(),
         'description': 'flutter_dev.projects.0.description'.tr(),
         'tags': getTags(0, 4),
-        'image': AppAssets.project1,
-        'url': 'https://github.com/yosramohsen2-png/Mongiz-App',
+        'image': AppAssets.mongiz,
       },
       {
         'title': 'flutter_dev.projects.1.title'.tr(),
         'description': 'flutter_dev.projects.1.description'.tr(),
         'tags': getTags(1, 3),
-        'image': AppAssets.project2,
-        'url': 'https://github.com/yosramohsen2-png/EdTech-LMS',
+        'image': AppAssets.edtech,
       },
       {
         'title': 'flutter_dev.projects.2.title'.tr(),
         'description': 'flutter_dev.projects.2.description'.tr(),
         'tags': getTags(2, 3),
-        'image': AppAssets.project3,
-        'url': 'https://github.com/yosramohsen2-png/ElectroHub',
+        'image': AppAssets.electrohub,
       },
       {
         'title': 'flutter_dev.projects.3.title'.tr(),
         'description': 'flutter_dev.projects.3.description'.tr(),
         'tags': getTags(3, 3),
-        'image': AppAssets.project4,
-        'url': 'https://github.com/yosramohsen2-png/portfolio',
+        'image': AppAssets.portfolioProject,
       },
     ];
   }
 
-  Widget _buildProjectsGrid(List<Map<String, dynamic>> projects, double width) {
-    if (width < AppDimensions.breakpointTablet) {
+  Widget _buildProjectsLayout(List<Map<String, dynamic>> projects, double width) {
+    final isMobile = width < AppDimensions.breakpointTablet;
+
+    if (isMobile) {
+      // Mobile: single column
       return Column(
         children: projects.map((p) => Padding(
-          padding: const EdgeInsets.only(bottom: 24),
-          child: ProjectCard(
-            title: p['title'] as String,
-            description: p['description'] as String,
-            imagePath: p['image'] as String,
-            tags: p['tags'] as List<String>,
-            githubUrl: p['url'] as String,
-          ),
+          padding: EdgeInsets.only(bottom: AppDimensions.spacing3xl),
+          child: _buildCard(p),
         )).toList(),
       );
     }
 
-    // Grid for Tablet/Desktop - Showing 3 columns for standard web widths (>= 1000)
-    int crossAxisCount = width >= 1000 ? 3 : 2;
+    // Desktop: build rows of 3 cards each using Expanded
+    const int crossAxisCount = 3;
+    final List<Widget> rows = [];
 
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: crossAxisCount,
-        crossAxisSpacing: 32,
-        mainAxisSpacing: 32,
-        childAspectRatio: 0.8,
-      ),
-      itemCount: projects.length,
-      itemBuilder: (context, index) {
-        final p = projects[index];
-        return ProjectCard(
-          title: p['title'] as String,
-          description: p['description'] as String,
-          imagePath: p['image'] as String,
-          tags: p['tags'] as List<String>,
-          githubUrl: p['url'] as String,
+    for (int i = 0; i < projects.length; i += crossAxisCount) {
+      final rowItems = projects.sublist(
+        i,
+        (i + crossAxisCount > projects.length) ? projects.length : i + crossAxisCount,
+      );
+
+      final List<Widget> rowChildren = [];
+      for (int j = 0; j < rowItems.length; j++) {
+        if (j > 0) {
+          rowChildren.add(SizedBox(width: AppDimensions.spacing4xl));
+        }
+        rowChildren.add(
+          Expanded(child: _buildCard(rowItems[j])),
         );
-      },
+      }
+
+      // If last row has fewer cards, add empty Expanded to maintain sizing
+      final int remaining = crossAxisCount - rowItems.length;
+      for (int k = 0; k < remaining; k++) {
+        rowChildren.add(SizedBox(width: AppDimensions.spacing4xl));
+        rowChildren.add(const Expanded(child: SizedBox()));
+      }
+
+      rows.add(Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: rowChildren,
+      ));
+    }
+
+    return Column(
+      children: rows
+          .map((row) => Padding(
+                padding: EdgeInsets.only(bottom: AppDimensions.spacing4xl),
+                child: row,
+              ))
+          .toList(),
     );
   }
 
-  double _getHorizontalPadding(double width) {
-    if (width > AppDimensions.breakpointDesktop) return width * 0.08;
-    if (width >= AppDimensions.breakpointTablet) return 40;
-    return 20;
+  Widget _buildCard(Map<String, dynamic> p) {
+    return ProjectCard(
+      imageUrl: p['image'] as String,
+      title: p['title'] as String,
+      description: p['description'] as String,
+      tags: p['tags'] as List<String>,
+      onTap: () => launchUrl(
+        Uri.parse(_githubUrl),
+        mode: LaunchMode.externalApplication,
+      ),
+    );
   }
 }

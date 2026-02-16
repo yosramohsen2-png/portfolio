@@ -17,24 +17,24 @@ class UiUxDesignPage extends StatelessWidget {
     final isMobile = width < AppDimensions.breakpointTablet;
 
     final List<Map<String, dynamic>> projects = [
-      {
-        'title': 'ui_ux.projects.0.title'.tr(),
-        'description': 'ui_ux.projects.0.description'.tr(),
-        'tags': ['Mobile App', 'UI Design', 'UX Research'],
-        'image': 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=500',
-      },
-      {
-        'title': 'ui_ux.projects.1.title'.tr(),
-        'description': 'ui_ux.projects.1.description'.tr(),
-        'tags': ['Web App', 'e-Commerce', 'UX Audit'],
-        'image': 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500',
-      },
-      {
-        'title': 'ui_ux.projects.2.title'.tr(),
-        'description': 'ui_ux.projects.2.description'.tr(),
-        'tags': ['Mobile App', 'Health', 'Gamification'],
-        'image': 'https://images.unsplash.com/photo-1576091160550-217359f42f8c?q=80&w=500',
-      },
+      // {
+      //   'title': 'ui_ux.projects.0.title'.tr(),
+      //   'description': 'ui_ux.projects.0.description'.tr(),
+      //   'tags': ['Mobile App', 'UI Design', 'UX Research'],
+      //   'image': 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=500',
+      // },
+      // {
+      //   'title': 'ui_ux.projects.1.title'.tr(),
+      //   'description': 'ui_ux.projects.1.description'.tr(),
+      //   'tags': ['Web App', 'e-Commerce', 'UX Audit'],
+      //   'image': 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500',
+      // },
+      // {
+      //   'title': 'ui_ux.projects.2.title'.tr(),
+      //   'description': 'ui_ux.projects.2.description'.tr(),
+      //   'tags': ['Mobile App', 'Health', 'Gamification'],
+      //   'image': 'https://images.unsplash.com/photo-1576091160550-217359f42f8c?q=80&w=500',
+      // },
     ];
 
     return PageShell(
@@ -48,35 +48,35 @@ class UiUxDesignPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             // Header
-            Text(
-              'ui_ux.title'.tr(),
-              textAlign: TextAlign.center,
-              style: (isMobile
-                      ? AppTypography.headlineLg(color: textColors.primaryDefault)
-                      : AppTypography.headline3xl(color: textColors.primaryDefault))
-                  .copyWith(fontWeight: FontWeight.w900),
-            ),
-            const SizedBox(height: AppDimensions.spacingXs),
-            Text(
-              'ui_ux.subtitle'.tr(),
-              textAlign: TextAlign.center,
-              style: (isMobile
-                      ? AppTypography.headlineSm(color: textColors.brandDefault)
-                      : AppTypography.headlineMd(color: textColors.brandDefault))
-                  .copyWith(fontWeight: FontWeight.w700),
-            ),
-            const SizedBox(height: AppDimensions.spacing4xl),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 800),
-              child: Text(
-                'ui_ux.description'.tr(),
-                textAlign: TextAlign.center,
-                style: AppTypography.bodyXl(
-                  color: textColors.brandDisabled,
-                  fontWeight: FontWeight.w500,
-                ).copyWith(height: 1.6),
-              ),
-            ),
+            // Text(
+            //   'ui_ux.title'.tr(),
+            //   textAlign: TextAlign.center,
+            //   style: (isMobile
+            //           ? AppTypography.headlineLg(color: textColors.primaryDefault)
+            //           : AppTypography.headline3xl(color: textColors.primaryDefault))
+            //       .copyWith(fontWeight: FontWeight.w900),
+            // ),
+            // const SizedBox(height: AppDimensions.spacingXs),
+            // Text(
+            //   'ui_ux.subtitle'.tr(),
+            //   textAlign: TextAlign.center,
+            //   style: (isMobile
+            //           ? AppTypography.headlineSm(color: textColors.brandDefault)
+            //           : AppTypography.headlineMd(color: textColors.brandDefault))
+            //       .copyWith(fontWeight: FontWeight.w700),
+            // ),
+            // const SizedBox(height: AppDimensions.spacing4xl),
+            // ConstrainedBox(
+            //   constraints: const BoxConstraints(maxWidth: 800),
+            //   child: Text(
+            //     'ui_ux.description'.tr(),
+            //     textAlign: TextAlign.center,
+            //     style: AppTypography.bodyXl(
+            //       color: textColors.brandDisabled,
+            //       fontWeight: FontWeight.w500,
+            //     ).copyWith(height: 1.6),
+            //   ),
+            // ),
             const SizedBox(height: AppDimensions.spacing10xl),
 
             // Projects Grid
