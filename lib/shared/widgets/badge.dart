@@ -21,7 +21,7 @@ class Badge extends StatefulWidget {
 class _BadgeState extends State<Badge> {
   bool _isHovered = false;
 
-  EdgeInsets get _padding {
+  EdgeInsetsGeometry get _padding {
     switch (widget.size) {
       case BadgeSize.small:
         return const EdgeInsetsDirectional.symmetric(
