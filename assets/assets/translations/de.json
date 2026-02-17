@@ -31,36 +31,155 @@
         }
     },
     "ui_ux": {
-        "title": "UI/UX Design",
-        "subtitle": "Intuitive Benutzererfahrungen gestalten",
-        "description": "Erkunden Sie mein Design-Portfolio mit benutzerzentrierten Design-Lösungen.",
+        "hero": {
+            "title": "UI/UX Design",
+            "subtitle": "Projekte",
+            "description": "Rätsel lösen, Pixel für Pixel"
+        },
         "projects": {
             "0": {
-                "title": "Smart Home Dashboard",
-                "description": "Ein zentralisiertes Steuerungssystem für Smart-Home-Geräte mit Fokus auf Einfachheit und Barrierefreiheit.",
-                "tags": [
-                    "Mobile App",
-                    "UI Design",
-                    "UX Research"
-                ]
+                "title": "Klinik-Management SaaS-Plattform",
+                "description": "Entwicklung einer umfassenden SaaS-Lösung für medizinische Komplexe, einschließlich eines medizinischen Dashboards und einer responsiven mobilen Website. Fokus auf die Optimierung von Klinikabläufen und die Verbesserung der digitalen Arzt-Patienten-Erfahrung.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
             },
             "1": {
-                "title": "E-Commerce-Neugestaltung",
-                "description": "Neugestaltung des Einkaufserlebnisses für einen großen Elektronikhändler zur Verbesserung der Konversionsraten.",
-                "tags": [
-                    "Web App",
-                    "E-Commerce",
-                    "UX Audit"
-                ]
+                "title": "Audit & Aufbau eines Design-Systems",
+                "description": "Durchführung eines umfassenden Produktaudits für InvestHub und Aufbau eines skalierbaren Design-Systems, einschließlich voll optimierter Light- und Dark-Modes, um ein nahtloses und barrierefreies Investitionserlebnis zu gewährleisten.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
             },
             "2": {
-                "title": "Fitness-Tracker-App",
-                "description": "Ein ganzheitlicher Ansatz zur Fitnessverfolgung, der Workout-Logging mit Ernährungsüberwachung kombiniert.",
-                "tags": [
-                    "Mobile App",
-                    "Gesundheit",
-                    "Gamification"
-                ]
+                "title": "E-Commerce-Management-System (SaaS)",
+                "description": "Design eines umfassenden Admin-Dashboards für das E-Commerce-Management mit Fokus auf Bestandsverfolgung, Verkaufsanalysen und Auftragsabwicklung. Optimierung des gesamten operativen Workflows zur Steigerung der Händlereffizienz auf Web- und Mobilplattformen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "3": {
+                "title": "Boost Sports Club App Redesign",
+                "description": "Neugestaltung der digitalen Identität des Boost Sports Club mit einem modernen mobilen App-Redesign. Fokus auf die Schaffung einer energiegeladenen Benutzeroberfläche und eines vereinfachten Benutzerflusses zur Verbesserung der Mitgliederbindung und Anlagenbuchung.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "4": {
+                "title": "Plattform für Mütterpflege & Wellness",
+                "description": "Entwicklung einer dualen Plattform für mütterliches Wohlbefinden, die einen spezialisierten E-Commerce-Shop mit einem Arztkonsultationssystem kombiniert. Bereitstellung eines nahtlosen Web- und Mobilerlebnisses zur Unterstützung von Müttern während ihrer Schwangerschaftsreise.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "5": {
+                "title": "Umweltlösungen & Gasabfallmanagement",
+                "description": "Design einer spezialisierten Industrie-Website für Gasabfallmanagement und Umweltreinigungslösungen. Fokus auf die Präsentation komplexer technischer Dienstleistungen durch eine saubere, professionelle Oberfläche zur Förderung des B2B-Engagements.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "6": {
+                "title": "Zielverfolgungs- & Produktivitäts-App",
+                "description": "Design einer Produktivitätsplattform von Grund auf, um Benutzern zu helfen, Ziele und Zeit effektiv zu verwalten. Aufbau eines integrierten Systems für Aufgabenmanagement, intelligente Benachrichtigungen und Notizen zur Optimierung täglicher Routinen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "7": {
+                "title": "B2B-Engagement",
+                "description": "Design einer hochkonvertierenden Unternehmenswebsite für eine Software-Dienstleistungsagentur, die technisches Fachwissen durch eine moderne Benutzeroberfläche präsentiert. Fokus auf intuitiver Navigation, um digitale Lösungen hervorzuheben und Kundenanfragen (B2B) zu generieren.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "8": {
+                "title": "Digitale Neugestaltung des Ägyptischen Fußballverbands (EFA)",
+                "description": "Schaffung einer modernen digitalen Identität für den Ägyptischen Fußballverband (EFA) mit einem nahtlosen Web- und Mobilerlebnis. Fokus auf die Verbesserung der Fan-Bindung und die Straffung der Nachrichtenbereitstellung für Nationalmannschaften und lokale Ligen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "9": {
+                "title": "Fitting Room: KI-gestützte virtuelle Anprobe-App",
+                "description": "Design einer innovativen Fashion-Tech-Plattform mit einem virtuellen Anprobe-Erlebnis. Fokus darauf, Benutzern das 'Anprobieren' von Kleidung durch Screenshots und Fotos zu ermöglichen und die Lücke zwischen digitalem Stöbern und physischer Anprobe zu schließen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "10": {
+                "title": "Rechtsberatungs- & Business-Management-Plattform",
+                "description": "Design einer umfassenden Management-Plattform für eine Rechtsberatungskanzlei zur Optimierung von Fallworkflows und Kundenkommunikation. Fokus auf der Schaffung einer sicheren, professionellen Oberfläche zur effizienten Verwaltung von Rechtsberatungen und Geschäftsabläufen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "11": {
+                "title": "Mode-E-Commerce App Design",
+                "description": "Design eines nahtlosen Mode-E-Commerce-Erlebnisses, das intuitive Navigation und visuelle Klarheit priorisiert.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "12": {
+                "title": "Sportplatz-Buchungs-App",
+                "description": "Ein optimiertes mobiles Erlebnis zum einfachen und schnellen Finden und Buchen von Sportstätten.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "13": {
+                "title": "Rechtsberatungs-Plattform Design",
+                "description": "Eine professionelle UI/UX-Lösung, entwickelt um Rechtsberatung zu vereinfachen und Nutzervertrauen durch Klarheit aufzubauen.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "14": {
+                "title": "Gesundheitswesen Terminbuchungs-App",
+                "description": "Eine nutzerzentrierte Plattform zur Vereinfachung der medizinischen Terminplanung und Verbesserung der Arzt-Patienten-Kommunikation.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "15": {
+                "title": "Persönliches Portfolio: Interaktives Design & Entwicklung",
+                "description": "Ein umfassendes Designsystem, nahtlos integriert mit Flutter, das vollständige Konsistenz über UI-Komponenten, Themes und Mehrsprachenunterstützung gewährleistet.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
             }
         }
     },
@@ -73,37 +192,37 @@
                 "title": "Mongiz: KI-gestützte Motivation",
                 "description": "Eine leistungsstarke Flutter-App zur Produktivitätssteigerung durch Zielzerlegung und tägliche Motivation. Bietet nahtlose Firebase-Authentifizierung, Supabase-Echtzeit-Benachrichtigungen und fortgeschrittene Zustandsverwaltung.",
                 "tags": {
-                    "0": "Firebase",
-                    "1": "Supabase",
-                    "2": "BLoC",
-                    "3": "Saubere Architektur"
+                    "0": "firebase",
+                    "1": "supabase",
+                    "2": "bloc",
+                    "3": "saubere architektur"
                 }
             },
             "1": {
                 "title": "Umfassendes EdTech-Ökosystem (LMS)",
                 "description": "Eine skalierbare EdTech-Lösung für Schüler, Lehrer und Administratoren, entwickelt mit Flutter und Clean Architecture. Implementierung von Cubit für robuste Zustandsverwaltung und Integration komplexer APIs.",
                 "tags": {
-                    "0": "API",
-                    "1": "BLoC",
-                    "2": "Saubere Architektur"
+                    "0": "api",
+                    "1": "bloc",
+                    "2": "saubere architektur"
                 }
             },
             "2": {
                 "title": "ElectroHub: Fortschrittliche E-Commerce Flutter-App",
                 "description": "Entwicklung eines leistungsstarken Elektronik-Marktplatzes mit Flutter und MVVM-Architektur. Integration von GitHub-Versionskontrolle und Clean-Code-Praktiken für ein skalierbares Einkaufserlebnis.",
                 "tags": {
-                    "0": "Firebase",
-                    "1": "Saubere Architektur",
-                    "2": "BLoC"
+                    "0": "firebase",
+                    "1": "saubere architektur",
+                    "2": "bloc"
                 }
             },
             "3": {
                 "title": "Full-Stack Flutter-Portfolio: Clean Architecture & State Management",
                 "description": "Eine fortschrittliche Flutter-Implementierung eines benutzerdefinierten Design-Systems, das Figma-Styles im Code widerspiegelt, inklusive dynamischer Modi, Lokalisierung und Parallax-Animationen.",
                 "tags": {
-                    "0": "Figma",
-                    "1": "Nutzerforschung",
-                    "2": "Prototyping"
+                    "0": "figma",
+                    "1": "nutzerforschung",
+                    "2": "prototyping"
                 }
             }
         }
