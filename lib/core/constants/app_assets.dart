@@ -42,4 +42,20 @@ class AppAssets {
   static const String edtech = '$_imagesPath/EDTech.png';
   static const String electrohub = '$_imagesPath/ElectronHub.png';
   static const String portfolioProject = '$_imagesPath/portfolio.png';
+
+  // New Project Images
+  static const String audit = '$_imagesPath/Audit.png';
+  static const String b2bEngagement = '$_imagesPath/B2B engagement.png';
+  static const String boostSaports = '$_imagesPath/Boost Saports.png';
+  static const String clinicSaas = '$_imagesPath/Clinic saas.png';
+  static const String eCommerceSaas = '$_imagesPath/E-Commerce SaaS.png';
+  static const String efa = '$_imagesPath/EFA.png';
+  static const String environmental = '$_imagesPath/Enviromental.png';
+  static const String fashionECommerce = '$_imagesPath/Fashion E-Commerce.png';
+  static const String fittingRoom = '$_imagesPath/Fitting room.png';
+  static const String healthCare = '$_imagesPath/Health care.png';
+  static const String maternalCare = '$_imagesPath/Maternal care.png';
+  static const String sportsField = '$_imagesPath/Sports Field.png';
+  static const String legalAdvice = '$_imagesPath/legal advice.png';
+  static const String legal = '$_imagesPath/legal.png';
 }

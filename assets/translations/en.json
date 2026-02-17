@@ -31,36 +31,155 @@
     }
   },
   "ui_ux": {
-    "title": "UI/UX Design",
-    "subtitle": "Crafting Intuitive User Experiences",
-    "description": "Explore my design portfolio showcasing user-centered design solutions.",
+    "hero": {
+      "title": "UI/UX Design",
+      "subtitle": "Projects",
+      "description": "Solving Puzzles, Pixel by Pixel"
+    },
     "projects": {
       "0": {
-        "title": "Smart Home Dashboard",
-        "description": "A centralized control system for smart home devices with a focus on simplicity and accessibility.",
-        "tags": [
-          "Mobile App",
-          "UI Design",
-          "UX Research"
-        ]
+        "title": "Clinic Management SaaS Platform",
+        "description": "Designed a comprehensive SaaS solution for medical complexes, featuring a medical dashboard and a responsive mobile website. Focused on streamlining clinic workflows and enhancing the patient-doctor digital experience.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
       },
       "1": {
-        "title": "E-commerce Redesign",
-        "description": "Redesigning the shopping experience for a major electronics retailer to improve conversion rates.",
-        "tags": [
-          "Web App",
-          "e-Commerce",
-          "UX Audit"
-        ]
+        "title": "Audit & Build Design System",
+        "description": "Conducted a comprehensive product audit for InvestHub and built a scalable Design System, including fully optimized Light and Dark modes to ensure a seamless and accessible investing experience.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
       },
       "2": {
-        "title": "Fitness Tracker App",
-        "description": "A holistic approach to fitness tracking, combining workout logging with nutritional monitoring.",
-        "tags": [
-          "Mobile App",
-          "Health",
-          "Gamification"
-        ]
+        "title": "E-Commerce Management System (SaaS)",
+        "description": "Designed a comprehensive Admin Dashboard for e-commerce management, focusing on inventory tracking, sales analytics, and order fulfillment. Optimized the end-to-end operational workflow to enhance merchant efficiency across web and mobile platforms.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "3": {
+        "title": "Boost Sports Club App Redesign",
+        "description": "Revamped the digital identity of Boost Sports Club with a modern mobile app redesign. Focused on creating an energetic UI and a simplified user flow to enhance member engagement and facility booking.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "4": {
+        "title": "Maternal Care & Wellness Platform",
+        "description": "Designed a dual-purpose platform for maternal wellness, combining a specialized e-commerce store with a doctor consultation system. Delivered a seamless web and mobile experience focused on supporting mothers throughout their pregnancy journey.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "5": {
+        "title": "Environmental Solutions & Gas Waste Management",
+        "description": "Designed a specialized industrial website for gas waste management and environmental cleaning solutions. Focused on presenting complex technical services through a clean, professional interface to drive B2B engagement.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "6": {
+        "title": "Goal Tracking & Productivity App",
+        "description": "Designed a productivity platform from scratch to help users manage goals and time effectively. Built an integrated system for task management, smart notifications, and note-taking to streamline daily routines.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "7": {
+        "title": "B2B engagement",
+        "description": "Designed a high-converting corporate website for a software services agency, showcasing technical expertise through a modern UI. Focused on intuitive navigation to highlight digital solutions and drive client inquiries (B2B).",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "8": {
+        "title": "Egyptian Football Association (EFA) Digital Redesign",
+        "description": "Crafted a modern digital identity for the Egyptian Football Association (EFA), delivering a seamless web and mobile experience. Focused on enhancing fan engagement and streamlining news delivery for national teams and local leagues.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "9": {
+        "title": "Fitting Room: AI-Powered Virtual Try-On App",
+        "description": "Designed an innovative fashion-tech platform featuring a virtual fitting room experience. Focused on enabling users to 'try on' clothes through screenshots and photos, bridging the gap between digital browsing and physical fitting.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "10": {
+        "title": "Legal Consultancy & Business Management Platform",
+        "description": "Designed a comprehensive management platform for a legal consultancy firm, streamlining case workflows and client communications. Focused on creating a secure, professional interface to manage legal consultations and business operations efficiently.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "11": {
+        "title": "Fashion E-commerce App Design",
+        "description": "Designing a seamless fashion e-commerce experience that prioritizes intuitive navigation and visual clarity.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "12": {
+        "title": "Sports Field Booking App",
+        "description": "A streamlined mobile experience for finding and booking sports venues with ease and speed.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "13": {
+        "title": "Legal Advice Platform Design",
+        "description": "A professional UI/UX solution designed to simplify legal consulting and build user trust through clarity.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "14": {
+        "title": "Healthcare Appointment Booking App",
+        "description": "A user-centric platform designed to simplify medical scheduling and enhance patient-doctor communication.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "15": {
+        "title": "Personal Portfolio: Interactive Design & Development",
+        "description": "A comprehensive design system seamlessly integrated with Flutter, ensuring complete consistency across UI components, themes, and multi-language support",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
       }
     }
   },

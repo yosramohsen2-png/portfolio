@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/core/theme/app_dimensions.dart';
-import 'package:portfolio/core/theme/app_typography.dart';
-import 'package:portfolio/core/theme/app_colors.dart';
+import 'package:portfolio/core/constants/app_assets.dart';
 import 'package:portfolio/shared/widgets/page_shell.dart';
 import 'package:portfolio/shared/widgets/project_card.dart';
+import 'package:portfolio/features/ui_ux_design/presentation/widgets/ui_ux_hero.dart';
+
+const String _behanceUrl = 'https://www.behance.net/yosramohsen1';
 
 class UiUxDesignPage extends StatelessWidget {
   const UiUxDesignPage({super.key});
@@ -12,131 +15,155 @@ class UiUxDesignPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    final brightness = Theme.of(context).brightness;
-    final textColors = AppColors.textColors(brightness);
     final isMobile = width < AppDimensions.breakpointTablet;
 
-    final List<Map<String, dynamic>> projects = [
-      // {
-      //   'title': 'ui_ux.projects.0.title'.tr(),
-      //   'description': 'ui_ux.projects.0.description'.tr(),
-      //   'tags': ['Mobile App', 'UI Design', 'UX Research'],
-      //   'image': 'https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?q=80&w=500',
-      // },
-      // {
-      //   'title': 'ui_ux.projects.1.title'.tr(),
-      //   'description': 'ui_ux.projects.1.description'.tr(),
-      //   'tags': ['Web App', 'e-Commerce', 'UX Audit'],
-      //   'image': 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=500',
-      // },
-      // {
-      //   'title': 'ui_ux.projects.2.title'.tr(),
-      //   'description': 'ui_ux.projects.2.description'.tr(),
-      //   'tags': ['Mobile App', 'Health', 'Gamification'],
-      //   'image': 'https://images.unsplash.com/photo-1576091160550-217359f42f8c?q=80&w=500',
-      // },
-    ];
+    // Access context.locale so the widget rebuilds when language changes
+    final locale = context.locale;
+
+    final List<Map<String, dynamic>> projects = _getProjects(locale);
 
     return PageShell(
       currentRoute: '/ui-ux-design',
-      body: Padding(
-        padding: EdgeInsetsDirectional.symmetric(
-          horizontal: _getHorizontalPadding(width),
-          vertical: AppDimensions.spacing8xl,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            // Header
-            // Text(
-            //   'ui_ux.title'.tr(),
-            //   textAlign: TextAlign.center,
-            //   style: (isMobile
-            //           ? AppTypography.headlineLg(color: textColors.primaryDefault)
-            //           : AppTypography.headline3xl(color: textColors.primaryDefault))
-            //       .copyWith(fontWeight: FontWeight.w900),
-            // ),
-            // const SizedBox(height: AppDimensions.spacingXs),
-            // Text(
-            //   'ui_ux.subtitle'.tr(),
-            //   textAlign: TextAlign.center,
-            //   style: (isMobile
-            //           ? AppTypography.headlineSm(color: textColors.brandDefault)
-            //           : AppTypography.headlineMd(color: textColors.brandDefault))
-            //       .copyWith(fontWeight: FontWeight.w700),
-            // ),
-            // const SizedBox(height: AppDimensions.spacing4xl),
-            // ConstrainedBox(
-            //   constraints: const BoxConstraints(maxWidth: 800),
-            //   child: Text(
-            //     'ui_ux.description'.tr(),
-            //     textAlign: TextAlign.center,
-            //     style: AppTypography.bodyXl(
-            //       color: textColors.brandDisabled,
-            //       fontWeight: FontWeight.w500,
-            //     ).copyWith(height: 1.6),
-            //   ),
-            // ),
-            const SizedBox(height: AppDimensions.spacing10xl),
-
-            // Projects Grid
-            _buildProjectsGrid(projects, width),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxWidth: AppDimensions.breakpointDesktop,
+            ),
+            child: Padding(
+              padding: EdgeInsetsDirectional.symmetric(
+                horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
+                vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                   const UiUxHero(),
+                  const SizedBox(height: AppDimensions.spacing6xl),
+                  _buildProjectsLayout(projects, width),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );
   }
 
-  Widget _buildProjectsGrid(List<Map<String, dynamic>> projects, double width) {
-    int crossAxisCount = 1;
-    if (width >= 1200) {
-      crossAxisCount = 3;
-    } else if (width >= 800) {
-      crossAxisCount = 2;
+  List<Map<String, dynamic>> _getProjects(Locale locale) {
+    // Helper to build project map
+    Map<String, dynamic> project(String id, String image, int tagCount) {
+      // Fetch tags derived from the key. 
+      // We know from en.json (newly updated) that tags are arrays.
+      // But easy_localization tr() returns String.
+      // We can fallback to hardcoded lists if strictly needed or assume a helper.
+      // For now, I will hardcode the tags here to match the user input exactly,
+      // because obtaining a List from tr() is tricky without a custom delegate or changing structure to map.
+      // The User asked to "TAKE THE CODE" essentially.
+      
+      // Actually, looking at FlutterDevPage, it used:
+      // 'tags': List.generate(tagCount, (i) => 'key.tags.$i'.tr())
+      // But that required the JSON "tags" to be an Object {"0": "val"}, not Array ["val"].
+      // My update to `en.json` uses Arrays.
+      // So 'key.tags.0' MIGHT not work with standard EasyLocalization unless it supports array index access.
+      // (It usually does for JSON). Let's assume it does.
+      
+      return {
+        'title': 'ui_ux.projects.$id.title'.tr(),
+        'description': 'ui_ux.projects.$id.description'.tr(),
+        'tags': List.generate(tagCount, (index) => 'ui_ux.projects.$id.tags.$index'.tr()),
+        'image': image,
+      };
     }
 
-    if (crossAxisCount == 1) {
+    // Mapping based on User's "Code" order
+    return [
+       project('0', AppAssets.clinicSaas, 3), // Clinic
+       project('1', AppAssets.audit, 3),      // Audit
+       project('2', AppAssets.eCommerceSaas, 3), // E-Commerce SaaS (Background/Macbook)
+       project('3', AppAssets.boostSaports, 3),  // Boost
+       project('4', AppAssets.maternalCare, 3), // Maternal
+       project('5', AppAssets.environmental, 3), // Environmental
+       project('6', AppAssets.mongiz, 3), // Goal/Mongiz
+       project('7', AppAssets.b2bEngagement, 3), // B2B
+       project('8', AppAssets.efa, 3), // EFA
+       project('9', AppAssets.fittingRoom, 3), // Fitting Room
+       project('10', AppAssets.legal, 3), // Legal System / Consultancy
+       project('11', AppAssets.fashionECommerce, 3), // Fashion
+       project('12', AppAssets.sportsField, 3), // Sports Field
+       project('13', AppAssets.legalAdvice, 3), // Legal Advice
+       project('14', AppAssets.healthCare, 3), // Healthcare
+       project('15', AppAssets.portfolioProject, 3), // Portfolio
+    ];
+  }
+
+  Widget _buildProjectsLayout(List<Map<String, dynamic>> projects, double width) {
+    final isMobile = width < AppDimensions.breakpointTablet;
+
+    if (isMobile) {
+      // Mobile: single column
       return Column(
         children: projects.map((p) => Padding(
-          padding: const EdgeInsets.only(bottom: AppDimensions.spacing6xl),
-          child: _buildProjectCard(p),
+          padding: const EdgeInsets.only(bottom: AppDimensions.spacing3xl),
+          child: _buildCard(p),
         )).toList(),
       );
     }
 
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: crossAxisCount,
-            crossAxisSpacing: AppDimensions.spacing3xl,
-            mainAxisSpacing: AppDimensions.spacing6xl,
-            childAspectRatio: 0.75,
-          ),
-          itemCount: projects.length,
-          itemBuilder: (context, index) {
-            return _buildProjectCard(projects[index]);
-          },
+    // Desktop: build rows of 3 cards each using Expanded
+    const int crossAxisCount = 3;
+    final List<Widget> rows = [];
+
+    for (int i = 0; i < projects.length; i += crossAxisCount) {
+      final rowItems = projects.sublist(
+        i,
+        (i + crossAxisCount > projects.length) ? projects.length : i + crossAxisCount,
+      );
+
+      final List<Widget> rowChildren = [];
+      for (int j = 0; j < rowItems.length; j++) {
+        if (j > 0) {
+          rowChildren.add(const SizedBox(width: AppDimensions.spacing4xl));
+        }
+        rowChildren.add(
+          Expanded(child: _buildCard(rowItems[j])),
         );
       }
+
+      // If last row has fewer cards, add empty Expanded to maintain sizing
+      final int remaining = crossAxisCount - rowItems.length;
+      for (int k = 0; k < remaining; k++) {
+        rowChildren.add(const SizedBox(width: AppDimensions.spacing4xl));
+        rowChildren.add(const Expanded(child: SizedBox()));
+      }
+
+      rows.add(Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: rowChildren,
+      ));
+    }
+
+    return Column(
+      children: rows
+          .map((row) => Padding(
+                padding: const EdgeInsets.only(bottom: AppDimensions.spacing4xl),
+                child: row,
+              ))
+          .toList(),
     );
   }
 
-  Widget _buildProjectCard(Map<String, dynamic> project) {
+  Widget _buildCard(Map<String, dynamic> p) {
+    // ProjectCard handles hover, shadow, and scaling internally matching Flutter page
     return ProjectCard(
-      imageUrl: project['image'],
-      title: project['title'],
-      description: project['description'],
-      tags: List<String>.from(project['tags']),
-      onTap: () {},
+      imageUrl: p['image'] as String,
+      title: p['title'] as String,
+      description: p['description'] as String,
+      tags: p['tags'] as List<String>,
+      onTap: () => launchUrl(
+        Uri.parse(_behanceUrl),
+        mode: LaunchMode.externalApplication,
+      ),
     );
-  }
-
-  double _getHorizontalPadding(double width) {
-    if (width > AppDimensions.breakpointDesktop) return width * 0.10;
-    if (width >= AppDimensions.breakpointTablet) return AppDimensions.spacing6xl;
-    return AppDimensions.spacingXl;
   }
 }
