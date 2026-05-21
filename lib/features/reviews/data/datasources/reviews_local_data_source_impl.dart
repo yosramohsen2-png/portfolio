@@ -47,6 +47,11 @@ class ReviewsLocalDataSourceImpl implements ReviewsLocalDataSource {
     await _saveReviewsToPrefs(currentReviews);
   }
 
+  @override
+  Future<void> cacheReviews(List<ReviewModel> reviews) async {
+    await _saveReviewsToPrefs(reviews);
+  }
+
   Future<void> _saveReviewsToPrefs(List<ReviewModel> reviews) async {
     final List<Map<String, dynamic>> jsonList = reviews
         .map((r) => r.toJson())

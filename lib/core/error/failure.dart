@@ -14,3 +14,8 @@ abstract class Failure extends Equatable {
 class CacheFailure extends Failure {
   const CacheFailure([super.message = 'Cache Failure']);
 }
+
+/// Failure related to remote server / Supabase operations
+class ServerFailure extends Failure {
+  const ServerFailure([super.message = 'Server Failure']);
+}

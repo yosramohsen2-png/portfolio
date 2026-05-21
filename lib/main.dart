@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:portfolio/core/constants/app_assets.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/di/injection_container.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_cubit.dart';
@@ -15,6 +16,25 @@ void main() async {
   
   // Initialize EasyLocalization
   await EasyLocalization.ensureInitialized();
+
+  // Retrieve Supabase credentials from Environment
+  const supabaseUrl = String.fromEnvironment('SUPABASE_URL');
+  const supabaseAnonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
+
+  // Fail-fast validation: Ensure keys are provided before app launch
+  if (supabaseUrl.isEmpty || supabaseAnonKey.isEmpty) {
+    throw AssertionError(
+      'CRITICAL CONFIGURATION ERROR: Supabase environment variables are missing! '
+      'Please build/run the application with --dart-define parameters: '
+      '--dart-define=SUPABASE_URL=YOUR_URL --dart-define=SUPABASE_ANON_KEY=YOUR_KEY'
+    );
+  }
+
+  // Initialize Supabase
+  await Supabase.initialize(
+    url: supabaseUrl,
+    anonKey: supabaseAnonKey,
+  );
   
   // Initialize dependencies
   await initializeDependencies();
