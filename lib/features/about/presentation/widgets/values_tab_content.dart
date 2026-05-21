@@ -12,7 +12,7 @@ class ValuesTabContent extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final availableWidth = constraints.maxWidth;
-        
+
         // Breakpoints for the values cards
         int crossAxisCount = 1;
         if (availableWidth > 900) {
@@ -22,9 +22,12 @@ class ValuesTabContent extends StatelessWidget {
         }
 
         double spacing = AppDimensions.spacing2xl;
-        
+
         // Calculate card width precisely
-        double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount - 1;
+        double cardWidth =
+            (availableWidth - (spacing * (crossAxisCount - 1))) /
+                crossAxisCount -
+            1;
 
         final cards = _buildCards();
 
@@ -35,7 +38,9 @@ class ValuesTabContent extends StatelessWidget {
           return Column(
             children: List.generate(cards.length, (index) {
               return Padding(
-                padding: EdgeInsets.only(bottom: index == cards.length - 1 ? 0 : spacing),
+                padding: EdgeInsets.only(
+                  bottom: index == cards.length - 1 ? 0 : spacing,
+                ),
                 child: FadeInUp(
                   delay: Duration(milliseconds: 100 * index),
                   duration: const Duration(milliseconds: 500),
@@ -84,7 +89,8 @@ class ValuesTabContent extends StatelessWidget {
       ValueCard(
         title: 'about.values.innovation.title'.tr(),
         description: 'about.values.innovation.description'.tr(),
-        icon: Icons.favorite_border, // Heart icon as seen in mockup for "Innovation"
+        icon: Icons
+            .favorite_border, // Heart icon as seen in mockup for "Innovation"
       ),
     ];
   }

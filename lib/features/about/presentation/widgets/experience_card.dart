@@ -26,15 +26,19 @@ class _ExperienceCardState extends State<ExperienceCard> {
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
     final isDark = brightness == Brightness.dark;
-    
+
     final bgColors = AppColors.backgroundColors(brightness);
     final borderColors = AppColors.borderColors(brightness);
     final textColors = AppColors.textColors(brightness);
     final iconColors = AppColors.iconColors(brightness);
 
     // Following ServiceCard logic for colors
-    final backgroundColor = _isHovered ? bgColors.primarySecondary : bgColors.primaryDefault;
-    final borderColor = isDark ? borderColors.primaryCards : borderColors.primaryDisabled;
+    final backgroundColor = _isHovered
+        ? bgColors.primarySecondary
+        : bgColors.primaryDefault;
+    final borderColor = isDark
+        ? borderColors.primaryCards
+        : borderColors.primaryDisabled;
     final iconColor = iconColors.primaryHover;
     final descriptionColor = textColors.primaryDisabled2;
 
@@ -48,8 +52,12 @@ class _ExperienceCardState extends State<ExperienceCard> {
         duration: const Duration(milliseconds: 300),
         width: double.infinity,
         padding: EdgeInsets.symmetric(
-          horizontal: isMobile ? AppDimensions.spacingLg : AppDimensions.spacing2xl,
-          vertical: isMobile ? AppDimensions.spacingXl : AppDimensions.spacing2xl,
+          horizontal: isMobile
+              ? AppDimensions.spacingLg
+              : AppDimensions.spacing2xl,
+          vertical: isMobile
+              ? AppDimensions.spacingXl
+              : AppDimensions.spacing2xl,
         ),
         decoration: BoxDecoration(
           color: backgroundColor,
@@ -69,12 +77,18 @@ class _ExperienceCardState extends State<ExperienceCard> {
               : [],
         ),
         child: Column(
-          crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+          crossAxisAlignment: isMobile
+              ? CrossAxisAlignment.center
+              : CrossAxisAlignment.start,
           children: [
             // Icon with circular background
             Container(
-              height: isMobile ? AppDimensions.spacing4xl : AppDimensions.spacing5xl + AppDimensions.spacingMd,
-              width: isMobile ? AppDimensions.spacing4xl : AppDimensions.spacing5xl + AppDimensions.spacingMd,
+              height: isMobile
+                  ? AppDimensions.spacing4xl
+                  : AppDimensions.spacing5xl + AppDimensions.spacingMd,
+              width: isMobile
+                  ? AppDimensions.spacing4xl
+                  : AppDimensions.spacing5xl + AppDimensions.spacingMd,
               decoration: BoxDecoration(
                 color: bgColors.brandLight.withValues(alpha: 0.2),
                 shape: BoxShape.circle,
@@ -87,25 +101,37 @@ class _ExperienceCardState extends State<ExperienceCard> {
               ),
             ),
 
-            SizedBox(height: isMobile ? AppDimensions.spacingMd : AppDimensions.spacingXl),
+            SizedBox(
+              height: isMobile
+                  ? AppDimensions.spacingMd
+                  : AppDimensions.spacingXl,
+            ),
             Text(
               widget.title,
               textAlign: isMobile ? TextAlign.center : TextAlign.start,
-              style: (isMobile ? AppTypography.headlineXs(
-                color: textColors.primaryDefault,
-              ) : AppTypography.headlineSm(
-                color: textColors.primaryDefault,
-              )).copyWith(fontWeight: FontWeight.w800, height: 1.2),
+              style:
+                  (isMobile
+                          ? AppTypography.headlineXs(
+                              color: textColors.primaryDefault,
+                            )
+                          : AppTypography.headlineSm(
+                              color: textColors.primaryDefault,
+                            ))
+                      .copyWith(fontWeight: FontWeight.w800, height: 1.2),
             ),
-            SizedBox(height: isMobile ? AppDimensions.spacingXs : AppDimensions.spacingLg),
+            SizedBox(
+              height: isMobile
+                  ? AppDimensions.spacingXs
+                  : AppDimensions.spacingLg,
+            ),
             Text(
               widget.description,
               textAlign: isMobile ? TextAlign.center : TextAlign.start,
-              style: (isMobile ? AppTypography.bodySm(
-                color: descriptionColor,
-              ) : AppTypography.bodyMd(
-                color: descriptionColor,
-              )).copyWith(fontWeight: FontWeight.w500, height: 1.5),
+              style:
+                  (isMobile
+                          ? AppTypography.bodySm(color: descriptionColor)
+                          : AppTypography.bodyMd(color: descriptionColor))
+                      .copyWith(fontWeight: FontWeight.w500, height: 1.5),
             ),
           ],
         ),

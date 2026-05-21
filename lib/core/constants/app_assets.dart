@@ -58,4 +58,16 @@ class AppAssets {
   static const String sportsField = '$_imagesPath/Sports Field.png';
   static const String legalAdvice = '$_imagesPath/legal advice.png';
   static const String legal = '$_imagesPath/legal.png';
+
+  // Self-Development App
+  static const String khatwaty = '$_imagesPath/khatwaty.png';
+
+  // CarCare App
+  static const String saaedny = '$_imagesPath/saaedny.png';
+  static const String alMomaiaz = '$_imagesPath/al momiaz.png';
+
+  // Certificates
+  static const String certificateMasar = '$_imagesPath/certificate_masar.png';
+  static const String certificateCradis = '$_imagesPath/certificate_cradis.png';
+  static const String certificateFlutter = '$_imagesPath/certificate_flutter.png';
 }

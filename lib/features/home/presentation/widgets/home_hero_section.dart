@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
-import 'package:portfolio/core/theme/app_dimensions.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero/hello_text.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero/name_text.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero/tagline_text.dart';

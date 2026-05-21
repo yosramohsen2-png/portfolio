@@ -180,6 +180,24 @@
           "1": "User Research",
           "2": "Prototyping"
         }
+      },
+      "16": {
+        "title": "Self-Development & Mindful Tracker (Mobile App)",
+        "description": "Developed a high-performance, scalable self-development and mindfulness mobile application using Flutter, adhering to Clean Architecture principles for maximum maintainability and testability.\n\nTechnical Highlights:\n• Architecture: Implemented Clean Architecture (Data, Domain, and Presentation layers) ensuring a separation of concerns and robust code structure.\n• State Management: Utilized BLoC (Business Logic Component) for predictable, reactive, and efficient state management across the app.\n• Backend & Database: Integrated Supabase for real-time database capabilities, fast data retrieval, and seamless user authentication.\n• Services: Leveraged Firebase services for cloud messaging, push notifications, and analytics to enhance user engagement.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
+      },
+      "17": {
+        "title": "Al-Momayaz: All-in-One Mobility & Logistics Platform",
+        "description": "Designed a massive, high-traffic super-app for ride-hailing, group transits, and courier/cargo delivery services in Jordan. Orchestrated the entire product design ecosystem from scratch, scaling it to over 300+ high-fidelity screens. The app is fully launched on Google Play and Apple Store, actively serving more than 20K+ users.",
+        "tags": {
+          "0": "Figma",
+          "1": "User Research",
+          "2": "Prototyping"
+        }
       }
     }
   },
@@ -224,6 +242,27 @@
           "1": "user research",
           "2": "prototyping"
         }
+      },
+      "4": {
+        "title": "Self-Development & Mindful Tracker (Mobile App)",
+        "description": "Developed a high-performance, scalable self-development and mindfulness mobile application using Flutter, adhering to Clean Architecture principles for maximum maintainability and testability.\n\nTechnical Highlights:\n• Architecture: Implemented Clean Architecture (Data, Domain, and Presentation layers) ensuring a separation of concerns and robust code structure.\n• State Management: Utilized BLoC (Business Logic Component) for predictable, reactive, and efficient state management across the app.\n• Backend & Database: Integrated Supabase for real-time database capabilities, fast data retrieval, and seamless user authentication.\n• Services: Leveraged Firebase services for cloud messaging, push notifications, and analytics to enhance user engagement.",
+        "tags": {
+          "0": "firebase",
+          "1": "supabase",
+          "2": "clean architecture"
+        }
+      },
+      "5": {
+        "title": "CarCare: On-Demand Auto Maintenance & Roadside Assistance",
+        "description": "Developed a comprehensive, end-to-end automotive services mobile application from scratch. Built entirely with Flutter and adhering to Clean Architecture, the app seamlessly connects users in Riyadh with car maintenance, towing, and replacement car services, integrated with an advanced multi-point payment system.\n\nTechnical Highlights:\n• Architecture & Patterns: Built the entire app using Clean Architecture (Data, Domain, Presentation) combined with BLoC for highly predictable, scalable, and testable state management.\n• API Integration: Designed and integrated complex RESTful APIs for real-time data handling, service booking, and status tracking.\n• Maps & Geolocation: Integrated Google Maps API for precise location tracking, enabling real-time towing (roadside assistance) dispatch and workshop routing within Riyadh.\n• Advanced Payment System: Implemented a secure multi-point payment infrastructure integrated across 5 distinct checkout flows within the app (e.g., booking deposit, final invoice, towing fees, rental security, and premium upgrades).\n• Core Features Implemented: Smart Maintenance Booking (scheduling workshops with dynamic availability), Roadside & Towing Services (on-demand towing requests with live map tracking), Alternative Car Rental (replacement car booking system), and Riyadh-Focused Localization address handling.",
+        "tags": {
+          "0": "firebase",
+          "1": "API",
+          "2": "bloc",
+          "3": "clean architecture",
+          "4": "Google Maps",
+          "5": "Payment"
+        }
       }
     }
   },
@@ -235,10 +274,15 @@
       "experience": "Experience",
       "skills": "Skills",
       "values": "Values",
+      "certificates": "Certifictes",
       "skills_placeholder": "Skills Content Coming Soon...",
       "values_placeholder": "Values Content Coming Soon..."
     },
     "experience": {
+      "masar": {
+        "title": "UI/UX Instructor — Masar Academy",
+        "description": "Delivered comprehensive training on UI/UX design principles, user research, and prototyping. Mentored aspiring designers, helping them bridge the gap between creative concepts and user-centered design solutions."
+      },
       "zimitail": {
         "title": "UI/UX Designer — Zimitail",
         "description": "At Zimitail, I led the entire design journey, turning complex user research into seamless, high-fidelity realities."
@@ -316,5 +360,56 @@
   "language": {
     "english": "English",
     "german": "Deutsch"
+  },
+  "reviews": {
+    "title_part1": "What People ",
+    "title_highlight": "Says",
+    "title_part2": " About Me?",
+    "subtitle": "Real feedback from clients and collaborators I've worked with",
+    "summary": {
+      "reviews_count": "{} reviews",
+      "out_of_5": "/ 5"
+    },
+    "top_review": "TOP REVIEW",
+    "placeholder_notice": "No reviews yet. Here is a preview of the layout:",
+    "dummy_name": "Alex Morgan (Sample)",
+    "dummy_role": "Product Lead · Munich",
+    "dummy_comment": "This is a preview card to showcase how reviews look on this portfolio. Real feedback from your clients will appear here once approved!",
+    "form": {
+      "title": "Leave a Review",
+      "subtitle": "Worked with me? I'd love to hear your feedback.",
+      "name_label": "YOUR NAME",
+      "name_hint": "e.g. Ahmed Mohamed",
+      "role_label": "YOUR ROLE & COMPANY",
+      "role_hint": "e.g. Product Manager · Cairo",
+      "comment_hint": "Tell others about your experience working with Yosra...",
+      "rating_label": "YOUR RATING",
+      "footer_notice": "Your review will appear after approval",
+      "submit_button": "Submit Review",
+      "success_message": "Thank you! Your review has been submitted successfully.",
+      "error_message": "Please fill in all fields and select a rating."
+    },
+    "admin": {
+      "title": "Admin Action",
+      "prompt": "Enter admin passcode to delete this review:",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "wrong_passcode": "Wrong admin passcode!",
+      "success_deleted": "Review deleted successfully"
+    }
+  },
+  "certificates": {
+    "masar": {
+      "title": "Certificate of Appreciation — Masar Academy",
+      "description": "Awarded in recognition of exceptional efforts and outstanding dedication in delivering the UI/UX Principles training program with Masar Educational Group, and for sharing valuable expertise with the learning community."
+    },
+    "cradis": {
+      "title": "Certificate of Completion — Cradis Design System Bootcamp",
+      "description": "Issued by Cradis, the first Arab practical school specialized in teaching UX, for completing more than 34 hours of design system & design tokens bootcamp, passing all assigned practical tasks and related exams, and successfully delivering the graduation project."
+    },
+    "flutter": {
+      "title": "Certificate of Completion — Flutter Development Diploma",
+      "description": "Awarded by Easy Learn Academy upon successful completion of the 120-hour Flutter Development Diploma on 1st December 2025. The program provided intensive, hands-on training in building modern, high-performance, cross-platform mobile applications using Flutter and Dart."
+    }
   }
 }

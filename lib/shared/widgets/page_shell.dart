@@ -86,10 +86,12 @@ class _PageShellState extends State<PageShell> {
               children: [
                 // Background Decorations
                 Positioned.fill(
-                  child: PageBackground(
-                    isWeb: isWeb,
-                    scrollOffsetListenable: _scrollOffsetNotifier,
-                    mouseOffsetListenable: _mouseOffsetNotifier,
+                  child: RepaintBoundary(
+                    child: PageBackground(
+                      isWeb: isWeb,
+                      scrollOffsetListenable: _scrollOffsetNotifier,
+                      mouseOffsetListenable: _mouseOffsetNotifier,
+                    ),
                   ),
                 ),
 

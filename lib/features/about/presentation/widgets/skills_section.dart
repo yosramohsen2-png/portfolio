@@ -25,7 +25,9 @@ class SkillsSection extends StatelessWidget {
     final textColors = AppColors.textColors(Theme.of(context).brightness);
 
     return Column(
-      crossAxisAlignment: wrapAlignment == WrapAlignment.center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      crossAxisAlignment: wrapAlignment == WrapAlignment.center
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
       children: [
         if (title != null) ...[
           Text(
@@ -40,7 +42,9 @@ class SkillsSection extends StatelessWidget {
           labels: labels,
           size: badgeSize,
           alignment: wrapAlignment,
-          spacing: wrapAlignment == WrapAlignment.center ? AppDimensions.spacingXl : AppDimensions.spacingMd,
+          spacing: wrapAlignment == WrapAlignment.center
+              ? AppDimensions.spacingXl
+              : AppDimensions.spacingMd,
           runSpacing: AppDimensions.spacingMd,
         ),
       ],

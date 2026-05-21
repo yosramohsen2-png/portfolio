@@ -180,6 +180,24 @@
                     "1": "Benutzerforschung",
                     "2": "Prototyping"
                 }
+            },
+            "16": {
+                "title": "Self-Development & Mindful Tracker (Mobile App)",
+                "description": "Entwicklung einer leistungsstarken, skalierbaren Selbstentwicklungs- und Achtsamkeits-App mit Flutter unter Einhaltung der Clean-Architecture-Prinzipien für maximale Wartbarkeit und Testbarkeit.\n\nTechnische Highlights:\n• Architektur: Implementierung der Clean Architecture (Data, Domain und Presentation Layer) zur Gewährleistung einer klaren Trennung der Verantwortlichkeiten und einer robusten Codestruktur.\n• Zustandsverwaltung: Nutzung von BLoC (Business Logic Component) für eine vorhersagbare, reaktive und effiziente Zustandsverwaltung in der gesamten App.\n• Backend & Datenbank: Integration von Supabase für Echtzeit-Datenbankfunktionen, schnellen Datenabruf und nahtlose Benutzerauthentifizierung.\n• Services: Nutzung von Firebase-Diensten für Cloud-Messaging, Push-Benachrichtigungen und Analysen zur Steigerung der Benutzerinteraktion.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
+            },
+            "17": {
+                "title": "Al-Momayaz: All-in-One Mobility & Logistics Platform",
+                "description": "Entwurf einer massiven, hochfrequentierten Super-App für Ride-Hailing, Gruppentransporte sowie Kurier- und Frachtlieferdienste in Jordanien. Konzeption des gesamten Produktdesign-Ökosystems von Grund auf, skaliert auf über 300 High-Fidelity-Screens. Die App ist vollständig im Google Play Store und Apple App Store veröffentlicht und bedient aktiv mehr als 20.000 Nutzer.",
+                "tags": {
+                    "0": "Figma",
+                    "1": "Benutzerforschung",
+                    "2": "Prototyping"
+                }
             }
         }
     },
@@ -224,6 +242,27 @@
                     "1": "nutzerforschung",
                     "2": "prototyping"
                 }
+            },
+            "4": {
+                "title": "Self-Development & Mindful Tracker (Mobile App)",
+                "description": "Entwicklung einer leistungsstarken, skalierbaren Selbstentwicklungs- und Achtsamkeits-App mit Flutter unter Einhaltung der Clean-Architecture-Prinzipien für maximale Wartbarkeit und Testbarkeit.\n\nTechnische Highlights:\n• Architektur: Implementierung der Clean Architecture (Data, Domain und Presentation Layer) zur Gewährleistung einer klaren Trennung der Verantwortlichkeiten und einer robusten Codestruktur.\n• Zustandsverwaltung: Nutzung von BLoC (Business Logic Component) für eine vorhersagbare, reaktive und effiziente Zustandsverwaltung in der gesamten App.\n• Backend & Datenbank: Integration von Supabase für Echtzeit-Datenbankfunktionen, schnellen Datenabruf und nahtlose Benutzerauthentifizierung.\n• Services: Nutzung von Firebase-Diensten für Cloud-Messaging, Push-Benachrichtigungen und Analysen zur Steigerung der Benutzerinteraktion.",
+                "tags": {
+                    "0": "firebase",
+                    "1": "supabase",
+                    "2": "saubere architektur"
+                }
+            },
+            "5": {
+                "title": "CarCare: On-Demand Auto Maintenance & Roadside Assistance",
+                "description": "Entwicklung einer umfassenden, durchgängigen mobilen Anwendung für Automobildienstleistungen von Grund auf. Komplett mit Flutter erstellt und unter Einhaltung der Clean Architecture verbindet die App Benutzer in Riad nahtlos mit Autowartung, Abschleppdienst und Ersatzwagen, integriert mit einem fortschrittlichen Multi-Point-Zahlungssystem.\n\nTechnische Highlights:\n• Architektur & Muster: Erstellung der gesamten App unter Verwendung von Clean Architecture (Data, Domain, Presentation) kombiniert mit BLoC für eine hochgradig vorhersagbare, skalierbare und testbare Zustandsverwaltung.\n• API-Integration: Design und Integration komplexer RESTful APIs für Echtzeit-Datenverarbeitung, Servicebuchung und Statusverfolgung.\n• Karten & Geolocation: Integration der Google Maps API für präzise Standortverfolgung, die den Echtzeit-Abschleppdienst (Pannenhilfe) und die Werkstatt-Routenplanung in Riad ermöglicht.\n• Fortschrittliches Zahlungssystem: Implementierung einer sicheren Multi-Point-Zahlungsinfrastruktur, die in 5 verschiedene Checkout-Flows in der App integriert ist (z. B. Buchungsanzahlung, Endrechnung, Abschleppgebühren, Mietsicherheit und Premium-Upgrades).\n• Kernfunktionen: Intelligente Wartungsbuchung (Terminplanung mit dynamischer Verfügbarkeit), Pannenhilfe & Abschleppdienst (Abschleppanforderungen mit Live-Kartenverfolgung), alternative Autovermietung (Ersatzwagen-Buchungssystem) und auf Riad ausgerichtete Lokalisierung address handling.",
+                "tags": {
+                    "0": "firebase",
+                    "1": "API",
+                    "2": "bloc",
+                    "3": "saubere architektur",
+                    "4": "Google Maps",
+                    "5": "Zahlung"
+                }
             }
         }
     },
@@ -235,10 +274,15 @@
             "experience": "Erfahrung",
             "skills": "Fähigkeiten",
             "values": "Werte",
+            "certificates": "Certifictes",
             "skills_placeholder": "Inhalte zu Fähigkeiten folgen bald...",
             "values_placeholder": "Inhalte zu Werten folgen bald..."
         },
         "experience": {
+            "masar": {
+                "title": "UI/UX-Dozentin — Masar Academy",
+                "description": "Vermittlung umfassender Kenntnisse über UI/UX-Designprinzipien, Nutzerforschung und Prototyping. Betreuung angehender Designer bei der Umsetzung kreativer Konzepte in benutzerzentrierte Designlösungen."
+            },
             "zimitail": {
                 "title": "UI/UX Designer — Zimitail",
                 "description": "Bei Zimitail leitete ich die gesamte Designreise und verwandelte komplexe Benutzerforschung in nahtlose High-Fidelity-Realitäten."
@@ -316,5 +360,56 @@
     "language": {
         "english": "English",
         "german": "Deutsch"
+    },
+    "reviews": {
+        "title_part1": "Was die Leute ",
+        "title_highlight": "sagen",
+        "title_part2": " über mich?",
+        "subtitle": "Echtes Feedback von Kunden und Partnern, mit denen ich zusammengearbeitet habe",
+        "summary": {
+            "reviews_count": "{} Bewertungen",
+            "out_of_5": "/ 5"
+        },
+        "top_review": "TOP BEWERTUNG",
+        "placeholder_notice": "Noch keine Bewertungen. Hier ist eine Vorschau des Layouts:",
+        "dummy_name": "Alex Morgan (Vorschau)",
+        "dummy_role": "Produktleiter · München",
+        "dummy_comment": "Dies ist eine Vorschaukarte, um zu zeigen, wie Bewertungen auf diesem Portfolio aussehen. Echtes Feedback von Ihren Kunden wird hier angezeigt, sobald es freigegeben ist!",
+        "form": {
+            "title": "Bewertung hinterlassen",
+            "subtitle": "Haben Sie mit mir gearbeitet? Ich würde mich über Ihr Feedback freuen.",
+            "name_label": "IHR NAME",
+            "name_hint": "z.B. Ahmed Mohamed",
+            "role_label": "IHRE ROLLE & UNTERNEHMEN",
+            "role_hint": "z.B. Produktmanager · Kairo",
+            "comment_hint": "Berichten Sie anderen von Ihrer Erfahrung mit Yosra...",
+            "rating_label": "IHRE BEWERTUNG",
+            "footer_notice": "Ihre Bewertung erscheint nach der Freigabe",
+            "submit_button": "Bewertung absenden",
+            "success_message": "Vielen Dank! Ihre Bewertung wurde erfolgreich übermittelt.",
+            "error_message": "Bitte füllen Sie alle Felder aus und wählen Sie eine Bewertung."
+        },
+        "admin": {
+            "title": "Admin-Aktion",
+            "prompt": "Admin-Passcode eingeben, um diese Bewertung zu löschen:",
+            "cancel": "Abbrechen",
+            "delete": "Löschen",
+            "wrong_passcode": "Falscher Admin-Passcode!",
+            "success_deleted": "Bewertung erfolgreich gelöscht"
+        }
+    },
+    "certificates": {
+        "masar": {
+            "title": "Anerkennungszertifikat — Masar Academy",
+            "description": "Verliehen in Anerkennung außergewöhnlicher Bemühungen und herausragender Hingabe bei der Durchführung des UI/UX-Grundlagentrainings mit der Masar Educational Group sowie für das Teilen wertvoller Expertise mit der Lerngemeinschaft."
+        },
+        "cradis": {
+            "title": "Abschlusszertifikat — Cradis Design System Bootcamp",
+            "description": "Ausgestellt von Cradis, der ersten arabischen Praxisschule für UX-Unterricht, für den Abschluss von mehr als 34 Stunden Design-System- und Design-Token-Bootcamp, das Bestehen aller praktischen Aufgaben und Prüfungen sowie die erfolgreiche Abgabe des Abschlussprojekts."
+        },
+        "flutter": {
+            "title": "Abschlusszertifikat — Flutter-Entwicklungsdiplom",
+            "description": "Verliehen von der Easy Learn Academy nach erfolgreichem Abschluss des 120-stündigen Flutter-Entwicklungsdiploms am 1. Dezember 2025. Das Programm bot intensives, praxisorientiertes Training im Aufbau moderner, leistungsstarker, plattformübergreifender mobiler Anwendungen mit Flutter und Dart."
+        }
     }
 }

@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:portfolio/core/constants/app_assets.dart';
 import 'core/di/injection_container.dart';
 import 'core/theme/app_theme.dart';
 import 'core/theme/theme_cubit.dart';
 import 'core/localization/locale_cubit.dart';
 import 'core/routing/app_router.dart';
+import 'features/reviews/presentation/cubit/reviews_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,8 +29,22 @@ void main() async {
   );
 }
 
-class PortfolioApp extends StatelessWidget {
+class PortfolioApp extends StatefulWidget {
   const PortfolioApp({super.key});
+
+  @override
+  State<PortfolioApp> createState() => _PortfolioAppState();
+}
+
+class _PortfolioAppState extends State<PortfolioApp> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Precache critical and common assets for instant launch loading
+    precacheImage(const AssetImage(AppAssets.logo), context);
+    precacheImage(const AssetImage(AppAssets.bgLogo), context);
+    precacheImage(const AssetImage(AppAssets.userAvatar), context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +55,9 @@ class PortfolioApp extends StatelessWidget {
         ),
         BlocProvider<LocaleCubit>(
           create: (_) => sl<LocaleCubit>(),
+        ),
+        BlocProvider<ReviewsCubit>(
+          create: (_) => sl<ReviewsCubit>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(

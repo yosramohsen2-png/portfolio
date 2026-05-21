@@ -19,7 +19,9 @@ class SkillsTabContent extends StatelessWidget {
 
     // Choose badge size based on screen size
     final badgeSize = isMobile ? BadgeSize.medium : BadgeSize.large;
-    final alignment = isMobile ? CrossAxisAlignment.start : CrossAxisAlignment.center;
+    final alignment = isMobile
+        ? CrossAxisAlignment.start
+        : CrossAxisAlignment.center;
     final wrapAlignment = isMobile ? WrapAlignment.start : WrapAlignment.center;
 
     return Column(
@@ -75,15 +77,29 @@ class SkillsTabContent extends StatelessWidget {
               Text(
                 'about.skills.soft_skills.title'.tr(),
                 textAlign: isMobile ? TextAlign.start : TextAlign.center,
-                style: (isMobile ? AppTypography.headlineSm(color: textColors.primaryDefault) : AppTypography.headlineMd(color: textColors.primaryDefault))
-                    .copyWith(fontWeight: FontWeight.w800),
+                style:
+                    (isMobile
+                            ? AppTypography.headlineSm(
+                                color: textColors.primaryDefault,
+                              )
+                            : AppTypography.headlineMd(
+                                color: textColors.primaryDefault,
+                              ))
+                        .copyWith(fontWeight: FontWeight.w800),
               ),
               const SizedBox(height: AppDimensions.spacingMd),
               Text(
                 'about.skills.soft_skills.description'.tr(),
                 textAlign: isMobile ? TextAlign.start : TextAlign.center,
-                style: (isMobile ? AppTypography.bodyMd(color: textColors.brandDisabled) : AppTypography.bodyXl(color: textColors.brandDisabled))
-                    .copyWith(fontWeight: FontWeight.w500, height: 1.6),
+                style:
+                    (isMobile
+                            ? AppTypography.bodyMd(
+                                color: textColors.brandDisabled,
+                              )
+                            : AppTypography.bodyXl(
+                                color: textColors.brandDisabled,
+                              ))
+                        .copyWith(fontWeight: FontWeight.w500, height: 1.6),
               ),
             ],
           ),

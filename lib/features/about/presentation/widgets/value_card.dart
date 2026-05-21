@@ -38,20 +38,24 @@ class _ValueCardState extends State<ValueCard> {
     // Styling based on mockup
     // Corrected logic to ensure consistency across themes:
     // Web (Desktop) always gets 50% opacity yellow, Mobile always gets 100% opacity yellow.
-    // Based on AppColors: 
+    // Based on AppColors:
     // Light: brandLight (100%), primaryDisabled (50%)
     // Dark: primaryDisabled (100%), brandLight (50%)
-    final backgroundColor = isMobile 
+    final backgroundColor = isMobile
         ? (isDark ? bgColors.primaryDisabled : bgColors.brandLight)
         : (isDark ? bgColors.brandLight : bgColors.primaryDisabled);
-    
+
     final borderColor = borderColors.primaryDefault;
-    
+
     // On hover, we produce a subtle shift
     // In dark mode we lighten, in light mode we darken slightly
     final hoverColor = isDark ? Colors.white : Colors.black;
-    final effectiveBgColor = _isHovered 
-        ? Color.lerp(backgroundColor, hoverColor, 0.12) // Slightly more intense lerp
+    final effectiveBgColor = _isHovered
+        ? Color.lerp(
+            backgroundColor,
+            hoverColor,
+            0.12,
+          ) // Slightly more intense lerp
         : backgroundColor;
 
     return MouseRegion(
@@ -60,7 +64,9 @@ class _ValueCardState extends State<ValueCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         width: double.infinity,
-        padding: EdgeInsets.all(isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing3xl),
+        padding: EdgeInsets.all(
+          isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing3xl,
+        ),
         decoration: BoxDecoration(
           color: effectiveBgColor,
           borderRadius: BorderRadius.circular(AppDimensions.radius3xl),
@@ -71,8 +77,10 @@ class _ValueCardState extends State<ValueCard> {
           boxShadow: _isHovered
               ? [
                   BoxShadow(
-                    color: isDark 
-                        ? ColorPalette.darkTextBrandDefault.withValues(alpha: 0.3) 
+                    color: isDark
+                        ? ColorPalette.darkTextBrandDefault.withValues(
+                            alpha: 0.3,
+                          )
                         : borderColor.withValues(alpha: 0.25),
                     blurRadius: AppDimensions.effect2xl,
                     spreadRadius: isDark ? 2 : 0,
@@ -89,35 +97,59 @@ class _ValueCardState extends State<ValueCard> {
             Icon(
               widget.icon,
               color: iconColors.primaryDefault,
-              size: isMobile ? AppDimensions.iconLg : AppDimensions.iconLg, // 32 as per mockup
+              size: isMobile
+                  ? AppDimensions.iconLg
+                  : AppDimensions.iconLg, // 32 as per mockup
             ),
-            SizedBox(height: isMobile ? AppDimensions.spacingXl : AppDimensions.spacing2xl),
-            
+            SizedBox(
+              height: isMobile
+                  ? AppDimensions.spacingXl
+                  : AppDimensions.spacing2xl,
+            ),
+
             // Title
             Text(
               widget.title,
               textAlign: TextAlign.center,
-              style: (isMobile ? AppTypography.headlineSm(
-                color: textColors.primaryToggle, // Always dark on yellow background
-                fontWeight: FontWeight.w700,
-              ) : AppTypography.headlineMd(
-                color: textColors.primaryToggle, // Always dark on yellow background
-                fontWeight: FontWeight.w700,
-              )).copyWith(height: 1.2),
+              style:
+                  (isMobile
+                          ? AppTypography.headlineSm(
+                              color: textColors
+                                  .primaryToggle, // Always dark on yellow background
+                              fontWeight: FontWeight.w700,
+                            )
+                          : AppTypography.headlineMd(
+                              color: textColors
+                                  .primaryToggle, // Always dark on yellow background
+                              fontWeight: FontWeight.w700,
+                            ))
+                      .copyWith(height: 1.2),
             ),
-            SizedBox(height: isMobile ? AppDimensions.spacingMd : AppDimensions.spacingLg),
-            
+            SizedBox(
+              height: isMobile
+                  ? AppDimensions.spacingMd
+                  : AppDimensions.spacingLg,
+            ),
+
             // Description
             Text(
               widget.description,
               textAlign: TextAlign.center,
-              style: (isMobile ? AppTypography.bodyMd(
-                color: isDark ? textColors.primaryDisabled2 : textColors.primaryDisabledCards,
-                fontWeight: FontWeight.w500,
-              ) : AppTypography.bodyXl(
-                color: isDark ? textColors.primaryDisabled2 : textColors.brandDisabled,
-                fontWeight: FontWeight.w500,
-              )).copyWith(height: 1.5),
+              style:
+                  (isMobile
+                          ? AppTypography.bodyMd(
+                              color: isDark
+                                  ? textColors.primaryDisabled2
+                                  : textColors.primaryDisabledCards,
+                              fontWeight: FontWeight.w500,
+                            )
+                          : AppTypography.bodyXl(
+                              color: isDark
+                                  ? textColors.primaryDisabled2
+                                  : textColors.brandDisabled,
+                              fontWeight: FontWeight.w500,
+                            ))
+                      .copyWith(height: 1.5),
             ),
           ],
         ),

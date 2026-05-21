@@ -24,25 +24,23 @@ class FlutterDevPage extends StatelessWidget {
 
     return PageShell(
       currentRoute: '/flutter-dev',
-      body: SingleChildScrollView(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: AppDimensions.breakpointDesktop,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: AppDimensions.breakpointDesktop,
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+              horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
+              vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
             ),
-            child: Padding(
-              padding: EdgeInsetsDirectional.symmetric(
-                horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
-                vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const FlutterDevHero(),
-                  SizedBox(height: AppDimensions.spacing6xl),
-                  _buildProjectsLayout(projects, width),
-                ],
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const FlutterDevHero(),
+                const SizedBox(height: AppDimensions.spacing6xl),
+                _buildProjectsLayout(projects, width),
+              ],
             ),
           ),
         ),
@@ -82,6 +80,18 @@ class FlutterDevPage extends StatelessWidget {
         'description': 'flutter_dev.projects.3.description'.tr(),
         'tags': getTags(3, 3),
         'image': AppAssets.portfolioProject,
+      },
+      {
+        'title': 'flutter_dev.projects.4.title'.tr(),
+        'description': 'flutter_dev.projects.4.description'.tr(),
+        'tags': getTags(4, 3),
+        'image': AppAssets.khatwaty,
+      },
+      {
+        'title': 'flutter_dev.projects.5.title'.tr(),
+        'description': 'flutter_dev.projects.5.description'.tr(),
+        'tags': getTags(5, 6),
+        'image': AppAssets.saaedny,
       },
     ];
   }

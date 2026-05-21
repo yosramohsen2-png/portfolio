@@ -12,7 +12,7 @@ class ExperienceTabContent extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final availableWidth = constraints.maxWidth;
-        
+
         // Breakpoints based on actual available width within the padded container
         int crossAxisCount = 1;
         if (availableWidth > 750) {
@@ -22,9 +22,12 @@ class ExperienceTabContent extends StatelessWidget {
         }
 
         double spacing = AppDimensions.spacing2xl;
-        
+
         // Calculate card width precisely, subtracting 0.5 to avoid subpixel rendering overflow
-        double cardWidth = (availableWidth - (spacing * (crossAxisCount - 1))) / crossAxisCount - 0.5;
+        double cardWidth =
+            (availableWidth - (spacing * (crossAxisCount - 1))) /
+                crossAxisCount -
+            0.5;
 
         final cards = _buildCards();
         final width = MediaQuery.of(context).size.width;
@@ -34,7 +37,9 @@ class ExperienceTabContent extends StatelessWidget {
           return Column(
             children: List.generate(cards.length, (index) {
               return Padding(
-                padding: EdgeInsets.only(bottom: index == cards.length - 1 ? 0 : spacing),
+                padding: EdgeInsets.only(
+                  bottom: index == cards.length - 1 ? 0 : spacing,
+                ),
                 child: FadeInUp(
                   delay: Duration(milliseconds: 100 * index),
                   duration: const Duration(milliseconds: 500),
@@ -70,6 +75,11 @@ class ExperienceTabContent extends StatelessWidget {
 
   List<Widget> _buildCards() {
     return [
+      ExperienceCard(
+        title: 'about.experience.masar.title'.tr(),
+        description: 'about.experience.masar.description'.tr(),
+        icon: Icons.school_outlined,
+      ),
       ExperienceCard(
         title: 'about.experience.zimitail.title'.tr(),
         description: 'about.experience.zimitail.description'.tr(),

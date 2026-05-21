@@ -24,25 +24,23 @@ class UiUxDesignPage extends StatelessWidget {
 
     return PageShell(
       currentRoute: '/ui-ux-design',
-      body: SingleChildScrollView(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              maxWidth: AppDimensions.breakpointDesktop,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            maxWidth: AppDimensions.breakpointDesktop,
+          ),
+          child: Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+              horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
+              vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
             ),
-            child: Padding(
-              padding: EdgeInsetsDirectional.symmetric(
-                horizontal: isMobile ? AppDimensions.spacing2xl : AppDimensions.spacing5xl,
-                vertical: isMobile ? AppDimensions.spacing5xl : AppDimensions.spacing7xl,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                   const UiUxHero(),
-                  const SizedBox(height: AppDimensions.spacing6xl),
-                  _buildProjectsLayout(projects, width),
-                ],
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const UiUxHero(),
+                const SizedBox(height: AppDimensions.spacing6xl),
+                _buildProjectsLayout(projects, width),
+              ],
             ),
           ),
         ),
@@ -94,6 +92,8 @@ class UiUxDesignPage extends StatelessWidget {
        project('13', AppAssets.legalAdvice, 3), // Legal Advice
        project('14', AppAssets.healthCare, 3), // Healthcare
        project('15', AppAssets.portfolioProject, 3), // Portfolio
+       project('16', AppAssets.khatwaty, 3),         // Khatwaty - Self-Development & Mindful Tracker
+       project('17', AppAssets.alMomaiaz, 3),        // CarCare - Auto Maintenance & Roadside Assistance
     ];
   }
 

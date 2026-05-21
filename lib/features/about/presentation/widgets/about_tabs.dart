@@ -28,13 +28,82 @@ class _AboutTabsState extends State<AboutTabs> {
     final isMobile = width < AppDimensions.breakpointTablet;
     final brightness = Theme.of(context).brightness;
     final isDark = brightness == Brightness.dark;
-    
+
     final bgColors = AppColors.backgroundColors(brightness);
     final borderColors = AppColors.borderColors(brightness);
     final textColors = AppColors.textColors(brightness);
 
-    return Container(
-      width: isMobile ? double.infinity : 400,
+    // Build list of tab items
+    final tabItems = List.generate(widget.tabs.length, (index) {
+      final isSelected = widget.selectedIndex == index;
+      final isHovered = _hoveredIndex == index;
+
+      Color itemColor;
+      Color textColor;
+      FontWeight fontWeight;
+
+      if (isSelected) {
+        itemColor = bgColors.brandSolid;
+        textColor = textColors.primaryToggle;
+        fontWeight = FontWeight.w700;
+      } else if (isHovered) {
+        if (isDark) {
+          itemColor = Color.lerp(
+            bgColors.primarySecondary,
+            Colors.white,
+            0.12,
+          )!;
+          textColor = textColors.primaryDefault;
+        } else {
+          itemColor = Color.lerp(
+            bgColors.primarySecondary,
+            Colors.black,
+            0.08,
+          )!;
+          textColor = textColors.primaryDefault;
+        }
+        fontWeight = FontWeight.w600;
+      } else {
+        itemColor = bgColors.primarySecondary;
+        textColor = textColors.primaryDisabledToggle;
+        fontWeight = FontWeight.w500;
+      }
+
+      return MouseRegion(
+        onEnter: (_) => setState(() => _hoveredIndex = index),
+        onExit: (_) => setState(() => _hoveredIndex = null),
+        child: GestureDetector(
+          onTap: () => widget.onTabSelected(index),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 200),
+            curve: Curves.easeInOut,
+            margin: const EdgeInsets.symmetric(
+              horizontal: AppDimensions.spacingXxs,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppDimensions.spacingXl,
+              vertical: AppDimensions.spacingMd,
+            ),
+            decoration: BoxDecoration(
+              color: itemColor,
+              borderRadius: BorderRadius.circular(AppDimensions.radius2xl),
+            ),
+            alignment: Alignment.center,
+            child: Text(
+              widget.tabs[index],
+              style: AppTypography.labelMd(
+                color: textColor,
+                fontWeight: fontWeight,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.visible,
+            ),
+          ),
+        ),
+      );
+    });
+
+    final inner = Container(
       height: 56,
       padding: const EdgeInsets.all(AppDimensions.spacingMd),
       decoration: BoxDecoration(
@@ -45,64 +114,24 @@ class _AboutTabsState extends State<AboutTabs> {
           width: AppDimensions.borderWidthXs,
         ),
       ),
-      child: Row(
-        children: List.generate(widget.tabs.length, (index) {
-          final isSelected = widget.selectedIndex == index;
-          final isHovered = _hoveredIndex == index;
+      child: isMobile
+          // Mobile: scrollable horizontally so tabs never overflow
+          ? SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              child: Row(children: tabItems),
+            )
+          // Desktop / Tablet: fixed-width row, each tab expands equally
+          : Row(children: tabItems.map((t) => Expanded(child: t)).toList()),
+    );
 
-          // Determine background and text color based on state
-          Color itemColor;
-          Color textColor;
-          FontWeight fontWeight;
-
-          if (isSelected) {
-            itemColor = bgColors.brandSolid;
-            textColor = textColors.primaryToggle;
-            fontWeight = FontWeight.w700;
-          } else if (isHovered) {
-            // Hover state: light grey becomes a bit darker, or dark grey becomes a bit lighter
-            if (isDark) {
-              itemColor = Color.lerp(bgColors.primarySecondary, Colors.white, 0.12)!;
-              textColor = textColors.primaryDefault;
-            } else {
-              itemColor = Color.lerp(bgColors.primarySecondary, Colors.black, 0.08)!;
-              textColor = textColors.primaryDefault;
-            }
-            fontWeight = FontWeight.w600;
-          } else {
-            itemColor = bgColors.primarySecondary;
-            textColor = textColors.primaryDisabledToggle;
-            fontWeight = FontWeight.w500;
-          }
-
-          return Expanded(
-            child: MouseRegion(
-              onEnter: (_) => setState(() => _hoveredIndex = index),
-              onExit: (_) => setState(() => _hoveredIndex = null),
-              child: GestureDetector(
-                onTap: () => widget.onTabSelected(index),
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 200),
-                  curve: Curves.easeInOut,
-                  margin: const EdgeInsets.symmetric(horizontal: AppDimensions.spacingXxs),
-                  decoration: BoxDecoration(
-                    color: itemColor,
-                    borderRadius: BorderRadius.circular(AppDimensions.radius2xl),
-                  ),
-                  alignment: Alignment.center,
-                  child: Text(
-                    widget.tabs[index],
-                    style: AppTypography.labelMd(
-                      color: textColor,
-                      fontWeight: fontWeight,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          );
-        }),
-      ),
+    // On mobile, let the container take full width; on desktop cap it
+    if (isMobile) {
+      return inner;
+    }
+    return ConstrainedBox(
+      constraints: const BoxConstraints(minWidth: 400, maxWidth: 640),
+      child: inner,
     );
   }
 }
