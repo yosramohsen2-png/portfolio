@@ -9,7 +9,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   static const String _themeKey = 'theme_mode';
   final SharedPreferences _prefs;
 
-  ThemeCubit(this._prefs) : super(ThemeState(isDarkMode: _prefs.getBool(_themeKey) ?? false));
+  ThemeCubit(this._prefs) : super(ThemeState(isDarkMode: _prefs.getBool(_themeKey) ?? true));
 
   /// Toggle between light and dark theme
   Future<void> toggleTheme() async {

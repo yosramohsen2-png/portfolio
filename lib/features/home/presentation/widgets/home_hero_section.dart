@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:portfolio/core/theme/app_colors.dart';
+import 'package:portfolio/core/theme/app_dimensions.dart';
+import 'package:portfolio/features/home/presentation/widgets/home_hero/hero_avatar.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero/hello_text.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero/name_text.dart';
 import 'package:portfolio/features/home/presentation/widgets/home_hero/tagline_text.dart';
@@ -32,20 +34,28 @@ class HomeHeroSection extends StatelessWidget {
         FadeInDown(
           from: 30,
           duration: const Duration(milliseconds: 800),
+          child: HeroAvatar(isWeb: isWeb),
+        ),
+        const SizedBox(height: AppDimensions.spacingLg),
+
+        FadeInDown(
+          from: 30,
+          delay: const Duration(milliseconds: 100),
+          duration: const Duration(milliseconds: 800),
           child: HelloText(isWeb: isWeb, textColors: textColors),
         ),
         const SizedBox(height: 16),
 
         FadeInDown(
           from: 50,
-          delay: const Duration(milliseconds: 200),
+          delay: const Duration(milliseconds: 300),
           duration: const Duration(milliseconds: 800),
           child: NameText(isWeb: isWeb, textColors: textColors),
         ),
         const SizedBox(height: 16),
 
         FadeIn(
-          delay: const Duration(milliseconds: 400),
+          delay: const Duration(milliseconds: 500),
           duration: const Duration(milliseconds: 1000),
           child: TaglineText(isWeb: isWeb, textColors: textColors),
         ),
@@ -53,7 +63,7 @@ class HomeHeroSection extends StatelessWidget {
 
         FadeInUp(
           from: 40,
-          delay: const Duration(milliseconds: 600),
+          delay: const Duration(milliseconds: 700),
           duration: const Duration(milliseconds: 800),
           child: DescriptionText(isWeb: isWeb, textColors: textColors),
         ),
@@ -61,7 +71,7 @@ class HomeHeroSection extends StatelessWidget {
 
         FadeInUp(
           from: 30,
-          delay: const Duration(milliseconds: 800),
+          delay: const Duration(milliseconds: 900),
           duration: const Duration(milliseconds: 800),
           child: HeroActionButtons(
             isWeb: isWeb,

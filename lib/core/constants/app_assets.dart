@@ -36,6 +36,7 @@ class AppAssets {
   static const String icon17 = '$_imagesPath/Icon-17.png';
   // User Assets
   static const String userAvatar = '$_imagesPath/user_avatar.png';
+  static const String me = '$_imagesPath/me.png';
 
   // Project Images
   static const String mongiz = '$_imagesPath/mongiz.png';

@@ -64,6 +64,7 @@ class _PortfolioAppState extends State<PortfolioApp> {
     precacheImage(const AssetImage(AppAssets.logo), context);
     precacheImage(const AssetImage(AppAssets.bgLogo), context);
     precacheImage(const AssetImage(AppAssets.userAvatar), context);
+    precacheImage(const AssetImage(AppAssets.me), context);
   }
 
   @override
