@@ -35,8 +35,22 @@ if (!window._flutter) {
 }
 _flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"},{}]};
 
+
 _flutter.loader.load({
-  serviceWorkerSettings: {
-    serviceWorkerVersion: "493861410" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */
+  onEntrypointLoaded: async function(engineInitializer) {
+    const appRunner = await engineInitializer.initializeEngine();
+    
+    // Remove the loading screen once the engine is ready
+    const loadingIndicator = document.getElementById('loading_indicator');
+    if (loadingIndicator) {
+      // Fade out transition for premium feel
+      loadingIndicator.style.transition = 'opacity 0.3s ease';
+      loadingIndicator.style.opacity = '0';
+      setTimeout(() => {
+        loadingIndicator.remove();
+      }, 300);
+    }
+    
+    await appRunner.runApp();
   }
 });
