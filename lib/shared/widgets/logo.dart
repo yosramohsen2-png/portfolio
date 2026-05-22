@@ -10,7 +10,7 @@ class Logo extends StatelessWidget {
 
   const Logo({
     super.key,
-    this.showIcon = false,
+    this.showIcon = true,
     this.iconSize = AppDimensions.iconMd,
   });
 
