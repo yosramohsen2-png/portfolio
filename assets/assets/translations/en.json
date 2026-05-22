@@ -10,8 +10,8 @@
   "home": {
     "hello": "Hello, I'm",
     "name": "Yosra Mohsen",
-    "tagline": "I Design the Dream.\nI Build the Reality",
-    "description": "I've always been obsessed with how things work under the hood. To me, a great app is a story that starts with a pixel and ends with a solid line of code. I bridge the gap between \"how it looks\" and \"how it performs,\" making sure every user journey is a masterpiece.",
+    "tagline": "Half Pixels. Half Code. 100% Obsessed.",
+    "description": "It started with a Figma frame. Then I wanted to see it actually move — so I learned Flutter, and never looked back. Now I live between two worlds: designing interfaces that feel human, and building apps that actually work. Turns out, doing both is my superpower.",
     "view_uiux": "View UI/UX Projects",
     "view_flutter": "View Flutter Projects",
     "services": {
