@@ -251,7 +251,7 @@ class _ReviewsSectionState extends State<ReviewsSection> {
                     if (value == null || value.isEmpty) {
                       return '';
                     }
-                    if (value != 'yosra2026') {
+                    if (value != '115711') {
                       return 'reviews.admin.wrong_passcode'.tr();
                     }
                     return null;
