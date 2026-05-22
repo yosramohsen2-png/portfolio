@@ -62,6 +62,7 @@ class _PortfolioAppState extends State<PortfolioApp> {
     super.didChangeDependencies();
     // Precache critical and common assets for instant launch loading
     precacheImage(const AssetImage(AppAssets.logo), context);
+    precacheImage(const AssetImage(AppAssets.logoDark), context);
     precacheImage(const AssetImage(AppAssets.bgLogo), context);
     precacheImage(const AssetImage(AppAssets.userAvatar), context);
     precacheImage(const AssetImage(AppAssets.me), context);

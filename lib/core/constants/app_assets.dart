@@ -18,6 +18,7 @@ class AppAssets {
   static const String drawer = '$_imagesPath/drawer.png';
   static const String pallet = '$_imagesPath/pallet.png';
   static const String logo = '$_imagesPath/logo.png';
+  static const String logoDark = '$_imagesPath/logo.darkmood.png';
   static const String bgLogo = '$_imagesPath/bg_logo.png';
   
   // Theme Icons

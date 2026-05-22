@@ -77,7 +77,7 @@ class _PageShellState extends State<PageShell> {
 
         return Scaffold(
           backgroundColor: bgColors.primaryDefault,
-          drawer: isWeb
+          endDrawer: isWeb
               ? null
               : CustomDrawer(currentRoute: widget.currentRoute),
           body: MouseRegion(

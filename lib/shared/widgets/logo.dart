@@ -18,13 +18,15 @@ class Logo extends StatelessWidget {
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
     final textColors = AppColors.textColors(brightness);
+    final isDark = brightness == Brightness.dark;
+    final logoAsset = isDark ? AppAssets.logoDark : AppAssets.logo;
 
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         if (showIcon) ...[
           Image.asset(
-            AppAssets.logo,
+            logoAsset,
             width: iconSize,
             height: iconSize,
             fit: BoxFit.contain,
