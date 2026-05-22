@@ -9,6 +9,7 @@ import 'package:portfolio/features/home/presentation/widgets/mobile_header.dart'
 import 'package:portfolio/features/home/presentation/widgets/web_header_wrapper.dart';
 import 'package:portfolio/shared/widgets/custom_drawer.dart';
 import 'package:portfolio/shared/widgets/page_background.dart';
+import 'package:portfolio/features/home/presentation/widgets/scroll_indicator_arrow.dart';
 
 /// A shared shell for all pages to ensure consistent header, drawer, and background.
 class PageShell extends StatefulWidget {
@@ -105,6 +106,17 @@ class _PageShellState extends State<PageShell> {
                     ],
                   ),
                 ),
+
+                // Scroll Indicator Arrow (only for Home Page)
+                if (widget.currentRoute == '/')
+                  const Positioned(
+                    bottom: 24,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: ScrollIndicatorArrow(),
+                    ),
+                  ),
               ],
             ),
           ),
